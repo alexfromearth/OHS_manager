@@ -12,6 +12,7 @@ import ProEmployeeInfo from "./ProEmployeeInfo";
 import {useDispatch, useSelector} from "react-redux";
 import {useHistory} from 'react-router-dom';
 import {submitFormInputSC} from "../../../redux/actionCreators/ActionCreators";
+import Review from "./Review";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -51,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const steps = ['Общая информация', 'Профессиональная информация'];
+const steps = ['Общая информация', 'Профессиональная информация', "Проверить информацию"];
 
 function getStepContent(step) {
     switch (step) {
@@ -59,6 +60,8 @@ function getStepContent(step) {
             return <MainEmployeeInfo/>;
         case 1:
             return <ProEmployeeInfo/>;
+        case 2:
+            return <Review/>
         default:
             throw new Error('Unknown step');
     }
@@ -71,7 +74,7 @@ export default function EmployeeForm() {
     const companyId = useSelector(state => state.auth.companyId);
     const dispatch = useDispatch();
     const history = useHistory();
-    const {firstName, lastName, middleName, Birthday, birthPlace, address, education, position, workExperience} = forms;
+    const {firstName, lastName, middleName, birthday, birthPlace, address, education, position, workExperience} = forms;
 
     const handleNext = async () => {
         if (activeStep === steps.length - 1) {
@@ -80,10 +83,12 @@ export default function EmployeeForm() {
                 companyId,
                 {
                     firstName, lastName, middleName,
-                    Birthday, birthPlace, address
+                    birthday, birthPlace, address
                 },
                 {education, position, workExperience}))
-            history.push('/employees');
+            setTimeout(() => {
+                history.push('/employees');
+            }, 3000)
         } else {
             setActiveStep(activeStep + 1);
         }
@@ -115,8 +120,8 @@ export default function EmployeeForm() {
                                     Сотрудник успешно добавлен!
                                 </Typography>
                                 <Typography variant="subtitle1">
-                                    Your order number is #2001539. We have emailed your order confirmation, and will
-                                    send you an update when your order has shipped.
+                                    Новый сотрудник вашей компании был успешно добавлен, через несколько секунд вы
+                                    будете перенаправлены на обновленный список сотрудников!
                                 </Typography>
                             </React.Fragment>
                         ) : (

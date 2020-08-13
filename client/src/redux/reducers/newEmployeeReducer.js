@@ -6,7 +6,7 @@ const initialState = {
     firstName: '',
     lastName: '',
     middleName: '',
-    Birthday: '',
+    birthday: '',
     birthPlace: '',
     address: '',
     education: '',
