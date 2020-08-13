@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch, Link, Redirect } from 'react-ro
 import Header from './components/Header';
 import PrivateRoute from './components/PrevateRoute'
 import LoginPage from "./components/LoginPage";
+import Employees from "./components/Employees";
 
 function App() {
   return (
@@ -14,6 +15,11 @@ function App() {
       <Switch>
         {/* <PrivateRoute exact path='/home'> <Form /> </PrivateRoute> */}
         <Route exact path='/'> <LoginPage /> </Route>
+        <Route exact path='/company'> </Route>
+        <Route exact path='/timetable'> </Route>
+        <Route exact path='/note'> </Route>
+        <Route exact path='/employees'> <Employees /> </Route>
+        {/* <Route exact path='/employee/:id'> <Employees /> </Route> */}
       </Switch>
     </Router>
   );
