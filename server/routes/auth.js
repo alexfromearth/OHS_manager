@@ -25,14 +25,15 @@ const salt = 10;
 // });
 
 router.post("/auth/login", async (req, res) => {
-    const {companyEmail, password} = req.body;
+    const {fieldData} = req.body;
+    const {companyEmail, password} = fieldData;
     let company = await CompanyModel.findOne({companyEmail});
     if (!company) {
         return res.status(401).json({msg: "Invalid login or password"});
     }
     if (await bcrypt.compare(password, company.password)) {
         req.session.company = company;
-        res.json({msg: "Successful login", company});
+        res.status(200).json({msg: "Successful login", company});
     } else {
         return res.status(401).json({msg: "Invalid login or password"});
     }
