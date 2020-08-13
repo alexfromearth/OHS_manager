@@ -128,8 +128,8 @@ export default function Dashboard() {
                     </Typography>
                 </Toolbar>
             </AppBar>
-            {isAuth ?
             <>
+                {isAuth &&
                 <Drawer
                     variant="permanent"
                     classes={{
@@ -146,7 +146,7 @@ export default function Dashboard() {
                     <List className={classes.list}><MainListItems/></List>
                     <Divider/>
                 </Drawer>
-            </> :
+                }
                 <main className={classes.content}>
                     <div className={classes.appBarSpacer}/>
                     <Container maxWidth="lg" className={classes.container}>
@@ -167,7 +167,7 @@ export default function Dashboard() {
                         </Grid>
                     </Container>
                 </main>
-            }
+            </>
         </div>
     );
 }
