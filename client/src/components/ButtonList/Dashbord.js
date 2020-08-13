@@ -12,6 +12,7 @@ import {Route, Switch} from "react-router-dom";
 import EmployeeForm from "../Forms/EmployeeForm";
 import LoginPage from "../LoginPage";
 import Employees from "../Employees";
+import PrivateRoute from "../PrevateRoute";
 
 const drawerWidth = 240;
 
@@ -151,16 +152,15 @@ export default function Dashboard() {
                     <div className={classes.appBarSpacer}/>
                     <Container maxWidth="lg" className={classes.container}>
                         <Grid container spacing={3}>
-                            {/* Chart */}
                             <Grid item xs={12}>
                                 <Switch>
                                     {/* <PrivateRoute exact path='/home'> <Form /> </PrivateRoute> */}
-                                    <Route exact path='/employee/new'> <EmployeeForm/> </Route>
-                                    <Route exact path='/'> {!isAuth ? <LoginPage/> : null}</Route>
-                                    <Route exact path='/company'> </Route>
-                                    <Route exact path='/timetable'> </Route>
-                                    <Route exact path='/note'> </Route>
-                                    <Route exact path='/employees'> <Employees/> </Route>
+                                    <PrivateRoute exact path='/employee/new'> <EmployeeForm/> </PrivateRoute>
+                                    <PrivateRoute exact path='/'> {!isAuth ? <LoginPage/> : null}</PrivateRoute>
+                                    <PrivateRoute exact path='/company'></PrivateRoute>
+                                    <PrivateRoute exact path='/timetable'> </PrivateRoute>
+                                    <PrivateRoute exact path='/note'> </PrivateRoute>
+                                    <PrivateRoute exact path='/employees'> <Employees/> </PrivateRoute>
                                     {/* <Route exact path='/employee/:id'> <Employees /> </Route> */}
                                 </Switch>
                             </Grid>
