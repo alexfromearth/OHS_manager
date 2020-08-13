@@ -1,14 +1,17 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
 import { useHistory } from "react-router-dom";
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux';
+import { allStaffThunk } from '../../redux/thunks/allStaffThunk.js'
+
 
 export default function Employees() {
   const dispatch = useDispatch()
   const history = useHistory()
-  const employees = useSelector(state => state.employees)
+  const employees = useSelector(state => state.allStaff.list)
+  const id = useSelector(state => state.auth.companyId)
 
   useEffect(() => {
-    dispatch()
+    dispatch(allStaffThunk(id))
   }, [dispatch])
 
   return (
