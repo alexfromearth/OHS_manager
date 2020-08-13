@@ -1,31 +1,32 @@
-import {createStore, applyMiddleware, combineReducers} from 'redux'
-import {composeWithDevTools} from 'redux-devtools-extension'
+import { createStore, applyMiddleware, combineReducers } from 'redux'
+import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from 'redux-thunk'
 import reduxSaga from 'redux-saga'
-import {all} from 'redux-saga/effects'
+import { all } from 'redux-saga/effects'
 import reducer from "./reducers/reducer";
 import LoginSaga from './sagas/LoginSaga'
 import newEmployeeReducer from "./reducers/newEmployeeReducer";
+import employeeReducer from "./reducers/employeeReducer";
 import SubmitFormsWatcher from "./sagas/SubmitFormsSaga";
 
 const sagaMiddlewear = reduxSaga()
 
 const store = createStore(
-    combineReducers({
-        auth: reducer,
-        forms: newEmployeeReducer,
-    }),
-    // инишл Стэйт
-    composeWithDevTools(applyMiddleware(thunk, sagaMiddlewear))
+  combineReducers({
+    auth: reducer,
+    forms: newEmployeeReducer,
+    allStaff: employeeReducer,
+  }),
+  composeWithDevTools(applyMiddleware(thunk, sagaMiddlewear))
 );
 
 sagaMiddlewear.run(
-    function* () {
-        yield all([
-            LoginSaga(),
-            SubmitFormsWatcher()
-        ])
-    })
+  function* () {
+    yield all([
+      LoginSaga(),
+      SubmitFormsWatcher()
+    ])
+  })
 
 
 export default store;
