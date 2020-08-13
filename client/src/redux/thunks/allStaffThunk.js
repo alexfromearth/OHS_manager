@@ -7,8 +7,8 @@ export function allStaffThunk(id) {
       dispatch(isLoading(false))
       const response = await fetch(`/api/workers/${id}/list`)
       const resp = await response.json();
-      dispatch(allStaff(resp));
-    } catch (err) {
+      dispatch(allStaff(resp.list));
+    } catch (error) {
       dispatch(isLoading(false))
       dispatch(setError(error.message))
     }

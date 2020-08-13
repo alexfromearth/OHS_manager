@@ -12,7 +12,7 @@ export default function Employees() {
 
   useEffect(() => {
     dispatch(allStaffThunk(id))
-  }, [dispatch])
+  }, [dispatch, id])
 
   return (
     <>
@@ -22,13 +22,13 @@ export default function Employees() {
         <button>Фильтр</button>
       </div>
       <div>
-        {employees.map(el => { //внутри див с флексом джастифай контент битвин
-          return <>
-            <div id={el._id} key={el._id} onClick={() => history.push(`/employee/${el._id}`)}>
+        {employees && employees.map(el => { //внутри див с флексом джастифай контент битвин
+          return <div key={el._id}>
+            <div id={el._id}  onClick={() => history.push(`/employee/${el._id}`)}>
               {el.name} {el.profession}
             </div>
             <br />
-          </>
+          </div>
         })}
       </div>
     </>
