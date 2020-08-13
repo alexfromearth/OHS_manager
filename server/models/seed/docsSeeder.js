@@ -3,6 +3,7 @@ import OhsDocsModel from "../ohsDocModel.js";
 import MedicalExamModel from '../medicalExamModel.js';
 import EmployeeModel from '../employeeModel.js';
 import CompanyModel from '../companyModel.js';
+import docTemplateModel from '../docTemplatesModel.js';
 import bcrypt from 'bcrypt';
 
 mongoose.pluralize(null);
@@ -78,12 +79,31 @@ mongoose.connection.on('error', console.error.bind(console, 'Ошибка сое
       message: 'Company gen'
     },
     fireSecret: await bcrypt.hash('fireSecret', 10),
-    Employees: [employee1._id, employee2._id]
+    employees: [employee1._id, employee2._id]
   })
 
-  // Saving employees and company to db
+  // Creating doc templates
+  const docTemplate1 = new docTemplateModel({
+    name: 'template 1',
+    file: 'template filename 1'
+  })
+  const docTemplate2 = new docTemplateModel({
+    name: 'template 2',
+    file: 'template filename 2'
+  })
+  const docTemplate3 = new docTemplateModel({
+    name: 'template 3',
+    file: 'template filename 3'
+  })
+
+  // Saving employees, templates and company to db
   await employee1.save();
   await employee2.save();
+
+  await docTemplate1.save();
+  await docTemplate2.save();
+  await docTemplate3.save();
+
   await company.save();
 
   console.log("seeding finished");
