@@ -8,7 +8,7 @@ import useErrorHandlers from "./middleware/error.js";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import authRouter from "./routes/auth.js";
-
+import workersRouter from "./routes/workers.js"
 
 //db setup
 const dbUrl = "mongodb://localhost:27017/ohs_manager";
@@ -49,6 +49,7 @@ app.use(cookiesCleaner);
 
 
 app.use("/api/auth", authRouter);
+app.use("/api/workers", workersRouter);
 
 useErrorHandlers(app);
 

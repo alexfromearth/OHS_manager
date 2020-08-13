@@ -7,7 +7,7 @@ const initialState = {
   companyName: null,
   generalInfo: null,
   secret: null,
-  employees: [],
+  workers: [],
   isAuth: false,
   errorMessage: null,
 }

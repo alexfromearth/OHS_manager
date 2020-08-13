@@ -1,12 +1,12 @@
 import mongoose from 'mongoose';
 import OhsDocsModel from "../ohsDocModel.js";
 import MedicalExamModel from '../medicalExamModel.js';
-import EmployeeModel from '../employeeModel.js';
+import workerModel from '../workerModel.js';
 import CompanyModel from '../companyModel.js';
 import docTemplateModel from '../docTemplatesModel.js';
 import bcrypt from 'bcrypt';
 
-mongoose.pluralize(null);
+// mongoose.pluralize(null);
 mongoose.connect('mongodb://localhost/ohs_manager', { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connection.on('error', console.error.bind(console, 'Ошибка соединения с MongoDB'));
 
@@ -50,23 +50,27 @@ mongoose.connection.on('error', console.error.bind(console, 'Ошибка сое
     }
   })
 
-  // Creating employees
-  const employee1 = new EmployeeModel({
+  // Creating workers
+  const worker1 = new workerModel({
     generalInfo: {
-      message: 'employee 1 gen'
+      firstName: "Vasya",
+      lastName: "Vasin",
+      middleName: "Vasilyev"
     },
     profInfo: {
-      message: 'employee 1 prof'
+      profession: "Plumber"
     },
     medicalExams: [medicalExam1, medicalExam2],
     ohsDocs: [ohsDoc1]
   })
-  const employee2 = new EmployeeModel({
+  const worker2 = new workerModel({
     generalInfo: {
-      message: 'employee 2 gen'
+      firstName: "Grigoriy",
+      lastName: "Grigoriev",
+      middleName: "Grigoryan"
     },
     profInfo: {
-      message: 'employee 2 prof'
+      profession: "Software developer"
     },
     medicalExams: [medicalExam3],
     ohsDocs: [ohsDoc2, ohsDoc3]
@@ -79,7 +83,7 @@ mongoose.connection.on('error', console.error.bind(console, 'Ошибка сое
       message: 'Company gen'
     },
     fireSecret: await bcrypt.hash('fireSecret', 10),
-    employees: [employee1._id, employee2._id]
+    workers: [worker1._id, worker2._id]
   })
 
   // Creating doc templates
@@ -96,9 +100,9 @@ mongoose.connection.on('error', console.error.bind(console, 'Ошибка сое
     file: 'template filename 3'
   })
 
-  // Saving employees, templates and company to db
-  await employee1.save();
-  await employee2.save();
+  // Saving workers, templates and company to db
+  await worker1.save();
+  await worker2.save();
 
   await docTemplate1.save();
   await docTemplate2.save();
