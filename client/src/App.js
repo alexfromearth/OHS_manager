@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Link, Redirect } from 'react-router-dom';
 import Header from './components/Header';
 import PrivateRoute from './components/PrevateRoute'
+import LoginPage from "./components/LoginPage";
 
 function App() {
   return (

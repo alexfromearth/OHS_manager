@@ -21,13 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c03e058d-6bf5-4362-b599-b9d37e0d3b7f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/redux/reducers/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/reducers/reducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/client/yarn.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/LoginPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/LoginPage/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/PrevateRoute/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/PrevateRoute/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +75,7 @@
       <option name="presentableId" value="Default" />
       <updated>1597302621153</updated>
       <workItem from="1597302622213" duration="3183000" />
-      <workItem from="1597305819240" duration="5759000" />
+      <workItem from="1597305819240" duration="7492000" />
     </task>
     <servers />
   </component>
