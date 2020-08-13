@@ -21,11 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="c03e058d-6bf5-4362-b599-b9d37e0d3b7f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/LoginPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/LoginPage/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/api/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/api/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Forms/EmployeeForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Forms/EmployeeForm/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/redux/actionCreators/ActionCreators.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/actionCreators/ActionCreators.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/redux/actionTypes/actionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/actionTypes/actionTypes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/redux/sagas/LoginSaga.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/sagas/LoginSaga.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/store.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -78,7 +77,7 @@
       <option name="presentableId" value="Default" />
       <updated>1597302621153</updated>
       <workItem from="1597302622213" duration="3183000" />
-      <workItem from="1597305819240" duration="15862000" />
+      <workItem from="1597305819240" duration="17556000" />
     </task>
     <servers />
   </component>
@@ -111,10 +110,10 @@
     </state>
     <state x="574" y="1325" key="run.anything.popup/0.1080.1920.1080/72.0.1848.1080@0.1080.1920.1080" timestamp="1597324181226" />
     <state x="624" y="245" key="run.anything.popup/0.1080.1920.1080/72.0.1848.1080@72.0.1848.1080" timestamp="1597310128352" />
-    <state x="572" y="1319" width="699" height="678" key="search.everywhere.popup" timestamp="1597324121524">
+    <state x="572" y="1319" width="699" height="678" key="search.everywhere.popup" timestamp="1597326105918">
       <screen x="0" y="1080" width="1920" height="1080" />
     </state>
-    <state x="572" y="1319" width="699" height="678" key="search.everywhere.popup/0.1080.1920.1080/72.0.1848.1080@0.1080.1920.1080" timestamp="1597324121524" />
+    <state x="572" y="1319" width="699" height="678" key="search.everywhere.popup/0.1080.1920.1080/72.0.1848.1080@0.1080.1920.1080" timestamp="1597326105918" />
     <state x="623" y="239" width="672" height="678" key="search.everywhere.popup/0.1080.1920.1080/72.0.1848.1080@72.0.1848.1080" timestamp="1597308526363" />
   </component>
 </project>

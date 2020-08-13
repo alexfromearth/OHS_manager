@@ -15,3 +15,7 @@ export const setNewEmployeeFormInput = (inputName, value) => ({
 
 //saga creators
 export const loginSC = (fieldData) => ({type: actionTypes.LOGIN, payload: fieldData})
+export const submitFormInputSC = (companyId ,generalInfo, profInfo) => ({
+    type: actionTypes.SUBMIT_NEWEMPLOYEE_FORM,
+    payload: {companyId, generalInfo, profInfo},
+})

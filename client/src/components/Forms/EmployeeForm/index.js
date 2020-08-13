@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Paper from '@material-ui/core/Paper';
 import Stepper from '@material-ui/core/Stepper';
@@ -9,7 +9,9 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import MainEmployeeInfo from "./MainEmployeeInfo";
 import ProEmployeeInfo from "./ProEmployeeInfo";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {useHistory} from 'react-router-dom';
+import {submitFormInputSC} from "../../../redux/actionCreators/ActionCreators";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -54,9 +56,9 @@ const steps = ['Общая информация', 'Профессиональн�
 function getStepContent(step) {
     switch (step) {
         case 0:
-            return <MainEmployeeInfo />;
+            return <MainEmployeeInfo/>;
         case 1:
-            return <ProEmployeeInfo />;
+            return <ProEmployeeInfo/>;
         default:
             throw new Error('Unknown step');
     }
@@ -65,11 +67,23 @@ function getStepContent(step) {
 export default function EmployeeForm() {
     const classes = useStyles();
     const [activeStep, setActiveStep] = React.useState(0);
+    const forms = useSelector(state => state.forms);
+    const companyId = useSelector(state => state.auth.companyId);
     const dispatch = useDispatch();
+    const history = useHistory();
+    const {firstName, lastName, middleName, Birthday, birthPlace, address, education, position, workExperience} = forms;
 
     const handleNext = async () => {
         if (activeStep === steps.length - 1) {
             setActiveStep(activeStep + 1);
+            dispatch(submitFormInputSC(
+                companyId,
+                {
+                    firstName, lastName, middleName,
+                    Birthday, birthPlace, address
+                },
+                {education, position, workExperience}))
+            history.push('/employees');
         } else {
             setActiveStep(activeStep + 1);
         }
@@ -81,7 +95,7 @@ export default function EmployeeForm() {
 
     return (
         <React.Fragment>
-            <CssBaseline />
+            <CssBaseline/>
             <main className={classes.layout}>
                 <Paper className={classes.paper}>
                     <Typography component="h1" variant="h4" align="center">
@@ -98,7 +112,7 @@ export default function EmployeeForm() {
                         {activeStep === steps.length ? (
                             <React.Fragment>
                                 <Typography variant="h5" gutterBottom>
-                                   Сотрудник успешно добавлен!
+                                    Сотрудник успешно добавлен!
                                 </Typography>
                                 <Typography variant="subtitle1">
                                     Your order number is #2001539. We have emailed your order confirmation, and will

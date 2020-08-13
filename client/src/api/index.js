@@ -1,6 +1,6 @@
 import * as axios from 'axios';
 
-class backAPI{
+class backAPI {
     async isUserAuthenticated() {
         const response = await axios.get('/api/auth/me');
         return {...response.data, status: response.status};
@@ -13,7 +13,16 @@ class backAPI{
 
     async login(fieldsData) {
         const response = await axios.post('/api/auth/login', fieldsData);
-       return {...response.data, status: response.status};
+        return {...response.data, status: response.status};
+    }
+
+    async addWorker(companyId, generalInfo, profInfo) {
+        console.log(companyId, generalInfo, profInfo);
+        const response = await axios.post(`/api/${companyId}/worker`, {
+            generalInfo,
+            profInfo
+        });
+        return {...response.data, status: response.status};
     }
 
     async logout() {
