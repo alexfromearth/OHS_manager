@@ -34,7 +34,7 @@ app.use(cookieParser());
 app.use(
     session({
         store: new FileStore(),
-        key: "user_sid",
+        key: "company_sid",
         secret: "anything here",
         resave: false,
         saveUninitialized: false,
