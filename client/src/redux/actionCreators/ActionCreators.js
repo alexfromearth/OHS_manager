@@ -7,6 +7,11 @@ export const setAuthUser = (_id, companyName, generalInfo, secret) => ({
     payload: {_id, companyName, generalInfo, secret}
 });
 export const setError = (message) => ({type: actionTypes.SET_VALIDATION_ERROR, payload: {message}});
+// forms
+export const setNewEmployeeFormInput = (inputName, value) => ({
+    type: actionTypes.SET_NEW_EMPLOYEE_FORM_INPUT,
+    payload: {inputName, value}
+})
 
 //saga creators
 export const loginSC = (fieldData) => ({type: actionTypes.LOGIN, payload: fieldData})
