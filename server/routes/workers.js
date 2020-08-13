@@ -36,10 +36,38 @@ router.get('/:companyId/worker/:workerId', async (req, res) => {
   return res.status(404).json({ msg: "Not Found" })
 });
 
+router.delete('/:companyId/worker/:workerId', async (req, res) => {
+  const { companyId, workerId } = req.params;
+  // if (req.session.company._id !== companyId) {
+  //   return res.status(401).json({ msg: "Unauthorized" });
+  // }
+  try {
+    await WorkerModel.findByIdAndRemove(workerId);
+    await CompanyModel.findByIdAndUpdate(companyId, { $pull: { workers: { $in: [workerId] } } });
+    res.status(200).end()
+  } catch (error) {
+    res.status(500).json({ msg: 'Failed to remove worker', serverMsg: error.message });
+  }
+});
+
+router.patch('/:companyId/worker/:workerId', async (req, res) => {
+  const { companyId, workerId } = req.params;
+  const { generalInfo, profInfo } = req.body;
+  // if (req.session.company._id !== companyId) {
+  //   return res.status(401).json({ msg: "Unauthorized" });
+  // }
+  try {
+    await WorkerModel.findByIdAndUpdate(workerId, { $set: { "generalInfo": generalInfo, "profInfo": profInfo } });
+    res.status(200).end();
+  } catch (error) {
+    res.status(500).json({ msg: 'Failed to remove worker', serverMsg: error.message });
+  }
+
+});
+
 router.post('/:companyId/worker', async (req, res) => {
   const { companyId } = req.params;
   const { generalInfo, profInfo } = req.body;
-  console.log(generalInfo, profInfo)
   // Security
   // if (req.session.company._id !== companyId) {
   //   return res.status(401).json({ msg: "Unauthorized" });
