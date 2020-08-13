@@ -6,7 +6,7 @@ import { all } from 'redux-saga/effects'
 import reducer from "./reducers/reducer";
 import LoginSaga from './sagas/LoginSaga'
 import newEmployeeReducer from "./reducers/newEmployeeReducer";
-import employeeReducer from "./reducers/employeeReducer";
+import employeeReducer from "./reducers/empolyeeReduser";
 import SubmitFormsWatcher from "./sagas/SubmitFormsSaga";
 
 const sagaMiddlewear = reduxSaga()

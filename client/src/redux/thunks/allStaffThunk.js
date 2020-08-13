@@ -1,4 +1,4 @@
-import { allStaff, isLoading, setError } from "../../redux/actionCreators/ActionCreators";
+import { allStaff, isLoading, setError } from "../actionCreators/ActionCreators";
 
 export function allStaffThunk(id) {
   return async (dispatch) => {
@@ -8,7 +8,7 @@ export function allStaffThunk(id) {
       const response = await fetch(`/api/workers/${id}/list`)
       const resp = await response.json();
       dispatch(allStaff(resp));
-    } catch (err) {
+    } catch (error) {
       dispatch(isLoading(false))
       dispatch(setError(error.message))
     }
