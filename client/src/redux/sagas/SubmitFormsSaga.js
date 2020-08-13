@@ -6,8 +6,9 @@ import backAPI from '../../api/index';
 const API = new backAPI();
 
 function* SubmitFormsWorker(action) {
+    debugger;
     try {
-        const data = call(API.addWorker, action.payload.companyId, action.payload.generalInfo, action.payload.profInfo);
+        const data = yield call(API.addWorker, action.payload.companyId, action.payload.generalInfo, action.payload.profInfo);
     } catch (error) {
         yield put(setError(error.message))
     }

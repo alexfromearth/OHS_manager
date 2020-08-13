@@ -15,7 +15,6 @@ export default function ProEmployeeIngo() {
     }
 
 
-
     return (
         <React.Fragment>
             <Typography variant="h6" gutterBottom>
