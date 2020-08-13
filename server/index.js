@@ -11,7 +11,7 @@ import authRouter from "./routes/auth.js";
 
 
 //db setup
-const dbUrl = "mongodb://localhost:27017/ex";
+const dbUrl = "mongodb://localhost:27017/ohs_manager";
 
 const db = mongoose.connect(dbUrl, {
     useNewUrlParser: true,
