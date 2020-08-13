@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function Login() {
+function LoginPage() {
     const classes = useStyles();
     const dispatch = useDispatch();
     const history = useHistory();
@@ -94,4 +94,4 @@ function Login() {
     );
 }
 
-export default Login;
+export default LoginPage;
