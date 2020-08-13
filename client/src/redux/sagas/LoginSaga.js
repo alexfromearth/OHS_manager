@@ -1,4 +1,4 @@
-import {all, call, put, takeEvery, takeLatest} from "redux-saga/effects";
+import {call, put, takeEvery, takeLatest} from "redux-saga/effects";
 import actionTypes from "../actionTypes/actionTypes";
 import {isLoading, setAuthUser, setError} from "../actionCreators/ActionCreators";
 import backAPI from '../../api/index';
@@ -15,6 +15,7 @@ function* loginWorker(action) {
             yield put(setAuthUser(_id, companyName, generalInfo, secret));
         }
     } catch (error) {
+        yield put(isLoading(false));
         yield put(setError(error.message))
     }
 }
