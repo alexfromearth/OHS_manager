@@ -1,10 +1,11 @@
 import mongoose from 'mongoose';
+import workerModel from '../models/workerModel.js';
 
-const companyScheme = mongoose.Schema({
+const companyScheme = new mongoose.Schema({
   name: String,
   generalInfo: Object,
   fireSecret: String,
-  employees: [{ type: mongoose.Schema.Types.ObjectId, ref: 'employees' }]
+  workers: [{ type: mongoose.Schema.Types.ObjectId, ref: workerModel }]
 })
 
-export default mongoose.model('companies', companyScheme);
+export default mongoose.model('Company', companyScheme);
