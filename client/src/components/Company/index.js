@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
@@ -40,6 +41,9 @@ const useStyles = makeStyles((theme) => ({
   },
   btn: {
     marginLeft: 20
+  },
+  a: {
+    textDecoration: 'none'
   }
 }));
 
@@ -49,6 +53,7 @@ export default function Company() {
   // const generalInfo = useSelector(state => state.auth.generalInfo)
   const companyName = 'КРОК'
   const generalInfo = {
+    site: 'https://www.croc.ru/',
     year: 1956,
     legal_address: 'Москва, Ленинский 17',
     actual_address: 'Москва, Вавилова 1',
@@ -59,7 +64,7 @@ export default function Company() {
     INN: '3664069397',
     tel: '79271669'
   }
-
+  // text-decoration: none;
   return (
     <>
       <div className={classes.head}>
@@ -68,7 +73,9 @@ export default function Company() {
           src={`https://pm.expert/upload/iblock/27d/27d63a847f1d21f2c0f1a07e42ddff52.png`} //TODO
           className={classes.large}
         />
-        <Box color="info.main">{companyName}</Box>
+        <a href={generalInfo.site} className={classes.a}>
+          <Box color="info.main">{companyName}</Box>
+         </a>
       </div>
 
       <Typography component="div" variant="body1" className={classes.info}>

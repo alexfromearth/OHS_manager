@@ -25,9 +25,9 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 25
   },
   large: {
-    width: theme.spacing(7),
-    height: theme.spacing(7),
-    marginRight: 30
+    width: theme.spacing(12),
+    height: 'auto',
+    marginRight: 50
   },
   info: {
     marginLeft: '35%',
