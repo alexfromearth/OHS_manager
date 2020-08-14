@@ -35,6 +35,11 @@ class backAPI {
     return { ...response.data, status: response.status };
   }
 
+  async eachWorker(company_id, worker_id) {
+    const response = await axios.get(`/api/workers/${company_id}/worker/${worker_id}`);
+    return { ...response.data, status: response.status };
+  }
+
 }
 
 export default backAPI;

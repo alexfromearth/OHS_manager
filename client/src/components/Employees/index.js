@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { allStaffThunk } from '../../redux/thunks/allStaffThunk.js';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 
@@ -43,7 +42,6 @@ export default function Employees() {
   const history = useHistory()
   const employees = useSelector(state => state.allStaff.list)
   const id = useSelector(state => state.auth.companyId)
-
   const classes = useStyles()
 
   useEffect(() => {
