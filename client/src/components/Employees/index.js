@@ -21,12 +21,9 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: "center",
     },
     hdr: {
-        minWidth: '50vw',
-        marginLeft: '15vw',
-        marginRight: '15vw',
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        justifyContent: 'space-around',
         alignItem: 'center'
     },
     btns: {
