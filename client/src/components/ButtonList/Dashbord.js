@@ -130,49 +130,48 @@ export default function Dashboard() {
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
             OHS Manager
                     </Typography>
-                </Toolbar>
-            </AppBar>
-            <>
-                {isAuth &&
-                <Drawer
-                    variant="permanent"
-                    classes={{
-                        paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose),
-                    }}
-                    open={open}
-                >
-                    <div className={classes.toolbarIcon}>
-                        <IconButton onClick={handleDrawerClose}>
-                            <ChevronLeftIcon/>
-                        </IconButton>
-                    </div>
-                    <Divider/>
-                    <List className={classes.list}><MainListItems/></List>
-                    <Divider/>
-                </Drawer>
-                }
-                <main className={classes.content}>
-                    <div className={classes.appBarSpacer}/>
-                    <Container maxWidth="lg" className={classes.container}>
-                        <Grid container spacing={3}>
-                            <Grid item xs={12}>
-                                <Switch>
-                                    {/* <PrivateRoute exact path='/home'> <Form /> </PrivateRoute> */}
-                                    <PrivateRoute exact path='/employee/new'> <EmployeeForm/> </PrivateRoute>
-                                    <Route exact path='/'> {!isAuth ? <LoginPage/> : <Redirect to="/company" />}</Route>
-                                    <PrivateRoute exact path='/company'></PrivateRoute>
-                                    <PrivateRoute exact path='/timetable'> </PrivateRoute>
-                                    <PrivateRoute exact path='/note'> </PrivateRoute>
-                                    <PrivateRoute exact path='/employees'> <Employees/> </PrivateRoute>
-                                    <PrivateRoute exact path='/employee/:id'> <Worker/> </PrivateRoute>
-                                    <PrivateRoute exact path='/employee/:id/medics'> <MedicalExaminations/> </PrivateRoute>
-                                    {/* <Route exact path='/employee/:id'> <Employees /> </Route> */}
-                                </Switch>
-                            </Grid>
-                        </Grid>
-                    </Container>
-                </main>
-            </>
-        </div>
-    );
+        </Toolbar>
+      </AppBar>
+      <>
+        {isAuth &&
+          <Drawer
+            variant="permanent"
+            classes={{
+              paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose),
+            }}
+            open={open}
+          >
+            <div className={classes.toolbarIcon}>
+              <IconButton onClick={handleDrawerClose}>
+                <ChevronLeftIcon />
+              </IconButton>
+            </div>
+            <Divider />
+            <List className={classes.list}><MainListItems /></List>
+            <Divider />
+          </Drawer>
+        }
+        <main className={classes.content}>
+          <div className={classes.appBarSpacer} />
+          <Container maxWidth="lg" className={classes.container}>
+            <Grid container spacing={3}>
+              <Grid item xs={12}>
+                <Switch>
+                  {/* <PrivateRoute exact path='/home'> <Form /> </PrivateRoute> */}
+                  <PrivateRoute exact path='/employee/new'> <EmployeeForm /> </PrivateRoute>
+                  <Route exact path='/'> {!isAuth ? <LoginPage /> : <Redirect to="/company" />}</Route>
+                  <PrivateRoute exact path='/company'><Company /></PrivateRoute>
+                  <PrivateRoute exact path='/timetable'><Timetable /> </PrivateRoute>
+                  <PrivateRoute exact path='/note'> </PrivateRoute>
+                  <PrivateRoute exact path='/employees'> <Employees /> </PrivateRoute>
+                  <PrivateRoute exact path='/employee/:id'> <Worker /> </PrivateRoute>
+                  <PrivateRoute exact path='/employee/:id/medicInfo'> <MedicalExaminations /> </PrivateRoute>
+                </Switch>
+              </Grid>
+            </Grid>
+          </Container>
+        </main>
+      </>
+    </div>
+  );
 }
