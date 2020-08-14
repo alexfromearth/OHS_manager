@@ -14,6 +14,7 @@ import LoginPage from "../LoginPage";
 import Employees from "../Employees";
 import PrivateRoute from "../PrevateRoute";
 import Worker from '../Worker';
+import MedicalExaminations from "../Worker/MedicalExaminations";
 
 const drawerWidth = 240;
 
@@ -161,6 +162,7 @@ export default function Dashboard() {
                                     <PrivateRoute exact path='/note'> </PrivateRoute>
                                     <PrivateRoute exact path='/employees'> <Employees/> </PrivateRoute>
                                     <PrivateRoute exact path='/employee/:id'> <Worker/> </PrivateRoute>
+                                    <PrivateRoute exact path='/employee/:id/medics'> <MedicalExaminations/> </PrivateRoute>
                                     {/* <Route exact path='/employee/:id'> <Employees /> </Route> */}
                                 </Switch>
                             </Grid>
