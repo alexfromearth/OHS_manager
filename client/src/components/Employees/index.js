@@ -57,15 +57,15 @@ const useStyles = makeStyles((theme) => ({
         paddingRight: 21,
     },
     index: {
-        width: 20,
+        minWidth: 20,
         marginRight: 10,
     },
     fio: {
-        width: 350,
+        minWidth: 350,
         textAlign: "left",
     },
     prof: {
-        width: 350,
+        minWidth: 350,
         textAlign: "left",
     },
 }));

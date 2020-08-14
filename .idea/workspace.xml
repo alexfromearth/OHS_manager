@@ -21,7 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="c03e058d-6bf5-4362-b599-b9d37e0d3b7f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ButtonList/Dashbord.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ButtonList/Dashbord.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Employees/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Employees/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/client/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +61,9 @@
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/src/components/Worker" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/client/src/components/LoginPage" />
       <recent name="$PROJECT_DIR$/server" />
@@ -75,7 +81,8 @@
       <workItem from="1597302622213" duration="3183000" />
       <workItem from="1597305819240" duration="28578000" />
       <workItem from="1597345144006" duration="2342000" />
-      <workItem from="1597386115015" duration="8692000" />
+      <workItem from="1597386115015" duration="12738000" />
+      <workItem from="1597417804198" duration="612000" />
     </task>
     <servers />
   </component>
@@ -109,10 +116,10 @@
     </state>
     <state x="400" y="1261" width="1022" height="737" key="SettingsEditor/0.1080.1920.1080/72.0.1848.1080@0.1080.1920.1080" timestamp="1597389999791" />
     <state x="457" y="181" width="1022" height="737" key="SettingsEditor/0.1080.1920.1080/72.0.1848.1080@72.0.1848.1080" timestamp="1597307825671" />
-    <state x="574" y="1325" key="run.anything.popup" timestamp="1597337439314">
+    <state x="574" y="1325" width="672" height="677" key="run.anything.popup" timestamp="1597397556005">
       <screen x="0" y="1080" width="1920" height="1080" />
     </state>
-    <state x="574" y="1325" key="run.anything.popup/0.1080.1920.1080/72.0.1848.1080@0.1080.1920.1080" timestamp="1597337439314" />
+    <state x="574" y="1325" width="672" height="677" key="run.anything.popup/0.1080.1920.1080/72.0.1848.1080@0.1080.1920.1080" timestamp="1597397556005" />
     <state x="624" y="245" key="run.anything.popup/0.1080.1920.1080/72.0.1848.1080@72.0.1848.1080" timestamp="1597310128352" />
     <state x="572" y="1319" width="699" height="678" key="search.everywhere.popup" timestamp="1597326105918">
       <screen x="0" y="1080" width="1920" height="1080" />
