@@ -14,10 +14,12 @@ export const setNewEmployeeFormInput = (inputName, value) => ({
 })
 
 //saga creators
-export const loginSC = (fieldData) => ({ type: actionTypes.LOGIN, payload: fieldData })
+export const loginSC = (fieldData) => ({ type: actionTypes.LOGIN, payload: fieldData });
 export const submitFormInputSC = (companyId, generalInfo, profInfo) => ({
   type: actionTypes.SUBMIT_NEWEMPLOYEE_FORM,
   payload: { companyId, generalInfo, profInfo },
 })
 
-export const allStaff = (list) => ({ type: actionTypes.ALL_EMPLOYEES, payload: { list } })
+export const allStaff = (list) => ({ type: actionTypes.ALL_EMPLOYEES, payload: { list } });
+
+export const eachWorker = (worker) => ({ type: actionTypes.EACH_WORKER, payload: { worker } });

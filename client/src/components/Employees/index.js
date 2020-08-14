@@ -4,7 +4,6 @@ import {useSelector, useDispatch} from 'react-redux';
 import {allStaffThunk} from '../../redux/thunks/allStaffThunk.js';
 import {makeStyles} from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ButtonGroup from "@material-ui/core/ButtonGroup";
@@ -21,16 +20,6 @@ const useStyles = makeStyles((theme) => ({
         },
         justifyContent: "center",
     },
-    // root: {
-    //   minWidth: '50vw',
-    //   marginTop: '4vw',
-    //   marginLeft: '15vw',
-    //   marginRight: '15vw',
-    //   backgroundColor: theme.palette.background.paper,
-    //   display: 'flex',
-    //   flexDirection: 'column',
-    //   justifyContent: 'center',
-    // },
     hdr: {
         minWidth: '50vw',
         marginLeft: '15vw',
@@ -40,13 +29,6 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: 'space-between',
         alignItem: 'center'
     },
-    // love: {
-    //   display: 'flex',
-    //   flexDirection: 'row',
-    //   justifyContent: 'space-between',
-    //   minWidth: '50vw',
-    //   fontSize: '30px'
-    // },
     btns: {
         height: 50,
     },
@@ -93,12 +75,11 @@ const useStyles = makeStyles((theme) => ({
 
 
 export default function Employees() {
-    const dispatch = useDispatch()
-    const history = useHistory()
-    const employees = useSelector(state => state.allStaff.list)
-    const id = useSelector(state => state.auth.companyId)
-
-    const classes = useStyles()
+  const dispatch = useDispatch()
+  const history = useHistory()
+  const employees = useSelector(state => state.allStaff.list)
+  const id = useSelector(state => state.auth.companyId)
+  const classes = useStyles()
 
     useEffect(() => {
         dispatch(allStaffThunk(id))
@@ -150,13 +131,3 @@ export default function Employees() {
     )
 }
 
-
-// <List className={classes.root}>
-//     {employees && employees.map((el, index) => {
-//         return <ListItem key={el._id} dense button className={classes.love} onClick={() => handleClick(el._id)}>
-//             <div>{index + 1}</div>
-//             <div>{el.name}</div>
-//             <div>{el.profession}</div>
-//         </ListItem>
-//     })}
-// </List>

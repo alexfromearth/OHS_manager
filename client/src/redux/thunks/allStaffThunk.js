@@ -1,4 +1,3 @@
-
 import { allStaff, isLoading, setError } from "../actionCreators/ActionCreators";
 import backAPI from '../../api/';
 const API = new backAPI;
