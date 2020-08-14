@@ -8,7 +8,7 @@ import {useSelector} from "react-redux";
 import clsx from "clsx";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
-import {Route, Switch} from "react-router-dom";
+import {Redirect, Route, Switch} from "react-router-dom";
 import EmployeeForm from "../Forms/EmployeeForm";
 import LoginPage from "../LoginPage";
 import Employees from "../Employees";
@@ -100,7 +100,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Dashboard() {
     const isAuth = useSelector(state => state.auth.isAuth);
-    console.log(isAuth);
     const classes = useStyles();
     const [open, setOpen] = React.useState(true);
     const handleDrawerOpen = () => {
@@ -156,7 +155,7 @@ export default function Dashboard() {
                                 <Switch>
                                     {/* <PrivateRoute exact path='/home'> <Form /> </PrivateRoute> */}
                                     <PrivateRoute exact path='/employee/new'> <EmployeeForm/> </PrivateRoute>
-                                    <PrivateRoute exact path='/'> {!isAuth ? <LoginPage/> : null}</PrivateRoute>
+                                    <Route exact path='/'> {!isAuth ? <LoginPage/> : <Redirect to="/company" />}</Route>
                                     <PrivateRoute exact path='/company'></PrivateRoute>
                                     <PrivateRoute exact path='/timetable'> </PrivateRoute>
                                     <PrivateRoute exact path='/note'> </PrivateRoute>
