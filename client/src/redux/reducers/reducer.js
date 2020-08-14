@@ -8,7 +8,7 @@ const initialState = {
   generalInfo: null,
   secret: null,
   workers: [],
-  isAuth: false,
+  isAuth: true,
   errorMessage: null,
 }
 
