@@ -13,6 +13,7 @@ import EmployeeForm from "../Forms/EmployeeForm";
 import LoginPage from "../LoginPage";
 import Employees from "../Employees";
 import PrivateRoute from "../PrevateRoute";
+import Worker from '../Worker';
 
 const drawerWidth = 240;
 
@@ -160,6 +161,7 @@ export default function Dashboard() {
                                     <PrivateRoute exact path='/timetable'> </PrivateRoute>
                                     <PrivateRoute exact path='/note'> </PrivateRoute>
                                     <PrivateRoute exact path='/employees'> <Employees/> </PrivateRoute>
+                                    <PrivateRoute exact path='/employee/:id'> <Worker/> </PrivateRoute>
                                     {/* <Route exact path='/employee/:id'> <Employees /> </Route> */}
                                 </Switch>
                             </Grid>
@@ -170,9 +172,3 @@ export default function Dashboard() {
         </div>
     );
 }
-
-
-// <button><Link to='/company'>Компания</Link></button> {/* информация о компании */}
-// <button><Link to='staff'>Cотрудники</Link></button> {/* список сотрудников */}
-// <button><Link to='/timetable'>Расписание</Link></button> {/* расписание на неделю */}
-// <button><Link to='/note'>Памятка</Link></button> {/* памятка охранника труда */}
