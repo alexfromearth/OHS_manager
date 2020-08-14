@@ -14,10 +14,12 @@
   "dependencies": {
     "bcrypt": "^5.0.0",
     "cookie-parser": "^1.4.5",
+    "docxtemplater": "^3.18.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "mongoose": "^5.9.28",
+    "pizzip": "^3.0.6",
     "session-file-store": "^1.4.0"
   }
 }
