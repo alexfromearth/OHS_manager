@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux';
 import { eachWorkerThunk } from '../../redux/thunks/eachWorkerThunk';
 import { makeStyles } from '@material-ui/core/styles';
@@ -21,10 +21,11 @@ const useStyles = makeStyles((theme) => ({
   },
   btn: {
     fontSize: 20
-  },
+  }
 }));
 
 export default function Worker() {
+  const history = useHistory()
   const { id } = useParams();
   const company_id = useSelector(state => state.auth.companyId);
   const dispatch = useDispatch();
@@ -47,7 +48,7 @@ export default function Worker() {
       <h1>{worker && (worker.generalInfo.lastName + ' ' + worker.generalInfo.firstName + ' ' + worker.generalInfo.middleName)}</h1>
       <h1>{worker && worker.profInfo.profession}</h1>
       <div className={classes.root}>
-        <Button className={classes.btn} variant="contained" color="primary" >
+        <Button className={classes.btn} variant="contained" color="primary" onClick={() => history.push(`/employee/${id}/med`)} >
           <LocalHospitalIcon /> Медицинский осмотр
         </Button>
         <Button className={classes.btn} variant="contained" color="primary" >
