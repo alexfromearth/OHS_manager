@@ -3,7 +3,7 @@ import actionTypes from "../actionTypes/actionTypes";
 
 
 const initialState = {
-  companyId: "5f355ce0bb328e317d721d75", // !!!!!!
+  companyId: "5f363342a5c3d4239aafd3c6", // !!!!!!
   companyName: null,
   generalInfo: null,
   secret: null,
