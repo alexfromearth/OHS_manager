@@ -4,13 +4,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { eachWorkerThunk } from '../../redux/thunks/eachWorkerThunk';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-
 import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
 import ReplayIcon from '@material-ui/icons/Replay';
 import InsertDriveFileIcon from '@material-ui/icons/InsertDriveFile';
-
 import Avatar from '@material-ui/core/Avatar';
-
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
@@ -39,6 +36,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 30,
     display: 'flex',
     flexDirection: 'column',
+    // justifyContent: 'center', почему не работает?? TODO
   },
   infoRow: {
     display: 'flex',
@@ -48,7 +46,8 @@ const useStyles = makeStyles((theme) => ({
     marginRight: 20
   },
   head:{
-    marginLeft: '33%',
+    justifyContent: 'center',
+    // marginLeft: '33%',
     display: 'flex',
     flexDirection: 'row',
     alignItem: 'center'
@@ -80,7 +79,7 @@ export default function Worker() {
     <>
       <div className={classes.head}>
         <Avatar
-          src={`https://img2.freepng.ru/20180523/tha/kisspng-businessperson-computer-icons-avatar-clip-art-lattice-5b0508dc6a3a10.0013931115270566044351.jpg`}
+          src={`https://img2.freepng.ru/20180523/tha/kisspng-businessperson-computer-icons-avatar-clip-art-lattice-5b0508dc6a3a10.0013931115270566044351.jpg`} //TODO
           className={classes.large}
         />
         <h1>{worker && (worker.generalInfo.lastName + ' ' + worker.generalInfo.firstName + ' ' + worker.generalInfo.middleName)}</h1>

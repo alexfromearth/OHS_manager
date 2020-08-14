@@ -7,7 +7,7 @@ const initialState = {
   companyName: null,
   generalInfo: null,
   secret: null,
-  workers: [],
+  workers: [], // используется? TODO
   isAuth: true,
   errorMessage: null,
 }
