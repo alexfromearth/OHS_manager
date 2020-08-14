@@ -3,7 +3,7 @@ import cookieParser from "cookie-parser";
 import session from "express-session";
 import path from "path";
 import FS from "session-file-store";
-import { cookiesCleaner } from "./middleware/auth.js";
+import { cookiesCleaner, sessionChecker } from "./middleware/auth.js";
 import useErrorHandlers from "./middleware/error.js";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
@@ -45,7 +45,7 @@ app.use(
 );
 
 app.use(cookiesCleaner);
-
+app.use(sessionChecker)
 
 
 app.use("/api/auth", authRouter);
