@@ -3,15 +3,15 @@ import cookieParser from "cookie-parser";
 import session from "express-session";
 import path from "path";
 import FS from "session-file-store";
-import { cookiesCleaner } from "./middleware/auth.js";
+import { cookiesCleaner, sessionChecker } from "./middleware/auth.js";
 import useErrorHandlers from "./middleware/error.js";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import authRouter from "./routes/auth.js";
-
+import workersRouter from "./routes/workers.js"
 
 //db setup
-const dbUrl = "mongodb://localhost:27017/ex";
+const dbUrl = "mongodb://localhost:27017/ohs_manager";
 
 const db = mongoose.connect(dbUrl, {
     useNewUrlParser: true,
@@ -45,10 +45,11 @@ app.use(
 );
 
 app.use(cookiesCleaner);
-
+app.use(sessionChecker)
 
 
 app.use("/api/auth", authRouter);
+app.use("/api/workers", workersRouter);
 
 useErrorHandlers(app);
 

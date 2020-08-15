@@ -1,19 +1,11 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Link, Redirect } from 'react-router-dom';
-import Header from './components/Header';
-import PrivateRoute from './components/PrevateRoute'
+import { BrowserRouter as Router} from 'react-router-dom';
+import Dashboard from "./components/ButtonList/Dashbord";
 
 function App() {
   return (
     <Router>
-      <header>
-        {/* верхняя часть Лого */}
-      </header>
-      {/* левая баттон панель */}
-      <Switch>
-        {/* <PrivateRoute exact path='/home'> <Form /> </PrivateRoute> */}
-        <Route exact path='/'> <LoginPage /> </Route>
-      </Switch>
+        < Dashboard />
     </Router>
   );
 }
