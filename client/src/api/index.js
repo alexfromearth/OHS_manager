@@ -39,6 +39,10 @@ class backAPI {
     return { ...response.data, status: response.status };
   }
 
+  async deleteWorker(company_id, worker_id) {
+    const response = await axios.delete(`/api/workers/${company_id}/worker/${worker_id}`);
+    return { ...response.data, status: response.status };
+  }
 }
 
 export default backAPI;
