@@ -39,9 +39,11 @@ export default function EachDocument() {
         </ListItemAvatar>
         <ListItemText primary="Обязанности работодателя по обеспечению безопасных и здоровых условий труда" secondary="19 KB" />
       </ListItem>
-      <Button className={classes.btn} onClick={()=>{fileDownload('тут будет крутая памятка','Важный документ.pdf')}}>
-        <CloudDownloadOutlinedIcon fontSize={'large'} color={'primary'} />
-      </Button>
+      <a href='https://aldebaran.ru/author/bakulin_aleksandr/kniga_gravitaciya_i_yefir/download.a6.pdf' download>
+        <Button className={classes.btn}>
+          <CloudDownloadOutlinedIcon fontSize={'large'} color={'primary'} />
+        </Button>
+      </a>
     </div>
   )
 }
