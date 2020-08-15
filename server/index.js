@@ -9,6 +9,8 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import authRouter from "./routes/auth.js";
 import workersRouter from "./routes/workers.js"
+import downloadRouter from './routes/download.js'
+import uploadRouter from './routes/upload.js'
 
 //db setup
 const dbUrl = "mongodb://localhost:27017/ohs_manager";
@@ -47,9 +49,12 @@ app.use(
 app.use(cookiesCleaner);
 app.use(sessionChecker)
 
+app.use('/files', express.static(process.env.PWD + '/files'));
 
 app.use("/api/auth", authRouter);
 app.use("/api/workers", workersRouter);
+app.use("/api/download", downloadRouter);
+app.use("/api/upload", uploadRouter);
 
 useErrorHandlers(app);
 
