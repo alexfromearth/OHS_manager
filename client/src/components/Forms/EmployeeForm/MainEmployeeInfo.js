@@ -4,9 +4,11 @@ import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import {useDispatch, useSelector} from "react-redux";
 import {setNewEmployeeFormInput} from "../../../redux/actionCreators/ActionCreators";
+import Alert from "@material-ui/lab/Alert";
 
 export default function MainEmployeeInfo() {
     const forms = useSelector(state => state.forms);
+    const errorMessage = useSelector(state => state.auth.errorMessage);
     const dispatch = useDispatch();
 
     function handleChange(e) {
@@ -17,6 +19,7 @@ export default function MainEmployeeInfo() {
 
     return (
         <React.Fragment>
+            {errorMessage && <Alert severity="error">{errorMessage}</Alert>}
             <Typography variant="h6" gutterBottom>
                 Общая информация
             </Typography>
