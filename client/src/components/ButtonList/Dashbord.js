@@ -13,11 +13,13 @@ import EmployeeForm from "../Forms/EmployeeForm";
 import LoginPage from "../LoginPage";
 import Employees from "../Employees";
 import PrivateRoute from "../PrevateRoute";
+// dnd
+import Dnd from '../Dnd';
+//
 import Worker from '../Worker';
 import Timetable from '../Timetable'
 import Company from '../Company';
 import MedicalExaminations from "../Worker/MedicalExaminations";
-
 
 const drawerWidth = 240;
 
