@@ -1,4 +1,5 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
@@ -62,7 +63,7 @@ export default function Company() {
     INN: '3664069397',
     tel: '79271669'
   }
-  // text-decoration: none;
+
   return (
     <>
       <div className={classes.head}>
@@ -73,7 +74,7 @@ export default function Company() {
         />
         <a href={generalInfo.site} className={classes.a}>
           <Box color="info.main">{companyName}</Box>
-         </a>
+        </a>
       </div>
 
       <Typography component="div" variant="body1" className={classes.info}>
