@@ -8,7 +8,6 @@ router.get('/:companyId/list', async (req, res) => {
   const { companyId } = req.params;
   try {
     const company = await CompanyModel.findOne({ _id: companyId }).populate('workers');
-    console.log()
     if (company) {
       const list = company.workers.map(worker => ({
         _id: worker._id,
