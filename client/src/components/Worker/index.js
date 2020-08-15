@@ -2,9 +2,11 @@ import React, { useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux';
 import { eachWorkerThunk } from '../../redux/thunks/eachWorkerThunk';
+import { deleteWorkerThunk } from '../../redux/thunks/deleteWorkerThunk';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
+import ClearIcon from '@material-ui/icons/Clear';
 import ReplayIcon from '@material-ui/icons/Replay';
 import InsertDriveFileIcon from '@material-ui/icons/InsertDriveFile';
 import Avatar from '@material-ui/core/Avatar';
@@ -21,6 +23,13 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
     alignItem: 'center'
   },
+  retire: {
+    marginTop: '5vw',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItem: 'center'
+  },
   btn: {
     fontSize: 25
   },
@@ -30,13 +39,14 @@ const useStyles = makeStyles((theme) => ({
     marginRight: 50
   },
   info: {
-    marginLeft: '35%',
+    // marginLeft: '35%',
     marginTop: '10%',
-    marginBottom: '15%',
+    marginBottom: '10%',
     fontSize: 30,
     display: 'flex',
     flexDirection: 'column',
-    // justifyContent: 'center', почему не работает?? TODO
+    alignItems: 'center',
+    // justifyContent: 'center',
   },
   infoRow: {
     display: 'flex',
@@ -45,41 +55,58 @@ const useStyles = makeStyles((theme) => ({
   inbox: {
     marginRight: 20
   },
-  head:{
+  head: {
     justifyContent: 'center',
     // marginLeft: '33%',
     display: 'flex',
     flexDirection: 'row',
     alignItem: 'center'
   },
-  icon:{
+  icon: {
     marginRight: 5
   }
 }));
 
+const worker = {
+  generalInfo: {
+    lastName: 'Верин',
+    firstName: 'Василий',
+    middleName: 'Николаевич',
+    birth_date: '12.04.1986',
+    birth_place: 'село Крыжовники, дом 7',
+    locationOfHome: 'Москва, Тропаревский лес, 5 дерево',
+    photo: 'https://img2.freepng.ru/20180523/tha/kisspng-businessperson-computer-icons-avatar-clip-art-lattice-5b0508dc6a3a10.0013931115270566044351.jpg',
+  },
+  profInfo: {
+    education: 'Среднее специальное',
+    position: 'Слесарь',
+    experience: '10 лет',
+  },
+}
+
 export default function Worker() {
-  const history = useHistory()
-  const { id } = useParams();
-  const company_id = useSelector(state => state.auth.companyId);
+  const history = useHistory();
   const dispatch = useDispatch();
-  const worker = useSelector(state => state.allStaff.worker)
+  const { id } = useParams();
+  const companyId = useSelector(state => state.auth.companyId);
+  // const worker = useSelector(state => state.allStaff.worker) //когда будет логинизация, через redux
 
   const classes = useStyles();
 
   useEffect(() => {
-    dispatch(eachWorkerThunk(company_id, id));
-  }, [dispatch, company_id, id])
+    dispatch(eachWorkerThunk(companyId, id));
+  }, [dispatch, companyId, id])
 
-  if (worker) {
-    const fullname = worker.generalInfo.lastName + ' ' + worker.generalInfo.firstName + ' ' + worker.generalInfo.middleName
-    console.log(fullname);
+  function handleDeleteWorker() {
+    dispatch(deleteWorkerThunk(companyId, id));
+    history.push('/employees');
   }
-  console.log(worker);
+
   return (
     <>
       <div className={classes.head}>
         <Avatar
-          src={`https://img2.freepng.ru/20180523/tha/kisspng-businessperson-computer-icons-avatar-clip-art-lattice-5b0508dc6a3a10.0013931115270566044351.jpg`} //TODO
+          src={worker.generalInfo.photo}
           className={classes.large}
         />
         <h1>{worker && (worker.generalInfo.lastName + ' ' + worker.generalInfo.firstName + ' ' + worker.generalInfo.middleName)}</h1>
@@ -87,39 +114,44 @@ export default function Worker() {
       <Typography component="div" variant="body1" className={classes.info}>
         <div className={classes.infoRow}>
           <Box className={classes.inbox} color="text.primary">Дата рождения:</Box>
-          <Box color="info.main">20.01.20</Box>
+          <Box color="info.main">{worker.generalInfo.birth_date}</Box>
         </div>
         <div className={classes.infoRow}>
           <Box className={classes.inbox} color="text.primary">Место рождения:</Box>
-          <Box color="info.main">Тверь</Box>
+          <Box color="info.main">{worker.generalInfo.birth_place}</Box>
         </div>
         <div className={classes.infoRow}>
           <Box className={classes.inbox} color="text.primary">Место проживания:</Box>
-          <Box color="info.main">Москва</Box>
+          <Box color="info.main">{worker.generalInfo.locationOfHome}</Box>
         </div>
         <div className={classes.infoRow}>
           <Box className={classes.inbox} color="text.primary">Образование:</Box>
-          <Box color="info.main">Среднее специально</Box>
+          <Box color="info.main">{worker.profInfo.education}</Box>
         </div>
         <div className={classes.infoRow}>
           <Box className={classes.inbox} color="text.primary">Должность:</Box>
-          <Box color="info.main">Столяр</Box>
+          <Box color="info.main">{worker.profInfo.position}</Box>
         </div>
         <div className={classes.infoRow}>
           <Box className={classes.inbox} color="text.primary">Стаж работы:</Box>
-          <Box color="info.main">15 лет</Box>
+          <Box color="info.main">{worker.profInfo.experience}</Box>
         </div>
       </Typography>
 
       <div className={classes.root}>
         <Button className={classes.btn} variant="contained" color="primary" onClick={() => history.push(`/employee/${id}/medicInfo`)} >
-          <LocalHospitalIcon className={classes.icon}/> Медицинский осмотр
+          <LocalHospitalIcon className={classes.icon} /> Медицинский осмотр
         </Button>
         <Button className={classes.btn} variant="contained" color="primary" onClick={() => history.push(`/employee/${id}/documents`)}>
-          <InsertDriveFileIcon className={classes.icon}/> Документы
+          <InsertDriveFileIcon className={classes.icon} /> Документы
         </Button>
         <Button className={classes.btn} variant="contained" color="primary" onClick={() => history.push(`/employee/${id}/update`)}>
-          <ReplayIcon className={classes.icon}/> Обновить информацию
+          <ReplayIcon className={classes.icon} /> Редактировать информацию
+        </Button>
+      </div>
+      <div className={classes.retire}>
+        <Button className={classes.btn} variant="contained" color="secondary" onClick={() => { handleDeleteWorker() }} >
+          <ClearIcon className={classes.icon} /> Удалить из списка сотрудников
         </Button>
       </div>
     </>

@@ -34,11 +34,20 @@ class backAPI {
     return { ...response.data, status: response.status };
   }
 
-  async eachWorker(company_id, worker_id) {
-    const response = await axios.get(`/api/workers/${company_id}/worker/${worker_id}`);
+  async eachWorker(companyId, workerId) {
+    const response = await axios.get(`/api/workers/${companyId}/worker/${workerId}`);
     return { ...response.data, status: response.status };
   }
 
+  // uploadScans
+  async uploadScans(formData, companyId, workerId) {
+    const response = await axios.put(`/api/workers/${companyId}/worker/${workerId}`, formData);
+    return {...response.data, status: response.status};
+
+  async deleteWorker(companyId, workerId) {
+    const response = await axios.delete(`/api/workers/${companyId}/worker/${workerId}`);
+    return { ...response.data, status: response.status };
+  }
 }
 
 export default backAPI;
