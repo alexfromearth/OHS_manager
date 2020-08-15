@@ -1,0 +1,39 @@
+.container {
+  min-height: 8vh;
+  /* width: 115px; */
+  width: 22vw;
+  max-height: 85vh;
+  overflow-y: scroll;
+  margin-right: 1vw;
+  border: 1px solid black;
+  border-radius: 4px;
+  /* display: flex;
+  flex-direction: column; */
+  /* flex-wrap: nowrap; */
+  align-items: center;
+  /* justify-content: space-around; */
+  background-color: rgb(232, 234, 235);
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    min-height: 10vh;
+    width: 39vw;
+    max-height: 80vh;
+  }
+}
+
+.containerActive {
+  min-height: 162px;
+  /* width: 115px; */
+  width: 415px;
+  margin-right: 10px;
+  /* border: 1px solid black; */
+  /* border-radius: 10px; */
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  background-color: rgb(55, 72, 172);
+}
