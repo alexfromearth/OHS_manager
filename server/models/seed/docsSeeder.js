@@ -80,7 +80,17 @@ mongoose.connection.on('error', console.error.bind(console, 'Ошибка сое
   const company = new CompanyModel({
     name: "Company Name",
     generalInfo: {
-      message: 'Company gen'
+      message: 'Company gen',
+      site: 'https://www.croc.ru/',
+      year: 1956,
+      legal_address: 'Москва, Ленинский 17',
+      actual_address: 'Москва, Вавилова 1',
+      type: 'ООО',
+      countOfStaff: 26,
+      OGRN: '1053600591197',
+      BIK: '044540132',
+      INN: '3664069397',
+      tel: '79271669'
     },
     fireSecret: await bcrypt.hash('fireSecret', 10),
     workers: [worker1._id, worker2._id]
