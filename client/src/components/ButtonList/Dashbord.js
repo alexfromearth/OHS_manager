@@ -17,7 +17,10 @@ import Worker from '../Worker';
 import Timetable from '../Timetable'
 import Company from '../Company';
 import MedicalExaminations from "../Worker/MedicalExaminations";
-
+import ModalPortal from "../ModalPortal/ModalPortal";
+import portalStyles from '../ModalPortal/styles.module.sass'
+import UploadScans from "../UploadScans/UploadScans";
+import Documents from "../Worker/Documents/Documents";
 
 const drawerWidth = 240;
 
@@ -166,6 +169,12 @@ export default function Dashboard() {
                   <PrivateRoute exact path='/employees'> <Employees /> </PrivateRoute>
                   <PrivateRoute exact path='/employee/:id'> <Worker /> </PrivateRoute>
                   <PrivateRoute exact path='/employee/:id/medicInfo'> <MedicalExaminations /> </PrivateRoute>
+                  <PrivateRoute exact path='/employee/:id/documents'> <Documents /> </PrivateRoute>
+                  <PrivateRoute exact path='/test'>
+                    <ModalPortal className={portalStyles.myModal}>
+                      <UploadScans />
+                    </ModalPortal>
+                  </PrivateRoute>
                 </Switch>
               </Grid>
             </Grid>

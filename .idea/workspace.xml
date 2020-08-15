@@ -24,10 +24,12 @@
       <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/api/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/api/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/ButtonList/Dashbord.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ButtonList/Dashbord.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Forms/EmployeeForm/MainEmployeeInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Forms/EmployeeForm/MainEmployeeInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Forms/EmployeeForm/ProEmployeeInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Forms/EmployeeForm/ProEmployeeInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Forms/EmployeeForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Forms/EmployeeForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/redux/reducers/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/reducers/reducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/UploadScan/UploadScanModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ModalPortal/ModalPortal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/UploadScan/styles.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ModalPortal/styles.module.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/redux/actionCreators/ActionCreators.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/actionCreators/ActionCreators.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/redux/actionTypes/actionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/actionTypes/actionTypes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/redux/reducers/empolyeeReduser.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/reducers/empolyeeReduser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/store.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/client/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,7 +40,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="loginWithRedux" />
+        <entry key="$PROJECT_DIR$" value="templater" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -63,6 +65,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -87,7 +90,7 @@
       <workItem from="1597345144006" duration="2342000" />
       <workItem from="1597386115015" duration="12738000" />
       <workItem from="1597417804198" duration="3704000" />
-      <workItem from="1597425230955" duration="3450000" />
+      <workItem from="1597425230955" duration="23360000" />
     </task>
     <servers />
   </component>
@@ -111,21 +114,27 @@
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="454" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog/72.27.1848.1053@72.27.1848.1053" timestamp="1597345721549" />
-    <state x="645" y="1369" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1597332348216">
-      <screen x="0" y="1080" width="1920" height="1080" />
+    <state x="630" y="342" width="650" height="403" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1597488957109">
+      <screen x="72" y="0" width="1848" height="2160" />
+    </state>
+    <state x="630" y="342" width="650" height="403" key="#com.intellij.fileTypes.FileTypeChooser/72.0.1848.2160@72.0.1848.2160" timestamp="1597488957109" />
+    <state x="693" y="1107" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1597497969410">
+      <screen x="72" y="0" width="1848" height="2160" />
     </state>
     <state x="645" y="1369" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.1080.1920.1080/72.0.1848.1080@0.1080.1920.1080" timestamp="1597332348216" />
     <state x="693" y="289" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.1080.1920.1080/72.0.1848.1080@72.0.1848.1080" timestamp="1597305417701" />
+    <state x="693" y="1107" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/72.0.1848.2160@72.0.1848.2160" timestamp="1597497969410" />
     <state x="400" y="1261" width="1022" height="737" key="SettingsEditor" timestamp="1597389999791">
       <screen x="0" y="1080" width="1920" height="1080" />
     </state>
     <state x="400" y="1261" width="1022" height="737" key="SettingsEditor/0.1080.1920.1080/72.0.1848.1080@0.1080.1920.1080" timestamp="1597389999791" />
     <state x="457" y="181" width="1022" height="737" key="SettingsEditor/0.1080.1920.1080/72.0.1848.1080@72.0.1848.1080" timestamp="1597307825671" />
-    <state x="574" y="1325" width="672" height="677" key="run.anything.popup" timestamp="1597397556005">
-      <screen x="0" y="1080" width="1920" height="1080" />
+    <state x="624" y="490" width="647" height="1354" key="run.anything.popup" timestamp="1597502144786">
+      <screen x="72" y="0" width="1848" height="2160" />
     </state>
     <state x="574" y="1325" width="672" height="677" key="run.anything.popup/0.1080.1920.1080/72.0.1848.1080@0.1080.1920.1080" timestamp="1597397556005" />
     <state x="624" y="245" key="run.anything.popup/0.1080.1920.1080/72.0.1848.1080@72.0.1848.1080" timestamp="1597310128352" />
+    <state x="624" y="490" width="647" height="1354" key="run.anything.popup/72.0.1848.2160@72.0.1848.2160" timestamp="1597502144786" />
     <state x="623" y="239" width="672" height="678" key="search.everywhere.popup" timestamp="1597421749115">
       <screen x="72" y="0" width="1848" height="1080" />
     </state>
