@@ -11,7 +11,7 @@ import MainEmployeeInfo from "./MainEmployeeInfo";
 import ProEmployeeInfo from "./ProEmployeeInfo";
 import {useDispatch, useSelector} from "react-redux";
 import {useHistory} from 'react-router-dom';
-import {submitFormInputSC} from "../../../redux/actionCreators/ActionCreators";
+import {setError, submitFormInputSC} from "../../../redux/actionCreators/ActionCreators";
 import Review from "./Review";
 
 
@@ -72,9 +72,47 @@ export default function EmployeeForm() {
     const [activeStep, setActiveStep] = React.useState(0);
     const forms = useSelector(state => state.forms);
     const companyId = useSelector(state => state.auth.companyId);
+    const errorMessage = useSelector(state => state.auth.errorMessage);
     const dispatch = useDispatch();
     const history = useHistory();
     const {firstName, lastName, middleName, birthday, birthPlace, address, education, position, workExperience} = forms;
+
+    function findEmpty(fields, step) {
+        let result = null;
+        if (activeStep === step) {
+            for (const [key, value] of Object.entries(fields)) {
+                if (value === '') {
+                    return false;
+                } else {
+                    result = true;
+                }
+            }
+            return result;
+        }
+    }
+
+    function isNotEmpty() {
+        if (activeStep === 0) {
+            const main = {firstName, lastName, middleName, birthday, birthPlace, address};
+            const res = findEmpty(main, activeStep);
+            if (!res) {
+                dispatch(setError('Все поля общей информации должны быть заполнены.'))
+            } else {
+                dispatch(setError(null));
+            }
+            return res;
+        }
+        if (activeStep === 1) {
+            const prof = {education, position, workExperience};
+            const res = findEmpty(prof, activeStep);
+            if (!res) {
+                dispatch(setError('Все поля профессиональной информации должны быть заполнены.'))
+            } else {
+                dispatch(setError(null));
+            }
+            return res;
+        }
+    }
 
     const handleNext = async () => {
         if (activeStep === steps.length - 1) {
@@ -89,7 +127,7 @@ export default function EmployeeForm() {
             setTimeout(() => {
                 history.push('/employees');
             }, 3000)
-        } else {
+        } else if (isNotEmpty()) {
             setActiveStep(activeStep + 1);
         }
     };
