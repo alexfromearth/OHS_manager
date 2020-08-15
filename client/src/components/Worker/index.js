@@ -88,17 +88,17 @@ export default function Worker() {
   const history = useHistory();
   const dispatch = useDispatch();
   const { id } = useParams();
-  const company_id = useSelector(state => state.auth.companyId);
+  const companyId = useSelector(state => state.auth.companyId);
   // const worker = useSelector(state => state.allStaff.worker) //когда будет логинизация, через redux
 
   const classes = useStyles();
 
   useEffect(() => {
-    dispatch(eachWorkerThunk(company_id, id));
-  }, [dispatch, company_id, id])
+    dispatch(eachWorkerThunk(companyId, id));
+  }, [dispatch, companyId, id])
 
   function handleDeleteWorker() {
-    dispatch(deleteWorkerThunk(company_id, id));
+    dispatch(deleteWorkerThunk(companyId, id));
     history.push('/employees');
   }
 
