@@ -20,6 +20,7 @@ import Worker from '../Worker';
 import Timetable from '../Timetable'
 import Company from '../Company';
 import MedicalExaminations from "../Worker/MedicalExaminations";
+import Note from '../Note';
 
 const drawerWidth = 240;
 
@@ -164,7 +165,7 @@ export default function Dashboard() {
                   <Route exact path='/'> {!isAuth ? <LoginPage /> : <Redirect to="/company" />}</Route>
                   <PrivateRoute exact path='/company'><Company /></PrivateRoute>
                   <PrivateRoute exact path='/timetable'><Timetable /> </PrivateRoute>
-                  <PrivateRoute exact path='/note'> </PrivateRoute>
+                  <PrivateRoute exact path='/note'> <Note /> </PrivateRoute>
                   <PrivateRoute exact path='/employees'> <Employees /> </PrivateRoute>
                   <PrivateRoute exact path='/employee/:id'> <Worker /> </PrivateRoute>
                   <PrivateRoute exact path='/employee/:id/medicInfo'> <MedicalExaminations /> </PrivateRoute>
