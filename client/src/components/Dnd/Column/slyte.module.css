@@ -1,9 +1,9 @@
 .container {
   min-height: 8vh;
   /* width: 115px; */
-  width: 22vw;
-  max-height: 85vh;
-  overflow-y: scroll;
+  width: 21.15vw;
+  /* max-height: 85vh; */
+  /* overflow-y: scroll; */
   margin-right: 1vw;
   border: 1px solid black;
   border-radius: 4px;
