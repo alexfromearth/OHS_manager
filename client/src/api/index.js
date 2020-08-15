@@ -17,8 +17,7 @@ class backAPI {
   }
 
   async addWorker(companyId, generalInfo, profInfo) {
-    console.log(companyId, generalInfo, profInfo);
-    const response = await axios.post(`/api/${companyId}/worker`, {
+    const response = await axios.post(`/api/workers/${companyId}/worker`, {
       generalInfo,
       profInfo
     });

@@ -160,7 +160,7 @@ export default function Dashboard() {
                                     {/* <PrivateRoute exact path='/home'> <Form /> </PrivateRoute> */}
                                     <PrivateRoute exact path='/employee/new'> <EmployeeForm/> </PrivateRoute>
                                     <Route exact path='/'> {!isAuth ? <LoginPage/> : <Redirect to="/company" />}</Route>
-                                    <PrivateRoute exact path='/company'></PrivateRoute>
+                                    <PrivateRoute exact path='/company'><Company /></PrivateRoute>
                                     <PrivateRoute exact path='/timetable'> </PrivateRoute>
                                     <PrivateRoute exact path='/note'> </PrivateRoute>
                                     <PrivateRoute exact path='/employees'> <Employees/> </PrivateRoute>
