@@ -32,3 +32,5 @@ export const uploadScansSC = (formData, companyId, workerId) => ({type: actionTy
 export const allStaff = (list) => ({ type: actionTypes.ALL_EMPLOYEES, payload: { list } });
 
 export const eachWorker = (worker) => ({ type: actionTypes.EACH_WORKER, payload: { worker } });
+
+export const deleteWorker = () => ({ type: actionTypes.DELETE_WORKER });

@@ -1,0 +1,34 @@
+.task {
+  border: 1px solid black;
+  /* width: 100px; */
+  width: 20.8vw;
+  /* height: 150px; */
+  height:  7vh;
+  margin: 5px 0px 5px 2px;
+  /* border-radius: 15px; */
+  background-color: rgb(232, 234, 235);
+}
+
+.dragging {
+  border: 1px solid black;
+  /* width: 100px; */
+  width: 20.8vw;
+  /* height: 150px; */
+  height:  7vh;
+  margin: 5px 0px 5px 2px;
+  /* border-radius: 15px; */
+  background-color: rgb(232, 234, 235);
+  box-shadow: 10px 15px 10px rgba(46, 16, 43, 0.3);
+}
+
+@media screen and (max-width: 800px) {
+  .task {
+    width: 37vw;
+    height: 10vh;
+  }
+}
+
+.svg{
+  width: 100px;
+  height: 150px;
+}
