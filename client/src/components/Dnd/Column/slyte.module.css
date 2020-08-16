@@ -19,7 +19,7 @@
   .container {
     min-height: 10vh;
     width: 39vw;
-    max-height: 80vh;
+    /* max-height: 80vh; */
   }
 }
 

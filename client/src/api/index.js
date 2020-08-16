@@ -43,7 +43,7 @@ class backAPI {
   async uploadScans(formData, companyId, workerId) {
     const response = await axios.put(`/api/workers/${companyId}/worker/${workerId}`, formData);
     return {...response.data, status: response.status};
-
+  }
   async deleteWorker(companyId, workerId) {
     const response = await axios.delete(`/api/workers/${companyId}/worker/${workerId}`);
     return { ...response.data, status: response.status };
