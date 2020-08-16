@@ -53,7 +53,7 @@ function UploadScans({workerId, handleClose, setShowUploadModal}) {
 
   return (
     <div className={styles.modalUploadWrapper}>
-      <Typography variant="subtitle1" className={styles.title}>Загрузка скана документа</Typography>
+      <Typography variant="subtitle1" className={styles.title}>Загрузка документов</Typography>
       <Upload {...props} listType="picture">
         <Button disabled={fileList.length !== 0} >
           <UploadOutlined/>Select File
