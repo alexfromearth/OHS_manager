@@ -2,6 +2,7 @@ import {call, put, takeEvery, takeLatest} from "redux-saga/effects";
 import actionTypes from "../actionTypes/actionTypes";
 import backAPI from '../../api/index';
 import {loadSuccess, setUpload, uploadingFailed} from "../actionCreators/ActionCreators";
+import sleep from "../../utils/sleep";
 
 
 const API = new backAPI();
@@ -12,7 +13,6 @@ function* UploadScansWorker(action) {
   try {
     const data = yield call(API.uploadScans, action.payload.formData, action.payload.companyId,
       action.payload.workerId);
-
   } catch (error) {
     yield put(uploadingFailed(error.message));
   }
