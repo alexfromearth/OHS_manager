@@ -39,7 +39,7 @@ export default function EachDocument() {
         </ListItemAvatar>
         <ListItemText primary="Обязанности работодателя по обеспечению безопасных и здоровых условий труда" secondary="19 KB" />
       </ListItem>
-      <a href='https://aldebaran.ru/author/bakulin_aleksandr/kniga_gravitaciya_i_yefir/download.a6.pdf' download>
+      <a href='http://localhost:3001/files/contingentmed.docx' download>
         <Button className={classes.btn}>
           <CloudDownloadOutlinedIcon fontSize={'large'} color={'primary'} />
         </Button>
