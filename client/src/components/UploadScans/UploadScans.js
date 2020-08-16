@@ -6,7 +6,15 @@ import {UploadOutlined} from '@ant-design/icons';
 import {useDispatch, useSelector} from "react-redux";
 import styles from './styles.module.sass';
 import {useHistory} from 'react-router-dom';
-import {beforeUpload, scanRemove, uploadScansSC} from "../../redux/actionCreators/ActionCreators";
+import {
+  beforeUpload,
+  loadSuccess,
+  scanRemove,
+  setUpload,
+  uploadScansSC
+} from "../../redux/actionCreators/ActionCreators";
+import {put} from "redux-saga/effects";
+import sleep from "../../utils/sleep";
 
 function UploadScans({workerId, handleClose, setShowUploadModal}) {
   const fileList = useSelector(state => state.allStaff.fileList);
@@ -15,12 +23,15 @@ function UploadScans({workerId, handleClose, setShowUploadModal}) {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  function handleUpload() {
+
+  async function handleUpload() {
     const formData = new FormData();
     fileList.forEach(file => {
       formData.append('fileStore[]', file);
     });
     dispatch(uploadScansSC(formData, companyId, workerId));
+    await sleep(2000);
+    dispatch(loadSuccess());
     setShowUploadModal(false);
     history.push(`/employee/${workerId}/documents`);
   };
