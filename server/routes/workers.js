@@ -106,7 +106,6 @@ router.put('/:companyId/worker/:workerId', multer({storage: scanStorage}).single
       });
 
       await WorkerModel.findByIdAndUpdate(workerId, {$push: {ohsDocs: doc}});
-      const company = await CompanyModel.findById(companyId).populate('workers');
       res.status(200).json({msg: 'document successfully been added to fileStorage and database.'});
     } catch (error) {
       console.log(error.message);

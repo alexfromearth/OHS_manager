@@ -20,7 +20,7 @@ function Documents() {
         <div>
             <button onClick={handleClick}>Показать Upload Modal</button>
             {showUploadModal &&  <ModalPortal className={portalStyles.myModal}>
-                <UploadScans workerId={id} handleClose={handleClick}/>
+                <UploadScans workerId={id} handleClose={handleClick} setShowUploadModal={setShowUploadModal}/>
             </ModalPortal>}
         </div>
     );
