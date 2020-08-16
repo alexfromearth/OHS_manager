@@ -67,7 +67,6 @@ export default function MainEmployeeInfo() {
                         label="Дата рождения"
                         name="birthday"
                         type="date"
-                        defaultValue="2017-05-24"
                         InputLabelProps={{
                             shrink: true,
                         }}
