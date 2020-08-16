@@ -21,16 +21,11 @@
   <component name="ChangeListManager">
     <list default="true" id="c03e058d-6bf5-4362-b599-b9d37e0d3b7f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/api/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/api/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ButtonList/Dashbord.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ButtonList/Dashbord.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/UploadScan/UploadScanModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ModalPortal/ModalPortal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/UploadScan/styles.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ModalPortal/styles.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/redux/actionCreators/ActionCreators.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/actionCreators/ActionCreators.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/redux/actionTypes/actionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/actionTypes/actionTypes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/redux/reducers/empolyeeReduser.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/reducers/empolyeeReduser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/redux/reducers/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/reducers/reducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/client/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/public/contingentmed.docx" beforeDir="false" afterPath="$PROJECT_DIR$/server/files/contingentmed.docx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +35,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="templater" />
+        <entry key="$PROJECT_DIR$" value="modalUploadFront" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -68,13 +63,15 @@
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/server" />
+      <recent name="$PROJECT_DIR$/server/public/files" />
+      <recent name="$PROJECT_DIR$/client/src/components/Worker" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/server" />
       <recent name="$PROJECT_DIR$/client/src/components/LoginPage" />
       <recent name="$PROJECT_DIR$" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/client/src/components/Worker" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -90,7 +87,7 @@
       <workItem from="1597345144006" duration="2342000" />
       <workItem from="1597386115015" duration="12738000" />
       <workItem from="1597417804198" duration="3704000" />
-      <workItem from="1597425230955" duration="23360000" />
+      <workItem from="1597425230955" duration="27697000" />
     </task>
     <servers />
   </component>
@@ -135,10 +132,11 @@
     <state x="574" y="1325" width="672" height="677" key="run.anything.popup/0.1080.1920.1080/72.0.1848.1080@0.1080.1920.1080" timestamp="1597397556005" />
     <state x="624" y="245" key="run.anything.popup/0.1080.1920.1080/72.0.1848.1080@72.0.1848.1080" timestamp="1597310128352" />
     <state x="624" y="490" width="647" height="1354" key="run.anything.popup/72.0.1848.2160@72.0.1848.2160" timestamp="1597502144786" />
-    <state x="623" y="239" width="672" height="678" key="search.everywhere.popup" timestamp="1597421749115">
-      <screen x="72" y="0" width="1848" height="1080" />
+    <state x="623" y="478" width="672" height="1356" key="search.everywhere.popup" timestamp="1597509617059">
+      <screen x="72" y="0" width="1848" height="2160" />
     </state>
     <state x="572" y="1319" width="699" height="678" key="search.everywhere.popup/0.1080.1920.1080/72.0.1848.1080@0.1080.1920.1080" timestamp="1597326105918" />
     <state x="623" y="239" width="672" height="678" key="search.everywhere.popup/0.1080.1920.1080/72.0.1848.1080@72.0.1848.1080" timestamp="1597421749115" />
+    <state x="623" y="478" width="672" height="1356" key="search.everywhere.popup/72.0.1848.2160@72.0.1848.2160" timestamp="1597509617059" />
   </component>
 </project>
