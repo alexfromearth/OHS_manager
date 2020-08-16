@@ -21,10 +21,11 @@
   <component name="ChangeListManager">
     <list default="true" id="c03e058d-6bf5-4362-b599-b9d37e0d3b7f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ButtonList/Dashbord.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Dashboard/Dashbord.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ButtonList/ListItems.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Dashboard/ListItems.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/UploadScans/UploadScans.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UploadScans/UploadScans.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Worker/Documents/Documents.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Worker/Documents/Documents.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/redux/reducers/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/reducers/reducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/workers.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/workers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/redux/sagas/uploadScansSaga.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/sagas/uploadScansSaga.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +89,7 @@
       <workItem from="1597417804198" duration="3704000" />
       <workItem from="1597425230955" duration="28309000" />
       <workItem from="1597512478922" duration="2343000" />
-      <workItem from="1597565349604" duration="14295000" />
+      <workItem from="1597565349604" duration="16516000" />
     </task>
     <servers />
   </component>
@@ -116,10 +117,10 @@
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="454" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog/72.27.1848.1053@72.27.1848.1053" timestamp="1597345721549" />
-    <state x="630" y="342" width="650" height="403" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1597488957109">
+    <state x="630" y="342" width="650" height="403" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1597586924370">
       <screen x="72" y="0" width="1848" height="2160" />
     </state>
-    <state x="630" y="342" width="650" height="403" key="#com.intellij.fileTypes.FileTypeChooser/72.0.1848.2160@72.0.1848.2160" timestamp="1597488957109" />
+    <state x="630" y="342" width="650" height="403" key="#com.intellij.fileTypes.FileTypeChooser/72.0.1848.2160@72.0.1848.2160" timestamp="1597586924370" />
     <state x="693" y="1107" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1597571056219">
       <screen x="72" y="0" width="1848" height="2160" />
     </state>
@@ -135,12 +136,12 @@
       <screen x="72" y="0" width="1848" height="2160" />
     </state>
     <state x="72" y="1107" width="1521" height="1036" maximized="true" key="dock-window-1/72.0.1848.2160@72.0.1848.2160" timestamp="1597573891391" />
-    <state x="624" y="490" width="647" height="1354" key="run.anything.popup" timestamp="1597574124953">
+    <state x="624" y="490" width="647" height="1354" key="run.anything.popup" timestamp="1597586956714">
       <screen x="72" y="0" width="1848" height="2160" />
     </state>
     <state x="574" y="1325" width="672" height="677" key="run.anything.popup/0.1080.1920.1080/72.0.1848.1080@0.1080.1920.1080" timestamp="1597397556005" />
     <state x="624" y="245" key="run.anything.popup/0.1080.1920.1080/72.0.1848.1080@72.0.1848.1080" timestamp="1597310128352" />
-    <state x="624" y="490" width="647" height="1354" key="run.anything.popup/72.0.1848.2160@72.0.1848.2160" timestamp="1597574124953" />
+    <state x="624" y="490" width="647" height="1354" key="run.anything.popup/72.0.1848.2160@72.0.1848.2160" timestamp="1597586956714" />
     <state x="623" y="478" width="672" height="1356" key="search.everywhere.popup" timestamp="1597573736040">
       <screen x="72" y="0" width="1848" height="2160" />
     </state>

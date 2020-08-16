@@ -3,17 +3,16 @@ import actionTypes from "../actionTypes/actionTypes";
 import backAPI from '../../api/index';
 import {loadSuccess, setUpload, uploadingFailed} from "../actionCreators/ActionCreators";
 
+
 const API = new backAPI();
+
 
 function* UploadScansWorker(action) {
   yield put(setUpload(true))
   try {
     const data = yield call(API.uploadScans, action.payload.formData, action.payload.companyId,
       action.payload.workerId);
-    debugger;
-    if (data.status === 200) {
-      yield put(loadSuccess());
-    }
+
   } catch (error) {
     yield put(uploadingFailed(error.message));
   }
