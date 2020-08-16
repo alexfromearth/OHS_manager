@@ -32,11 +32,6 @@ export default {
       id: 'column-2',
       title: 'Подписанные-1',
       taskIds: ['doc-1-s', 'doc-2-s', 'doc-3-s']
-    },
-    'column-3': {
-      id: 'column-3',
-      title: 'Подписанные-2',
-      taskIds: ['doc-8']
     }
   },
 

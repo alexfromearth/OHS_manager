@@ -29,16 +29,14 @@ export default function () {
       const columnSource = initData.columns[source.droppableId];
       const columnDest = initData.columns[destination.droppableId];
       const tasks = initData.tasks;
-      tasks[`${draggableId}-s`] = {id: `${draggableId}-s`, content: `${draggableId}-s ${Math.floor(Math.random() * 10)}`}
+      tasks[`${draggableId}-s`] = { id: `${draggableId}-s`, content: `${draggableId}-s ${Math.floor(Math.random() * 10)}` }
       const newTaskIdsSource = Array.from(columnSource.taskIds);
       const newTaskIdsDest = Array.from(columnDest.taskIds);
 
       // newTaskIdsSource.splice(source.index, 1);
       // newTaskIdsDest.splice(destination.index, 0, draggableId);
-      if (newTaskIdsDest.includes(`${draggableId}-s`)){
-        console.log('yes')
-      } else {
-        newTaskIdsDest.push(`${draggableId}-s`);
+      if (!newTaskIdsDest.includes(`${draggableId}-s`)) {
+        newTaskIdsDest.splice(destination.index, 0, `${draggableId}-s`);
       }
 
       const newColumnSource = {
