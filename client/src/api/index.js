@@ -41,6 +41,7 @@ class backAPI {
 
   // uploadScans
   async uploadScans(formData, companyId, workerId) {
+    debugger;
     const response = await axios.put(`/api/workers/${companyId}/worker/${workerId}`, formData);
     return {...response.data, status: response.status};
   }

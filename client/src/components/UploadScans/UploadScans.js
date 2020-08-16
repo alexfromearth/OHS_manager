@@ -16,7 +16,7 @@ function UploadScans({workerId, handleClose}) {
     function handleUpload() {
         const formData = new FormData();
         fileList.forEach(file => {
-            formData.append('files[]', file);
+            formData.append('fileStore[]', file);
         });
         dispatch(uploadScansSC(formData, companyId, workerId));
     };
