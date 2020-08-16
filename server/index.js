@@ -10,7 +10,8 @@ import dotenv from "dotenv";
 import authRouter from "./routes/auth.js";
 import workersRouter from "./routes/workers.js"
 import downloadRouter from './routes/download.js'
-import uploadRouter from './routes/upload.js'
+import multer from "multer";
+import fs from "fs";
 
 //db setup
 const dbUrl = "mongodb://localhost:27017/ohs_manager";
@@ -24,6 +25,36 @@ const db = mongoose.connect(dbUrl, {
 const FileStore = FS(session);
 
 const app = express();
+
+// const storage = multer.diskStorage({
+//
+//     destination: async function (req, file, cb) {
+//         const {companyId, workerId} = req.params;
+//         console.log(companyId, workerId);
+//         const isDirCreated = await fs.promises.readdir(`${process.env.PWD}/../fileStore/`)
+//             .find((folder) => folder === companyId);
+//         if (!isDirCreated) {
+//             await fs.promises.mkdir(`${process.env.PWD}/../fileStore/${companyId}`);
+//             await fs.promises.mkdir(`${process.env.PWD}/../fileStore/${companyId}/${workerId}`);
+//             cb(null, `${process.env.PWD}/../fileStore/${companyId}/${workerId}`);
+//         } else if (isDirCreated) {
+//             const isWorkerDirCreated = await fs.promises.readdir(`${process.env.PWD}/../fileStore/${companyId}`)
+//                 .find((folder) => folder === workerId);
+//             if (!isWorkerDirCreated) {
+//                 await fs.promises.mkdir(`${process.env.PWD}/../fileStore/${companyId}/${workerId}`);
+//                 cb(null, `${process.env.PWD}/../fileStore/${companyId}/${workerId}`);
+//             } else {
+//                 cb(null, `${process.env.PWD}/../fileStore/${companyId}/${workerId}`);
+//             }
+//         }
+//     },
+//     filename: function (req, file, cb) {
+//         cb(null, file.originalname)
+//     }
+// })
+
+
+
 
 // Body POST запросов.
 app.use(express.urlencoded({ extended: true }));
@@ -49,12 +80,11 @@ app.use(
 app.use(cookiesCleaner);
 app.use(sessionChecker)
 
-app.use('/files', express.static(process.env.PWD + '/files'));
+app.use('/fileStore', express.static(process.env.PWD + '/fileStore'));
 
 app.use("/api/auth", authRouter);
 app.use("/api/workers", workersRouter);
 app.use("/api/download", downloadRouter);
-app.use("/api/upload", uploadRouter);
 
 useErrorHandlers(app);
 
