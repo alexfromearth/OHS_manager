@@ -100,12 +100,13 @@ router.put('/:companyId/worker/:workerId', multer({storage: scanStorage}).single
     console.log(req.file);
     try {
       //HUETA
-      const doc = await ohsDocModel.create({
+      const doc = new ohsDocModel({
         metadata: req.file,
         isSigned: true,
-      })
-      await CompanyModel.update({_id: companyId, 'workers._id': workerId},
-        {$push: {'workers.$ohsDocs': doc}});
+      });
+
+      await WorkerModel.findByIdAndUpdate(workerId, {$push: {ohsDocs: doc}});
+      const company = await CompanyModel.findById(companyId).populate('workers');
       res.status(200).json({msg: 'document successfully been added to fileStorage and database.'});
     } catch (error) {
       console.log(error.message);

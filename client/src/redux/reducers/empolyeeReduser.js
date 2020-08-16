@@ -54,7 +54,7 @@ const employeeReducer = (state = initialState, action) => {
     case actionTypes.UPLOAD_SUCCESS: {
       return {
         ...state,
-        fileList: null,
+        fileList: [],
         uploadingScans: false,
       }
     }

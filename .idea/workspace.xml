@@ -20,24 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c03e058d-6bf5-4362-b599-b9d37e0d3b7f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/client/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/api/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/api/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ButtonList/Dashbord.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ButtonList/Dashbord.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/UploadScans/UploadScans.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UploadScans/UploadScans.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/redux/actionTypes/actionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/actionTypes/actionTypes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/redux/reducers/empolyeeReduser.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/reducers/empolyeeReduser.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/redux/reducers/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/reducers/reducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/server/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/files/contingentmed.docx" beforeDir="false" afterPath="$PROJECT_DIR$/server/fileStore/contingentmed.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/download.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/download.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/upload.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/redux/sagas/uploadScansSaga.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/sagas/uploadScansSaga.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/routes/workers.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/workers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/templater/templater.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/templater/templater.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/server/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +88,7 @@
       <workItem from="1597417804198" duration="3704000" />
       <workItem from="1597425230955" duration="28309000" />
       <workItem from="1597512478922" duration="2343000" />
-      <workItem from="1597565349604" duration="9071000" />
+      <workItem from="1597565349604" duration="11568000" />
     </task>
     <servers />
   </component>
