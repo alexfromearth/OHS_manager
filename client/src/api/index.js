@@ -41,14 +41,18 @@ class backAPI {
 
   // uploadScans
   async uploadScans(formData, companyId, workerId) {
-    debugger;
     const response = await axios.put(`/api/workers/${companyId}/worker/${workerId}`, formData);
     return {...response.data, status: response.status};
   }
 
   async deleteWorker(companyId, workerId) {
     const response = await axios.delete(`/api/workers/${companyId}/worker/${workerId}`);
-    return { ...response.data, status: response.status };
+    return {...response.data, status: response.status };
+  }
+
+  async updateSgnedList( workerId, signedOhsIds ) {
+    const response = await axios.patch(`/api/documents/${workerId}/ohsList`, signedOhsIds);
+    return {...response.data, status: response.status};
   }
 }
 

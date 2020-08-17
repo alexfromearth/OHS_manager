@@ -9,13 +9,7 @@ export default function () {
 
   const onDragEnd = (result) => {
     const { destination, source, draggableId } = result;
-    console.log('destination')
-    console.log(destination)
-    console.log('source')
-    console.log(source)
-    console.log('draggableId')
-    console.log(draggableId)
-
+    
     if (!destination) {
       return;
     }

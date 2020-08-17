@@ -1,8 +1,9 @@
 import actionTypes from "../actionTypes/actionTypes";
+import deepcopy from "deepcopy";
 
 const initialState = {
   list: [],
-  worker: null,
+  worker: {},
   fileList: [],
   uploadingScans: false,
   errorUpload: null,
@@ -17,10 +18,22 @@ const employeeReducer = (state = initialState, action) => {
       }
     }
     case actionTypes.EACH_WORKER: {
-      return {
-        ...state,
-        worker: action.payload.worker,
+      const newState = deepcopy(state);
+      newState.worker = action.payload.worker;
+      newState.worker.columns = {
+        'unsigned': {
+          id: 'unsigned',
+          title: 'Неподписанные',
+          docIds: newState.worker.unsignedOhsIds,
+        },
+        'signed': {
+          id: 'signed',
+          title: 'Подписанные',
+          docIds: newState.worker.signedOhsIds,
+        },
+        colOrder: ['unsigned', 'signed']
       }
+      return newState;
     }
     //upload scan
     case actionTypes.ON_SCAN_REMOVE: {
@@ -33,10 +46,10 @@ const employeeReducer = (state = initialState, action) => {
       };
     }
     case actionTypes.BEFORE_UPLOAD: {
-        return {
-            ...state,
-            fileList: [...state.fileList, action.payload.file],
-        }
+      return {
+        ...state,
+        fileList: [...state.fileList, action.payload.file],
+      }
     }
     case actionTypes.CLEAR_FILELIST: {
       return {
@@ -65,6 +78,19 @@ const employeeReducer = (state = initialState, action) => {
         uploadingScans: false,
       }
     }
+
+    case actionTypes.UPDATE_SIGNED_DOCS: {
+      const newState = deepcopy(state);
+      newState.worker.signedOhsIds = action.payload.signedOhsIds;
+      return newState;
+    }
+
+    case actionTypes.UPDATE_COLUMNS: {
+      const newState = deepcopy(state);
+      newState.worker.columns = action.payload.newColumns;
+      return newState;
+    }
+
     default:
       return state;
   }

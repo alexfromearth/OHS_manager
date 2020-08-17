@@ -174,9 +174,9 @@ export default function Dashboard() {
                   <PrivateRoute exact path='/employees'> <Employees /> </PrivateRoute>
                   <PrivateRoute exact path='/employee/:id'> <Worker /> </PrivateRoute>
                   <PrivateRoute exact path='/employee/:id/medicInfo'> <MedicalExaminations /> </PrivateRoute>
-                  {/*<PrivateRoute exact path='/employee/:id/documents'> <Dnd /> </PrivateRoute>*/}
-                  {/* <PrivateRoute exact path='/employee/:id/documents'> <Documents /> </PrivateRoute> */}
-                  <PrivateRoute exact path='/employee/:id/documents'> <DocumentsCopy /> </PrivateRoute>
+                  <PrivateRoute exact path='/employee/:id/documents1'> <Dnd /> </PrivateRoute>
+                  <PrivateRoute exact path='/employee/:id/documents'> <Documents /> </PrivateRoute>
+                  {/*<PrivateRoute exact path='/employee/:id/documents'> <DocumentsCopy /> </PrivateRoute>*/}
                   <PrivateRoute exact path='/test'>
                     <ModalPortal className={portalStyles.myModal}>
                       <UploadScans />

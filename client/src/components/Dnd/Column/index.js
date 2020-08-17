@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Container from './Container';
 import { Droppable } from '../react-beautiful-dnd.esm';
 import styles from './slyte.module.css';
@@ -26,7 +26,7 @@ export default function (props) {
           >
             {props.tasks.map((task, index) => {
               return (
-                <Container task={task} key={task.id} index={index} />
+                <Container task={task} key={task._id} index={index} />
               )
             })}
             {provided.placeholder}
