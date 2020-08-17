@@ -114,6 +114,7 @@ router.post('/:companyId/worker', async (req, res) => {
     const doc = new OhsDocModel({
       metadata: file,
     })
+    newWorker.unsignedOhsIds.push(doc._id);
     newWorker.ohsDocs.push(doc);
   })
   // сохраняем
