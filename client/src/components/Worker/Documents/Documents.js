@@ -9,7 +9,7 @@ import { clearFileList } from "../../../redux/actionCreators/ActionCreators";
 import styles from '../../Dnd/style.module.css';
 import { DragDropContext } from '../../Dnd/react-beautiful-dnd.esm';
 import Column from '../../Dnd/Column';
-import updateSignedDocs from '../../../redux/thunks/updateSignedList';
+import updateSignedList from '../../../redux/thunks/updateSignedList';
 import {updateColumns} from '../../../redux/actionCreators/ActionCreators.js';
 import { eachWorkerThunk } from '../../../redux/thunks/eachWorkerThunk';
 
@@ -17,14 +17,17 @@ function Documents() {
   const companyId = useSelector(state => state.auth.companyId);
   const { id } = useParams();
   const dispatch = useDispatch();
-  const { ohsDocs, signedOhsIds, unsignedOhsIds, columns } = useSelector(state => state.allStaff.worker);
-
-
-  useEffect(() => {
-    dispatch(eachWorkerThunk(companyId, id));
-  }, [dispatch, companyId, id])
-
+  const { ohsDocs, columns } = useSelector(state => state.allStaff.worker);
   const [showUploadModal, setShowUploadModal] = useState(false);
+  
+  
+  useEffect(() => {
+    if (!showUploadModal) {
+    console.log('i dispatched');
+    dispatch(eachWorkerThunk(companyId, id));
+    }
+  }, [dispatch, companyId, id, showUploadModal])
+
   // dnd
 
 
@@ -54,7 +57,7 @@ function Documents() {
       const newDocIdsSource = [...columnSource.docIds];
       // const newTaskIdsDest = Array.from(columnDest.taskIds);
       const newDocIdsDest = [...columnDest.docIds];
-      
+      console.log(newDocIdsDest);
       // newTaskIdsSource.splice(source.index, 1);
       // newTaskIdsDest.splice(destination.index, 0, draggableId);
       if (!newDocIdsDest.includes(`${draggableId}-s`)) {
@@ -70,28 +73,31 @@ function Documents() {
         docIds: newDocIdsDest,
       }
       
-      dispatch(updateColumns({
-        ...columns,
-        [newColumnSource.id]: newColumnSource,
-        [newColumnDest.id]: newColumnDest,
-      }))
+      // dispatch(updateColumns({
+      //   ...columns,
+      //   [newColumnSource.id]: newColumnSource,
+      //   [newColumnDest.id]: newColumnDest,
+      // }))
+      dispatch(updateSignedList(id, newDocIdsDest))
       handleClick();
+      return;
     }
-
+    
     const column = columns[source.droppableId];
     const newDocIds = Array.from(column.docIds);
     newDocIds.splice(source.index, 1);
     newDocIds.splice(destination.index, 0, draggableId);
-
+    
     const newColumn = {
       ...column,
       docIds: newDocIds,
     }
-
-    dispatch(updateColumns({
-      ...columns,
-      [newColumn.id]: newColumn,
-    }))
+    
+    dispatch(updateSignedList(id, newDocIds))
+    // dispatch(updateColumns({
+    //   ...columns,
+    //   [newColumn.id]: newColumn,
+    // }))
   }
 
   const onDragStart = (start) => {

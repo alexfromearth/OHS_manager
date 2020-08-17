@@ -3,11 +3,12 @@ import backAPI from '../../api/';
 const API = new backAPI();
 
 export default function (workerId, signedOhsIds) {
+  console.log('in thunk')
   return async (dispatch) => {
     try {
       const response = await API.updateSgnedList(workerId, signedOhsIds);
       if (response.status === 200) {
-        dispatch(updateSignedDocs(signedOhsIds));
+        // dispatch(updateSignedDocs(signedOhsIds));
       } else {
         dispatch(uploadingFailed(response.data.message));
       }
