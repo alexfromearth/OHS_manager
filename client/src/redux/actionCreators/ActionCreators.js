@@ -20,6 +20,10 @@ export const setNewEmployeeFormInput = (inputName, value) => ({
   payload: { inputName, value }
 })
 
+// docs
+export const updateSignedDocs = (signedOhsIds) => ({ type: actionTypes.UPDATE_SIGNED_DOCS, payload: { signedOhsIds } })
+export const updateColumns = (newColumns) => ({ type: actionTypes.UPDATE_COLUMNS, payload: { newColumns } })
+
 //saga creators
 export const loginSC = (fieldData) => ({ type: actionTypes.LOGIN, payload: fieldData });
 export const submitFormInputSC = (companyId, generalInfo, profInfo) => ({
@@ -28,9 +32,11 @@ export const submitFormInputSC = (companyId, generalInfo, profInfo) => ({
 })
 export const uploadScansSC = (formData, companyId, workerId) => ({type: actionTypes.UPLOADS_SCANS_SC,
   payload: {formData, companyId, workerId}});
-
-export const allStaff = (list) => ({ type: actionTypes.ALL_EMPLOYEES, payload: { list } });
-
-export const eachWorker = (worker) => ({ type: actionTypes.EACH_WORKER, payload: { worker } });
-
-export const deleteWorker = () => ({ type: actionTypes.DELETE_WORKER });
+  
+  export const allStaff = (list) => ({ type: actionTypes.ALL_EMPLOYEES, payload: { list } });
+  
+  export const eachWorker = (worker) => ({ type: actionTypes.EACH_WORKER, payload: { worker } });
+  
+  export const deleteWorker = () => ({ type: actionTypes.DELETE_WORKER });
+  
+  
