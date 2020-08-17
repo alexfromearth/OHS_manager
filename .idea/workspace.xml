@@ -21,8 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c03e058d-6bf5-4362-b599-b9d37e0d3b7f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/fileStore/5f3a2701ebd5001dc607d519/5f3a2701ebd5001dc607d511/dogLink.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/workers.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/workers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/redux/reducers/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/reducers/reducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +31,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="downloadUploadBack" />
+        <entry key="$PROJECT_DIR$" value="templates" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -88,7 +87,7 @@
       <workItem from="1597425230955" duration="28309000" />
       <workItem from="1597512478922" duration="2343000" />
       <workItem from="1597565349604" duration="24018000" />
-      <workItem from="1597643534815" duration="19519000" />
+      <workItem from="1597643534815" duration="20521000" />
     </task>
     <servers />
   </component>
