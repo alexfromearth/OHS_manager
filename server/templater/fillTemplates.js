@@ -8,11 +8,11 @@ export default async function fillTemplates(company, workerId, generalInfo, prof
 
   try {
     // создаем папки
-    await fs.promises.mkdir(`${process.env.PWD}/fileStore/${company.companyId}`);
-    await fs.promises.mkdir(`${process.env.PWD}/fileStore/${company.companyId}/${workerId}`);
+    await fs.promises.mkdir(`${process.env.PWD}/fileStore/${company._id}`);
+    await fs.promises.mkdir(`${process.env.PWD}/fileStore/${company._id}/${workerId}`);
 
-    const basePath = `${process.env.PWD}/fileStore/${company.companyId}/${workerId}/`;
-    const downloadPath = `http://localhost:3001/fileStore/${company.companyId}/${workerId}/`;
+    const basePath = `${process.env.PWD}/fileStore/${company._id}/${workerId}/`;
+    const downloadPath = `http://localhost:3001/fileStore/${company._id}/${workerId}/`;
 
     await createTemplate({
       firstName,
@@ -87,7 +87,7 @@ export default async function fillTemplates(company, workerId, generalInfo, prof
 
 
 // fillTemplates({
-//   companyId: 'asdasdqweasdasd',
+//   _id: 'asdasdqweasdasd',
 //   companyType: 'TEST',
 //   companyName: 'TEST',
 //   city: 'TEST',

@@ -21,15 +21,12 @@
   <component name="ChangeListManager">
     <list default="true" id="c03e058d-6bf5-4362-b599-b9d37e0d3b7f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Forms/EmployeeForm/MainEmployeeInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Forms/EmployeeForm/MainEmployeeInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Forms/EmployeeForm/ProEmployeeInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Forms/EmployeeForm/ProEmployeeInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Forms/EmployeeForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Forms/EmployeeForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/redux/reducers/newEmployeeReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/reducers/newEmployeeReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/fileStore/5f3926665fca654894751b54/5f3926665fca654894751b4c/Dogovor (2).pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/redux/reducers/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/reducers/reducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/fileStore/contingentmed.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/models/companyModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/companyModel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/models/seed/docsSeeder.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/seed/docsSeeder.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/routes/workers.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/workers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/templater/docTemplates/contingentmed.docx" beforeDir="false" afterPath="$PROJECT_DIR$/server/templater/docTemplates/contingentmed.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/templater/docTemplates/flushingDisinfectants.docx" beforeDir="false" afterPath="$PROJECT_DIR$/server/templater/docTemplates/flushingDisinfectants.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/templater/templater.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/templater/templater.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/templater/fillTemplates.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/templater/fillTemplates.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +92,7 @@
       <workItem from="1597425230955" duration="28309000" />
       <workItem from="1597512478922" duration="2343000" />
       <workItem from="1597565349604" duration="24018000" />
-      <workItem from="1597643534815" duration="14286000" />
+      <workItem from="1597643534815" duration="17782000" />
     </task>
     <servers />
   </component>

@@ -79,14 +79,14 @@ router.post('/:companyId/worker', async (req, res) => {
   //   return res.status(401).json({ msg: "Unauthorized" });
   // }
   // берем компанию
-  // const company = await CompanyModel.findById(companyId);
-  const company = {
-    companyId: 'salambrat',
-    companyType: 'AO',
-    companyName: 'ГришасГрупп',
-    city: 'Москва',
-    director: 'Гриша',
-  }
+  const company = await CompanyModel.findById(companyId);
+  // const company = {
+  //   companyId: 'salambrat',
+  //   companyType: 'AO',
+  //   companyName: 'ГришасГрупп',
+  //   city: 'Москва',
+  //   director: 'Гриша',
+  // }
   // новый воркер без файлов
   const newWorker = new WorkerModel({
     generalInfo,
