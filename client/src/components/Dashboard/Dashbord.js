@@ -24,6 +24,7 @@ import ModalPortal from "../ModalPortal/ModalPortal";
 import portalStyles from '../ModalPortal/styles.module.sass'
 import UploadScans from "../UploadScans/UploadScans";
 import Documents from "../Worker/Documents/Documents";
+import DocumentsCopy from "../Worker/DocumentsCopy";
 import Note from '../Note';
 
 const drawerWidth = 240;
@@ -175,6 +176,7 @@ export default function Dashboard() {
                   <PrivateRoute exact path='/employee/:id/medicInfo'> <MedicalExaminations /> </PrivateRoute>
                   <PrivateRoute exact path='/employee/:id/documents1'> <Dnd /> </PrivateRoute>
                   <PrivateRoute exact path='/employee/:id/documents'> <Documents /> </PrivateRoute>
+                  {/*<PrivateRoute exact path='/employee/:id/documents'> <DocumentsCopy /> </PrivateRoute>*/}
                   <PrivateRoute exact path='/test'>
                     <ModalPortal className={portalStyles.myModal}>
                       <UploadScans />
