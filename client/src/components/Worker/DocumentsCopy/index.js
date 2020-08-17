@@ -8,34 +8,11 @@ import { clearFileList } from "../../../redux/actionCreators/ActionCreators";
 
 import { makeStyles } from '@material-ui/core/styles';
 import Button from "@material-ui/core/Button";
-import ArrowBackIosRoundedIcon from '@material-ui/icons/ArrowBackIosRounded';
-
 import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import Avatar from '@material-ui/core/Avatar';
-import InsertDriveFileRoundedIcon from '@material-ui/icons/InsertDriveFileRounded';
-
 import Template from './ template';
 import Docs from './docs';
 
 const useStyles = makeStyles({
-  iconOnBTN: {
-    marginRight: 5
-  },
-  back: {
-    fontSize: 18,
-    position: 'absolute',
-    marginTop: 20,
-  },
-  main: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 25
-  },
   root: {
     display: 'flex',
     flexDirection: 'row',
@@ -47,7 +24,6 @@ const useStyles = makeStyles({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-
   },
   purple: {
     backgroundColor: 'rgb(64, 86, 181)',
@@ -66,7 +42,6 @@ const useStyles = makeStyles({
 
 function Documents() {
   const classes = useStyles();
-  const history = useHistory()
   const [showUploadModal, setShowUploadModal] = useState(false);
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -78,15 +53,11 @@ function Documents() {
   }
   return (
     <>
-      <Button variant="contained" color="secondary" className={classes.back} onClick={() => history.goBack()}>
-        <ArrowBackIosRoundedIcon fontSize={'large'} className={classes.iconOnBTN} />
-          Назад
-      </Button>
-      <div className={classes.main}>
+      {/* <div className={classes.main}>
         <h1>Документы</h1>
         <h2>Сотрудник: Ударников Лопес Игоревич</h2>
-        {/* {worker && <h6> <h2>Сотрудник: {worker.generalInfo.lastName + ' ' + worker.generalInfo.firstName + ' ' + worker.generalInfo.middleName}</h2> */}
-      </div>
+        {worker && <h6> <h2>Сотрудник: {worker.generalInfo.lastName + ' ' + worker.generalInfo.firstName + ' ' + worker.generalInfo.middleName}</h2>
+      </div> */}
       <div className={classes.root}>
         <List component="nav" aria-labelledby="nested-list-subheader" className={classes.list} >
           <Template />
