@@ -114,6 +114,7 @@ router.post('/:companyId/worker', async (req, res) => {
     const doc = new OhsDocModel({
       metadata: file,
     })
+    newWorker.unsignedOhsIds.push(doc._id);
     newWorker.ohsDocs.push(doc);
   })
   // сохраняем
@@ -140,7 +141,7 @@ router.put('/:companyId/worker/:workerId', multer({storage: scanStorage}).single
         isSigned: true,
       });
 
-      await WorkerModel.findByIdAndUpdate(workerId, {$push: {ohsDocs: doc}});
+      await WorkerModel.findByIdAndUpdate(workerId, {$push: {ohsDocs: doc, signedOhsIds: doc._id}});
       res.status(200).json({msg: 'document successfully been added to fileStorage and database.'});
     } catch (error) {
       console.log(error.message);

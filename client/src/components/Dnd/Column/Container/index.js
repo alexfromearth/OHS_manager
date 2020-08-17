@@ -1,6 +1,11 @@
 import React from 'react';
 import { Draggable } from '../../react-beautiful-dnd.esm'
 import styles from './style.module.css';
+import CloudDownloadOutlinedIcon from '@material-ui/icons/CloudDownloadOutlined';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import Avatar from '@material-ui/core/Avatar';
+import InsertDriveFileRoundedIcon from '@material-ui/icons/InsertDriveFileRounded';
+
 
 export default function ({ task, index }) {
   return (
@@ -9,16 +14,25 @@ export default function ({ task, index }) {
         const isDragging = snapshot.isDragging;
         return (
           <div
-
             {...provided.draggableProps}
             {...provided.dragHandleProps}
             ref={provided.innerRef}
             {...isDragging ? { className: styles.dragging } : { className: styles.task }}
           >
-            {task.metadata.message}
-            {/* <img
-              src="/word.svg" alt="alt" className={styles.svg}
-            /> */}
+            <div className={styles.filename}>
+              {/* <img src="/file.png" alt="" className={styles.img} /> */}
+              <ListItemAvatar>
+                <Avatar>
+                  <InsertDriveFileRoundedIcon />
+                </Avatar >
+              </ListItemAvatar>
+              {task.metadata.filename}
+            </div>
+            <div className={styles.button}>
+              <a href={task.metadata.downloadPath}>
+                <CloudDownloadOutlinedIcon />
+              </a>
+            </div>
           </div>
         )
       }

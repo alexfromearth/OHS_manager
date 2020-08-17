@@ -5,7 +5,6 @@ import portalStyles from "../../ModalPortal/styles.module.sass";
 import UploadScans from "../../UploadScans/UploadScans";
 import { useDispatch, useSelector } from "react-redux";
 import { clearFileList } from "../../../redux/actionCreators/ActionCreators";
-// import init from '../../../dndData';
 import styles from '../../Dnd/style.module.css';
 import { DragDropContext } from '../../Dnd/react-beautiful-dnd.esm';
 import Column from '../../Dnd/Column';
@@ -60,9 +59,9 @@ function Documents() {
       console.log(newDocIdsDest);
       // newTaskIdsSource.splice(source.index, 1);
       // newTaskIdsDest.splice(destination.index, 0, draggableId);
-      if (!newDocIdsDest.includes(`${draggableId}-s`)) {
-        newDocIdsDest.splice(destination.index, 0, `${draggableId}-s`);
-      }
+      // if (!newDocIdsDest.includes(`${draggableId}-s`)) {
+      //   newDocIdsDest.splice(destination.index, 0, `${draggableId}-s`);
+      // }
       
       const newColumnSource = {
         ...columnSource,
@@ -94,10 +93,10 @@ function Documents() {
     }
     
     dispatch(updateSignedList(id, newDocIds))
-    // dispatch(updateColumns({
-    //   ...columns,
-    //   [newColumn.id]: newColumn,
-    // }))
+    dispatch(updateColumns({
+      ...columns,
+      [newColumn.id]: newColumn,
+    }))
   }
 
   const onDragStart = (start) => {
@@ -120,7 +119,7 @@ function Documents() {
   if (columns) {
     return (
       <div>
-        <button onClick={handleClick}>Показать Upload Modal</button>
+        {/* <button onClick={handleClick}>Показать Upload Modal</button> */}
         {showUploadModal && <ModalPortal className={portalStyles.myModal}>
           <UploadScans workerId={id} handleClose={handleClick} setShowUploadModal={setShowUploadModal} />
         </ModalPortal>}
