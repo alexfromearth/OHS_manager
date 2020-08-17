@@ -135,9 +135,10 @@ router.put('/:companyId/worker/:workerId', multer({storage: scanStorage}).single
     const {workerId, companyId} = req.params;
     console.log(workerId, companyId);
     console.log(req.file);
+    const metadata = {...req.file, downloadPath: `http://localhost:3001/fileStore/${companyId}/${workerId}/${req.file.originalname}`};
     try {
       const doc = new OhsDocModel({
-        metadata: req.file,
+        metadata,
         isSigned: true,
       });
 
