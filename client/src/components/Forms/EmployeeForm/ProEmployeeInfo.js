@@ -63,6 +63,35 @@ export default function ProEmployeeIngo() {
                     />
                 </Grid>
             </Grid>
+            <Grid container spacing={3}>
+              <Grid item xs={12} >
+                <TextField
+                  required
+                  id="structuralSubdivision"
+                  name="structuralSubdivision"
+                  label="Структурное подразделение"
+                  fullWidth
+                  autoComplete="structuralSubdivision"
+                  value={forms.structuralSubdivision}
+                  onChange={handleChange}
+                />
+              </Grid>
+              <Grid item xs={12} >
+                <TextField
+                  required
+                  id="startWorkDate"
+                  name="startWorkDate"
+                  label="Дата начала работы"
+                  type="date"
+                  fullWidth
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  value={forms.startWorkDate}
+                  onChange={handleChange}
+                />
+              </Grid>
+            </Grid>
         </React.Fragment>
     );
 }

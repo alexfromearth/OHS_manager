@@ -79,7 +79,10 @@ mongoose.connection.on('error', console.error.bind(console, 'Ошибка сое
 
   // Creating a company
   const company = new CompanyModel({
-    name: "Company Name",
+    companyName: 'КРОК',
+    companyType: 'АО',
+    city: 'Москва',
+    director: "Безобразов Григорий Андреевич",
     generalInfo: {
       message: 'Company gen',
       site: 'https://www.croc.ru/',

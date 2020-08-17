@@ -3,7 +3,9 @@ import CompanyModel from '../models/companyModel.js';
 import WorkerModel from '../models/workerModel.js';
 import multer from "multer";
 import {scanStorage} from "../middleware/multer.js";
-import ohsDocModel from "../models/ohsDocModel.js";
+import OhsDocModel from "../models/ohsDocModel.js";
+import fillTemplates from "../templater/fillTemplates.js";
+import fs from "fs";
 // import {v4} from ('uuid');
 
 const router = express.Router();
@@ -71,16 +73,50 @@ router.patch('/:companyId/worker/:workerId', async (req, res) => {
 router.post('/:companyId/worker', async (req, res) => {
   const {companyId} = req.params;
   const {generalInfo, profInfo} = req.body;
+
   // Security
   // if (req.session.company._id !== companyId) {
   //   return res.status(401).json({ msg: "Unauthorized" });
   // }
+  // берем компанию
+  const company = await CompanyModel.findById(companyId);
+  // const company = {
+  //   companyId: 'salambrat',
+  //   companyType: 'AO',
+  //   companyName: 'ГришасГрупп',
+  //   city: 'Москва',
+  //   director: 'Гриша',
+  // }
+  // новый воркер без файлов
   const newWorker = new WorkerModel({
     generalInfo,
     profInfo,
     medicalExams: [],
     ohsDocs: []
+  });
+  // генерируем все файлы и возвращаем урлы из функции
+  const {basePath, downloadPath} = await fillTemplates(company, newWorker._id, generalInfo, profInfo);
+  console.log(basePath, downloadPath);
+  // читаем директорию с сгенерированными файлами
+  let files = await fs.promises.readdir(basePath);
+  // приводим все файлы к объекту с правильными полями
+  files = files.map(file => {
+    const meta = fs.statSync(basePath + file);
+    file = {
+      filename: file, size: meta.size, originalname: file,
+      path: `${basePath}${file}`,
+      downloadPath: `${downloadPath}${file}`,
+    };
+    return file;
   })
+  // создаем на каждый обьект file mongo document
+  files.forEach((file) => {
+    const doc = new OhsDocModel({
+      metadata: file,
+    })
+    newWorker.ohsDocs.push(doc);
+  })
+  // сохраняем
   try {
     await newWorker.save();
     await CompanyModel.findByIdAndUpdate(companyId, {$push: {workers: newWorker}});
@@ -99,8 +135,7 @@ router.put('/:companyId/worker/:workerId', multer({storage: scanStorage}).single
     console.log(workerId, companyId);
     console.log(req.file);
     try {
-      //HUETA
-      const doc = new ohsDocModel({
+      const doc = new OhsDocModel({
         metadata: req.file,
         isSigned: true,
       });
