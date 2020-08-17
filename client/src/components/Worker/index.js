@@ -134,7 +134,7 @@ export default function Worker() {
         </div>
         <div className={classes.infoRow}>
           <Box className={classes.inbox} color="text.primary">Стаж работы:</Box>
-          <Box color="info.main">{worker.profInfo.experience}</Box>
+          <Box color="info.main">{worker.profInfo.workExperience}</Box>
         </div>
       </Typography>
 

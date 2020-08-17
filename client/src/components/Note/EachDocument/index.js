@@ -1,19 +1,16 @@
 import React from 'react';
-import fileDownload from 'js-file-download';
-
+// import fileDownload from 'js-file-download';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import InsertDriveFileRoundedIcon from '@material-ui/icons/InsertDriveFileRounded';
 import CloudDownloadOutlinedIcon from '@material-ui/icons/CloudDownloadOutlined';
-
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
-import { deepPurple } from '@material-ui/core/colors';
 
 
-const useStyles = makeStyles((theme) =>
+const useStyles = makeStyles(() =>
   createStyles({
     eachDoc: {
       display: 'flex',
@@ -29,33 +26,33 @@ const useStyles = makeStyles((theme) =>
     purple: {
       backgroundColor: 'rgb(64, 86, 181)',
     },
-    zagr:{
-      color:'rgb(64, 86, 181)',
+    zagr: {
+      color: 'rgb(64, 86, 181)',
       height: '100%'
     },
-    a:{
+    a: {
       height: '100%'
     }
   }),
 );
 
-export default function EachDocument({ document, nameOfDocument, size}) {
+export default function EachDocument({ document, nameOfDocument, size }) {
   const classes = useStyles();
 
   return (
     <div className={classes.eachDoc}>
-      {/* <ListItem button> */}
+      {/* <ListItem button > */}
       <ListItem >
         <ListItemAvatar>
           <Avatar className={classes.purple}>
             <InsertDriveFileRoundedIcon />
           </Avatar >
         </ListItemAvatar>
-        <ListItemText primary={nameOfDocument} secondary={`${size}`} />
+        <ListItemText primary={nameOfDocument} secondary={size} />
       </ListItem>
       <a href={`http://localhost:3001/fileStore/notes/${document}.doc`} download className={classes.a}>
         <Button className={classes.btn}>
-          <CloudDownloadOutlinedIcon fontSize={'large'} className={classes.zagr}/>
+          <CloudDownloadOutlinedIcon fontSize={'large'} className={classes.zagr} />
         </Button>
       </a>
     </div>
