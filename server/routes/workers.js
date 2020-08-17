@@ -140,7 +140,7 @@ router.put('/:companyId/worker/:workerId', multer({storage: scanStorage}).single
         isSigned: true,
       });
 
-      await WorkerModel.findByIdAndUpdate(workerId, {$push: {ohsDocs: doc}});
+      await WorkerModel.findByIdAndUpdate(workerId, {$push: {ohsDocs: doc, signedOhsIds: doc._id}});
       res.status(200).json({msg: 'document successfully been added to fileStorage and database.'});
     } catch (error) {
       console.log(error.message);

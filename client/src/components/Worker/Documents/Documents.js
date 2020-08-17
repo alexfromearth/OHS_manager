@@ -60,9 +60,9 @@ function Documents() {
       console.log(newDocIdsDest);
       // newTaskIdsSource.splice(source.index, 1);
       // newTaskIdsDest.splice(destination.index, 0, draggableId);
-      if (!newDocIdsDest.includes(`${draggableId}-s`)) {
-        newDocIdsDest.splice(destination.index, 0, `${draggableId}-s`);
-      }
+      // if (!newDocIdsDest.includes(`${draggableId}-s`)) {
+      //   newDocIdsDest.splice(destination.index, 0, `${draggableId}-s`);
+      // }
       
       const newColumnSource = {
         ...columnSource,
