@@ -118,7 +118,7 @@ function Documents() {
 
   if (columns) {
     return (
-      <div>
+      <div className={styles.allContainer}>
         {/* <button onClick={handleClick}>Показать Upload Modal</button> */}
         {showUploadModal && <ModalPortal className={portalStyles.myModal}>
           <UploadScans workerId={id} handleClose={handleClick} setShowUploadModal={setShowUploadModal} />
