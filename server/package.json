@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "npx nodemon index.js --ignore 'sessions'",
+    "start": "npx nodemon index.js --ignore 'sessions' --ingnore 'fileStore'",
     "seed": "node models/seed/docsSeeder.js"
   },
   "keywords": [],

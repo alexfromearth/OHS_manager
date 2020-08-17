@@ -15,7 +15,7 @@ export default function ({ task, index }) {
             ref={provided.innerRef}
             {...isDragging ? { className: styles.dragging } : { className: styles.task }}
           >
-            {task.metadata.message}
+            {task.metadata.filename}
             {/* <img
               src="/word.svg" alt="alt" className={styles.svg}
             /> */}
