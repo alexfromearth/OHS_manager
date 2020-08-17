@@ -51,7 +51,7 @@ class backAPI {
   }
 
   async updateSgnedList( workerId, signedOhsIds ) {
-    const response = await axios.patch(`/api/documents/${workerId}/ohsList`, signedOhsIds);
+    const response = await axios.patch(`/api/documents/${workerId}/ohsList`, {signedOhsIds});
     return {...response.data, status: response.status};
   }
 }

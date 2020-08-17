@@ -87,6 +87,7 @@ const employeeReducer = (state = initialState, action) => {
 
     case actionTypes.UPDATE_COLUMNS: {
       const newState = deepcopy(state);
+      console.log(action.payload.newColumns);
       newState.worker.columns = action.payload.newColumns;
       return newState;
     }
