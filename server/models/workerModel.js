@@ -6,7 +6,9 @@ const workerScheme = new mongoose.Schema({
   generalInfo: Object,
   profInfo: Object,
   medicalExams: [medicalExamScheme],
-  ohsDocs: [ohsDocScheme]
+  ohsDocs: [ohsDocScheme],
+  signedOhsIds: Array,
+  unsignedOhsIds: Array,
 })
 
 export default mongoose.model('Worker', workerScheme);

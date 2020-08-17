@@ -72,15 +72,15 @@ const worker = {
     lastName: 'Верин',
     firstName: 'Василий',
     middleName: 'Николаевич',
-    birth_date: '12.04.1986',
-    birth_place: 'село Крыжовники, дом 7',
-    locationOfHome: 'Москва, Тропаревский лес, 5 дерево',
+    birthDay: '12.04.1986',
+    birthPlace: 'село Крыжовники, дом 7',
+    adress: 'Москва, Тропаревский лес, 5 дерево',
     photo: 'https://img2.freepng.ru/20180523/tha/kisspng-businessperson-computer-icons-avatar-clip-art-lattice-5b0508dc6a3a10.0013931115270566044351.jpg',
   },
   profInfo: {
     education: 'Среднее специальное',
     position: 'Слесарь',
-    experience: '10 лет',
+    workExperience: '10 лет',
   },
 }
 
@@ -114,15 +114,15 @@ export default function Worker() {
       <Typography component="div" variant="body1" className={classes.info}>
         <div className={classes.infoRow}>
           <Box className={classes.inbox} color="text.primary">Дата рождения:</Box>
-          <Box color="info.main">{worker.generalInfo.birth_date}</Box>
+          <Box color="info.main">{worker.generalInfo.birthDay}</Box>
         </div>
         <div className={classes.infoRow}>
           <Box className={classes.inbox} color="text.primary">Место рождения:</Box>
-          <Box color="info.main">{worker.generalInfo.birth_place}</Box>
+          <Box color="info.main">{worker.generalInfo.birthPlace}</Box>
         </div>
         <div className={classes.infoRow}>
           <Box className={classes.inbox} color="text.primary">Место проживания:</Box>
-          <Box color="info.main">{worker.generalInfo.locationOfHome}</Box>
+          <Box color="info.main">{worker.generalInfo.adress}</Box>
         </div>
         <div className={classes.infoRow}>
           <Box className={classes.inbox} color="text.primary">Образование:</Box>
@@ -134,7 +134,7 @@ export default function Worker() {
         </div>
         <div className={classes.infoRow}>
           <Box className={classes.inbox} color="text.primary">Стаж работы:</Box>
-          <Box color="info.main">{worker.profInfo.experience}</Box>
+          <Box color="info.main">{worker.profInfo.workExperience}</Box>
         </div>
       </Typography>
 

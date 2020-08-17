@@ -6,9 +6,9 @@ export function eachWorkerThunk(company_id, worker_id) {
   return async (dispatch) => {
     dispatch(isLoading(true));
     try {
-      dispatch(isLoading(false));
       const resp = await API.eachWorker(company_id, worker_id);
       dispatch(eachWorker(resp));
+      dispatch(isLoading(false));
     } catch (error) {
       dispatch(isLoading(false));
       dispatch(setError(error.message));

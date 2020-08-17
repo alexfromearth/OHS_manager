@@ -10,6 +10,7 @@ import dotenv from "dotenv";
 import authRouter from "./routes/auth.js";
 import workersRouter from "./routes/workers.js"
 import downloadRouter from './routes/download.js'
+import docRouter from './routes/documents.js';
 import multer from "multer";
 import fs from "fs";
 
@@ -85,6 +86,7 @@ app.use('/fileStore', express.static(process.env.PWD + '/fileStore'));
 app.use("/api/auth", authRouter);
 app.use("/api/workers", workersRouter);
 app.use("/api/download", downloadRouter);
+app.use("/api/documents", docRouter);
 
 useErrorHandlers(app);
 

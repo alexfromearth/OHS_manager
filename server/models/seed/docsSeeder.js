@@ -18,19 +18,16 @@ mongoose.connection.on('error', console.error.bind(console, 'Ошибка сое
     metadata: {
       message: "ohsDoc One"
     },
-    isSigned: false
   })
   const ohsDoc2 = new OhsDocsModel({
     metadata: {
       message: "ohsDoc Two"
     },
-    isSigned: true
   })
   const ohsDoc3 = new OhsDocsModel({
     metadata: {
       message: "ohsDoc Three"
     },
-    isSigned: false
   })
 
   // Creating medicalExams
@@ -61,7 +58,9 @@ mongoose.connection.on('error', console.error.bind(console, 'Ошибка сое
       profession: "Plumber"
     },
     medicalExams: [medicalExam1, medicalExam2],
-    ohsDocs: [ohsDoc1]
+    ohsDocs: [ohsDoc2, ohsDoc3],
+    unsignedOhsIds: [ohsDoc2._id, ohsDoc3._id],
+    signedOhsIds: [],
   })
   const worker2 = new workerModel({
     generalInfo: {
@@ -73,7 +72,9 @@ mongoose.connection.on('error', console.error.bind(console, 'Ошибка сое
       profession: "Software developer"
     },
     medicalExams: [medicalExam3],
-    ohsDocs: [ohsDoc2, ohsDoc3]
+    ohsDocs: [ohsDoc1],
+    unsignedOhsIds: [ohsDoc1._id],
+    signedOhsIds: [],
   })
 
   // Creating a company
