@@ -6,10 +6,9 @@ export function deleteWorkerThunk(company_id, worker_id) {
   return async (dispatch) => {
     dispatch(isLoading(true));
     try {
-      dispatch(isLoading(false));
       const resp = await API.deleteWorker(company_id, worker_id);
-      console.log(resp);
       dispatch(deleteWorker());
+      dispatch(isLoading(false));
     } catch (error) {
       dispatch(isLoading(false));
       dispatch(setError(error.message));

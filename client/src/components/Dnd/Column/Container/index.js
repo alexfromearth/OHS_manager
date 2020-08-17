@@ -4,7 +4,7 @@ import styles from './style.module.css';
 
 export default function ({ task, index }) {
   return (
-    <Draggable draggableId={task.id} index={index}>
+    <Draggable draggableId={task._id} index={index}>
       {(provided, snapshot) => {
         const isDragging = snapshot.isDragging;
         return (
@@ -15,7 +15,7 @@ export default function ({ task, index }) {
             ref={provided.innerRef}
             {...isDragging ? { className: styles.dragging } : { className: styles.task }}
           >
-            {task.content}
+            {task.metadata.message}
             {/* <img
               src="/word.svg" alt="alt" className={styles.svg}
             /> */}
