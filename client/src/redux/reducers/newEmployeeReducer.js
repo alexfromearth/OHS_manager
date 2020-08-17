@@ -6,9 +6,12 @@ const initialState = {
     lastName: '',
     middleName: '',
     birthday: '',
+    sex: '',
     birthPlace: '',
     address: '',
     education: '',
+    structuralSubdivision: '',
+    startWorkDate: '',
     position: '',
     workExperience: '',
 }

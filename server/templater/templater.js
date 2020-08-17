@@ -38,14 +38,14 @@ export default function createTemplate(templateOptions, templatePath, FilledFile
     fs.writeFileSync(path.resolve(FilledFilePath + '.docx'), buf);
 }
 
-createTemplate({
-    lastName: 'asdasd',
-    firstName: 'asdasd',
-    middleName: 'asdasd',
-    structuralSubdivision: 'asdasd',
-    position: 'qwe',
-    startWorkDate: '21.23.2012',
-    sex: 'Мужской',
-}, `${process.env.PWD}/docTemplates/workwearСard`, `${process.env.PWD}/docTemplates/workwearСardFilled`);
+// createTemplate({
+//     lastName: 'asdasd',
+//     firstName: 'asdasd',
+//     middleName: 'asdasd',
+//     structuralSubdivision: 'asdasd',
+//     position: 'qwe',
+//     startWorkDate: '21.23.2012',
+//     sex: 'Мужской',
+// }, `${process.env.PWD}/docTemplates/workwearСard`, `${process.env.PWD}/docTemplates/workwearСardFilled`);
 
 

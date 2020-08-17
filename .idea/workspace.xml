@@ -22,9 +22,13 @@
     <list default="true" id="c03e058d-6bf5-4362-b599-b9d37e0d3b7f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Forms/EmployeeForm/MainEmployeeInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Forms/EmployeeForm/MainEmployeeInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/UploadScans/UploadScans.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UploadScans/UploadScans.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/templater/contingentmed.docx" beforeDir="false" afterPath="$PROJECT_DIR$/server/templater/docTemplates/contingentmed.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/templater/errorHandler.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/templater/errorHandler.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Forms/EmployeeForm/ProEmployeeInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Forms/EmployeeForm/ProEmployeeInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Forms/EmployeeForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Forms/EmployeeForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/redux/reducers/newEmployeeReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/reducers/newEmployeeReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/fileStore/5f3926665fca654894751b54/5f3926665fca654894751b4c/Dogovor (2).pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/workers.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/workers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/templater/docTemplates/contingentmed.docx" beforeDir="false" afterPath="$PROJECT_DIR$/server/templater/docTemplates/contingentmed.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/templater/docTemplates/flushingDisinfectants.docx" beforeDir="false" afterPath="$PROJECT_DIR$/server/templater/docTemplates/flushingDisinfectants.docx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/templater/templater.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/templater/templater.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -90,7 +94,8 @@
       <workItem from="1597417804198" duration="3704000" />
       <workItem from="1597425230955" duration="28309000" />
       <workItem from="1597512478922" duration="2343000" />
-      <workItem from="1597565349604" duration="21759000" />
+      <workItem from="1597565349604" duration="24018000" />
+      <workItem from="1597643534815" duration="14286000" />
     </task>
     <servers />
   </component>
@@ -133,21 +138,23 @@
     </state>
     <state x="400" y="1261" width="1022" height="737" key="SettingsEditor/0.1080.1920.1080/72.0.1848.1080@0.1080.1920.1080" timestamp="1597389999791" />
     <state x="457" y="181" width="1022" height="737" key="SettingsEditor/0.1080.1920.1080/72.0.1848.1080@72.0.1848.1080" timestamp="1597307825671" />
-    <state x="72" y="1107" width="1521" height="1036" maximized="true" key="dock-window-1" timestamp="1597573891391">
-      <screen x="72" y="0" width="1848" height="2160" />
+    <state x="72" y="1124" width="1848" height="1036" key="dock-window-1" timestamp="1597655603838">
+      <screen x="0" y="1080" width="1920" height="1080" />
     </state>
+    <state x="72" y="1124" width="1848" height="1036" key="dock-window-1/0.1080.1920.1080/72.0.1848.1080@72.0.1848.1080" timestamp="1597655603838" />
     <state x="72" y="1107" width="1521" height="1036" maximized="true" key="dock-window-1/72.0.1848.2160@72.0.1848.2160" timestamp="1597573891391" />
-    <state x="624" y="490" width="647" height="1354" key="run.anything.popup" timestamp="1597587792878">
-      <screen x="72" y="0" width="1848" height="2160" />
+    <state x="624" y="245" key="run.anything.popup" timestamp="1597655606012">
+      <screen x="72" y="0" width="1848" height="1080" />
     </state>
     <state x="574" y="1325" width="672" height="677" key="run.anything.popup/0.1080.1920.1080/72.0.1848.1080@0.1080.1920.1080" timestamp="1597397556005" />
-    <state x="624" y="245" key="run.anything.popup/0.1080.1920.1080/72.0.1848.1080@72.0.1848.1080" timestamp="1597310128352" />
+    <state x="624" y="245" key="run.anything.popup/0.1080.1920.1080/72.0.1848.1080@72.0.1848.1080" timestamp="1597655606012" />
     <state x="624" y="490" width="647" height="1354" key="run.anything.popup/72.0.1848.2160@72.0.1848.2160" timestamp="1597587792878" />
-    <state x="623" y="478" width="672" height="1356" key="search.everywhere.popup" timestamp="1597573736040">
-      <screen x="72" y="0" width="1848" height="2160" />
+    <state x="623" y="239" width="672" height="678" key="search.everywhere.popup" timestamp="1597651213009">
+      <screen x="72" y="0" width="1848" height="1080" />
     </state>
     <state x="572" y="1319" width="699" height="678" key="search.everywhere.popup/0.1080.1920.1080/72.0.1848.1080@0.1080.1920.1080" timestamp="1597326105918" />
-    <state x="623" y="239" width="672" height="678" key="search.everywhere.popup/0.1080.1920.1080/72.0.1848.1080@72.0.1848.1080" timestamp="1597421749115" />
+    <state x="623" y="239" width="672" height="678" key="search.everywhere.popup/0.1080.1920.1080/72.0.1848.1080@72.0.1848.1080" timestamp="1597651213009" />
     <state x="623" y="478" width="672" height="1356" key="search.everywhere.popup/72.0.1848.2160@72.0.1848.2160" timestamp="1597573736040" />
+    <state x="623" y="260" width="672" height="662" key="search.everywhere.popup/72.27.1848.1053@72.27.1848.1053" timestamp="1597596913120" />
   </component>
 </project>
