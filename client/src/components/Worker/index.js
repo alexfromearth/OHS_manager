@@ -12,6 +12,7 @@ import InsertDriveFileIcon from '@material-ui/icons/InsertDriveFile';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import ArrowBackIosRoundedIcon from '@material-ui/icons/ArrowBackIosRounded';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -64,7 +65,15 @@ const useStyles = makeStyles((theme) => ({
   },
   icon: {
     marginRight: 5
-  }
+  },
+  iconOnBTN: {
+    marginRight: 5
+  },
+  back: {
+    fontSize: 18,
+    position: 'absolute',
+    marginTop: 20,
+  },
 }));
 
 const worker = {
@@ -104,6 +113,10 @@ export default function Worker() {
 
   return (
     <>
+      <Button variant="contained" color="secondary" className={classes.back} onClick={() => history.goBack()}>
+        <ArrowBackIosRoundedIcon fontSize={'large'} className={classes.iconOnBTN} />
+          Назад
+      </Button>
       <div className={classes.head}>
         <Avatar
           src={worker.generalInfo.photo}

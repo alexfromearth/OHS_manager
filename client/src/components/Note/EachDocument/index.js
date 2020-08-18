@@ -1,5 +1,4 @@
 import React from 'react';
-// import fileDownload from 'js-file-download';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import InsertDriveFileRoundedIcon from '@material-ui/icons/InsertDriveFileRounded';
 import CloudDownloadOutlinedIcon from '@material-ui/icons/CloudDownloadOutlined';
@@ -41,7 +40,6 @@ export default function EachDocument({ document, nameOfDocument, size }) {
 
   return (
     <div className={classes.eachDoc}>
-      {/* <ListItem button > */}
       <ListItem >
         <ListItemAvatar>
           <Avatar className={classes.purple}>
