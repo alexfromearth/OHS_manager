@@ -22,7 +22,6 @@ function Documents() {
   
   useEffect(() => {
     if (!showUploadModal) {
-    console.log('i dispatched');
     dispatch(eachWorkerThunk(companyId, id));
     }
   }, [dispatch, companyId, id, showUploadModal])
@@ -36,7 +35,6 @@ function Documents() {
   // console.log(columns)
 
   const onDragEnd = (result) => {
-    console.log('here')
     const { destination, source, draggableId } = result;
 
     if (!destination) {
@@ -56,7 +54,6 @@ function Documents() {
       const newDocIdsSource = [...columnSource.docIds];
       // const newTaskIdsDest = Array.from(columnDest.taskIds);
       const newDocIdsDest = [...columnDest.docIds];
-      console.log(newDocIdsDest);
       // newTaskIdsSource.splice(source.index, 1);
       // newTaskIdsDest.splice(destination.index, 0, draggableId);
       // if (!newDocIdsDest.includes(`${draggableId}-s`)) {
