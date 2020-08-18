@@ -27,7 +27,6 @@ const useStyles = makeStyles({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    marginBottom: 25,
     marginBottom: 30,
   },
   switch: {

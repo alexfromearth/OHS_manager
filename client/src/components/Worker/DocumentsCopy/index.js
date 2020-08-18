@@ -47,7 +47,7 @@ const useStyles = makeStyles({
   listitem: {
     width: '80%',
   },
-  txt:{
+  txt: {
     textAlign: 'right',
     marginRight: 13
   }
@@ -81,19 +81,18 @@ export default function DocumentsCopy() {
       <div className={classes.root}>
         <List component="div" className={classes.list1} >
           {worker.ohsDocs && worker.ohsDocs.map(el => {
-            {
-              if (worker.unsignedOhsIds.includes(el._id))
-                return (
-                    <ListItem button onClick={() => { window.location = el.metadata.downloadPath }} key={el._id} className={classes.listitem}>
-                      <ListItemAvatar>
-                        <Avatar className={classes.purple}>
-                          <InsertDriveFileRoundedIcon />
-                        </Avatar>
-                      </ListItemAvatar>
-                      <ListItemText primary={el.metadata.filename} />
-                      <CloudDownloadOutlinedIcon fontSize={'large'} className={classes.zagr} />
-                    </ListItem>
-                )
+            if (worker.unsignedOhsIds.includes(el._id)) {
+              return (
+                <ListItem button onClick={() => { window.location = el.metadata.downloadPath }} key={el._id} className={classes.listitem}>
+                  <ListItemAvatar>
+                    <Avatar className={classes.purple}>
+                      <InsertDriveFileRoundedIcon />
+                    </Avatar>
+                  </ListItemAvatar>
+                  <ListItemText primary={el.metadata.filename} />
+                  <CloudDownloadOutlinedIcon fontSize={'large'} className={classes.zagr} />
+                </ListItem>
+              )
             }
           })}
         </List>
