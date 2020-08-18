@@ -77,6 +77,18 @@ export default function DocumentsCopy() {
     setShowUploadModal((state) => (!state));
   }
 
+  function switchcase(name) {
+    switch (name) {
+      case 'contingentmedFilled.docx': { return 'Контингенты' }
+      case 'flushingDisinfectantsFilled.docx': { return 'Учет выдачи смывающих средств' }
+      case 'personalTraningCardFilled.docx': { return 'Форма карточки прохождения обучения' }
+      case 'protocolKnowledgeCheckFilled.docx': { return 'Протокол комиссии по проверке знаний' }
+      case 'workwearСardFilled.docx': { return 'Карточка учета выдачи СИЗ' }
+      default:
+        return name
+    }
+  }
+
   return (
     <>
       <div className={classes.root}>
@@ -90,7 +102,7 @@ export default function DocumentsCopy() {
                       <InsertDriveFileRoundedIcon />
                     </Avatar>
                   </ListItemAvatar>
-                  <ListItemText primary={el.metadata.filename} />
+                  <ListItemText primary={switchcase(el.metadata.filename)} />
                   <CloudDownloadOutlinedIcon fontSize={'large'} className={classes.zagr} />
                 </ListItem>
               )
