@@ -3,11 +3,10 @@ import actionTypes from "../actionTypes/actionTypes";
 
 
 const initialState = {
-  companyId: "5f3a722ff960f3561982d247", // !!!!!!
+  companyId: "5f3b9e5e578940434aaaaaa6", // !!!!!!
   companyName: null,
   generalInfo: null,
   secret: null,
-  workers: [], // используется? TODO
   isAuth: true,
   errorMessage: null,
 }

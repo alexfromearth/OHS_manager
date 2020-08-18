@@ -138,7 +138,7 @@ export default function EmployeeForm() {
         {education, position, workExperience, structuralSubdivision, startWorkDate}))
       setTimeout(() => {
         history.push('/employees');
-      }, 3000)
+      }, 3000);
     } else if (isNotEmpty()) {
       setActiveStep(activeStep + 1);
     }

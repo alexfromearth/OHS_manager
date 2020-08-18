@@ -4,8 +4,10 @@ import WorkerModel from '../models/workerModel.js';
 import multer from "multer";
 import {scanStorage} from "../middleware/multer.js";
 import OhsDocModel from "../models/ohsDocModel.js";
+import MedicalDocModel from '../models/medicalExamModel.js'
 import fillTemplates from "../templater/fillTemplates.js";
 import fs from "fs";
+import {medStorage} from "../middleware/multer.js";
 // import {v4} from ('uuid');
 
 const router = express.Router();
@@ -131,11 +133,11 @@ router.post('/:companyId/worker', async (req, res) => {
 
 router.put('/:companyId/worker/:workerId', multer({storage: scanStorage}).single('fileStore[]'),
   async (req, res) => {
-    console.log('//////');
     const {workerId, companyId} = req.params;
-    console.log(workerId, companyId);
-    console.log(req.file);
-    const metadata = {...req.file, downloadPath: `http://localhost:3001/fileStore/${companyId}/${workerId}/${req.file.originalname}`};
+    const metadata = {
+      ...req.file,
+      downloadPath: `http://localhost:3001/fileStore/${companyId}/${workerId}/${req.file.originalname}`
+    };
     try {
       const doc = new OhsDocModel({
         metadata,
@@ -149,5 +151,35 @@ router.put('/:companyId/worker/:workerId', multer({storage: scanStorage}).single
       res.status(401).json({msg: error.message});
     }
   });
+
+router.post('/:companyId/worker/:workerId/med/:medType',
+  multer({storage: medStorage}).array('files', 2),
+  async (req, res) => {
+    console.log(".>>>>>>>>>")
+    const {workerId, companyId, medType} = req.params;
+    console.log(req.files);
+    const {dateofmed} = req.headers;
+    try {
+      const medDoc = new MedicalDocModel({
+        type: medType,
+        passportMetadata: {
+          ...req.files[0],
+          downloadPath: `http://localhost:3001/fileStore/${companyId}/${workerId}/meds/${req.files[0].originalname}`
+        },
+        doctorOpinionMetadata: {
+          ...req.files[1],
+          downloadPath: `http://localhost:3001/fileStore/${companyId}/${workerId}/meds/${req.files[1].originalname}`
+        },
+        createdAt: new Date(dateofmed),
+      });
+      await WorkerModel.findByIdAndUpdate(workerId, {$push: {medicalExams: medDoc}});
+      res.status(200).json({
+        msg: `Medical document for worker ID: ${workerId} successfully been added to fileStorage and database.`
+      });
+    } catch (error) {
+      console.log(error.message);
+      res.status(401).json({msg: error.message});
+    }
+  })
 
 export default router;

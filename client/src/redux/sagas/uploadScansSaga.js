@@ -1,8 +1,7 @@
 import {call, put, takeEvery, takeLatest} from "redux-saga/effects";
 import actionTypes from "../actionTypes/actionTypes";
 import backAPI from '../../api/index';
-import {loadSuccess, setUpload, uploadingFailed} from "../actionCreators/ActionCreators";
-import sleep from "../../utils/sleep";
+import {setUpload, uploadingFailed} from "../actionCreators/ActionCreators";
 
 
 const API = new backAPI();

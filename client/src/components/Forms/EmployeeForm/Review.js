@@ -59,7 +59,7 @@ export default function Review() {
                         disabled
                     />
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={12} sm={6}>
                     <TextField
                         id="date"
                         label="Дата рождения"
@@ -72,6 +72,19 @@ export default function Review() {
                         value={forms.date}
                         onChange={handleChange}
                         disabled
+                    />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                    <TextField
+                      required
+                      id="sex"
+                      name="sex"
+                      label="Пол"
+                      fullWidth
+                      autoComplete="Пол"
+                      value={forms.sex}
+                      onChange={handleChange}
+                      disabled
                     />
                 </Grid>
                 <Grid item xs={12}>
@@ -137,6 +150,35 @@ export default function Review() {
                         value={forms.workExperience}
                         onChange={handleChange}
                         disabled
+                    />
+                </Grid>
+                <Grid item xs={12} >
+                    <TextField
+                      required
+                      id="structuralSubdivision"
+                      name="structuralSubdivision"
+                      label="Структурное подразделение"
+                      fullWidth
+                      autoComplete="structuralSubdivision"
+                      value={forms.structuralSubdivision}
+                      onChange={handleChange}
+                      disabled
+                    />
+                </Grid>
+                <Grid item xs={12} >
+                    <TextField
+                      required
+                      id="startWorkDate"
+                      name="startWorkDate"
+                      label="Дата начала работы"
+                      type="date"
+                      fullWidth
+                      InputLabelProps={{
+                          shrink: true,
+                      }}
+                      value={forms.startWorkDate}
+                      onChange={handleChange}
+                      disabled
                     />
                 </Grid>
             </Grid>

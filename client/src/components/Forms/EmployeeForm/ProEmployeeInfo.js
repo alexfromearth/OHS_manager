@@ -5,6 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import {useDispatch, useSelector} from "react-redux";
 import {setNewEmployeeFormInput} from "../../../redux/actionCreators/ActionCreators";
 import Alert from "@material-ui/lab/Alert";
+import MenuItem from "@material-ui/core/MenuItem";
 
 export default function ProEmployeeIngo() {
     const forms = useSelector(state => state.forms);
@@ -16,6 +17,12 @@ export default function ProEmployeeIngo() {
         dispatch(setNewEmployeeFormInput(name, e.target.value))
     }
 
+  const currencies = [
+    {value: 'Высшее Магистратура'},
+    {value: 'Высшее Бакалавриат'},
+    {value: 'Среднее специальное'},
+    {value: 'Среднее'},
+  ]
 
     return (
         <React.Fragment>
@@ -25,16 +32,23 @@ export default function ProEmployeeIngo() {
             </Typography>
             <Grid container spacing={3}>
                 <Grid item xs={12}>
-                    <TextField
-                        required
-                        id="education"
-                        name="education"
-                        label="Образование"
-                        fullWidth
-                        autoComplete="education"
-                        value={forms.education}
-                        onChange={handleChange}
-                    />
+                  <TextField
+                    id="education"
+                    select
+                    label="Образование"
+                    name="education"
+                    autoComplete="Образование"
+                    value={forms.education}
+                    fullWidth
+                    onChange={handleChange}
+                    helperText="Пожалуйста выберите свой уровень образования"
+                  >
+                    {currencies.map((option) => (
+                      <MenuItem key={option.value} value={option.value} >
+                        {option.value}
+                      </MenuItem>
+                    ))}
+                  </TextField>
                 </Grid>
             </Grid>
             <Grid container spacing={3}>

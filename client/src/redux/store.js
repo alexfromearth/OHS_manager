@@ -9,6 +9,7 @@ import newEmployeeReducer from "./reducers/newEmployeeReducer";
 import employeeReducer from "./reducers/empolyeeReduser.js";
 import SubmitFormsWatcher from "./sagas/SubmitFormsSaga";
 import UploadScansWatcher from "./sagas/uploadScansSaga";
+import UploadMedicWatcher from "./sagas/uploadMedic";
 
 const sagaMiddlewear = reduxSaga()
 
@@ -26,7 +27,8 @@ sagaMiddlewear.run(
     yield all([
       LoginSaga(),
       SubmitFormsWatcher(),
-      UploadScansWatcher()
+      UploadScansWatcher(),
+      UploadMedicWatcher(),
     ])
   })
 
