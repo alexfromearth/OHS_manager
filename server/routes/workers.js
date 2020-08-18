@@ -155,10 +155,14 @@ router.put('/:companyId/worker/:workerId', multer({storage: scanStorage}).single
 router.post('/:companyId/worker/:workerId/med/:medType',
   multer({storage: medStorage}).array('files', 2),
   async (req, res) => {
-    console.log(".>>>>>>>>>")
     const {workerId, companyId, medType} = req.params;
-    console.log(req.files);
-    const {dateofmed} = req.headers;
+
+    const {dateofmed, isalreadyexist} = req.headers;
+    if (isalreadyexist) {
+      return res.status(200).json({
+        msg: `Medical document for worker ID: ${workerId} has the same name then previous one`
+      });
+    }
     try {
       const medDoc = new MedicalDocModel({
         type: medType,
