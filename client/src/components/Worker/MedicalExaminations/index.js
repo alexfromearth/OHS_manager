@@ -112,7 +112,7 @@ function MedicalExaminations() {
 
   return (
     <>
-      <Button variant="contained" color="secondary" className={classes.back} onClick={() => history.goBack()}>
+      <Button variant="contained" color="secondary" className={classes.back} onClick={() => history.push(`/employee/${id}/`)}>
         <ArrowBackIosRoundedIcon fontSize={'large'} className={classes.iconOnBTN}/>
         Назад
       </Button>

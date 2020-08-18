@@ -114,7 +114,7 @@ export default function Worker() {
 
   return (
     <>
-      <Button variant="contained" color="secondary" className={classes.back} onClick={() => history.goBack()}>
+      <Button variant="contained" color="secondary" className={classes.back} onClick={() => history.push(`/employees/`)}>
         <ArrowBackIosRoundedIcon fontSize={'large'} className={classes.iconOnBTN} />
           Назад
       </Button>

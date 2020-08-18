@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import DocumentsCopy from "../DocumentsCopy"
 import Documents from "../Documents/Documents"
 
@@ -51,6 +51,7 @@ const useStyles = makeStyles({
 
 
 export default function SwitchOfTheme() {
+  const { id } = useParams();
   const history = useHistory()
   const classes = useStyles();
   const [state, setState] = useState(false);
@@ -76,7 +77,7 @@ export default function SwitchOfTheme() {
         </Typography>
       </FormControl>
 
-      <Button variant="contained" color="secondary" className={classes.back} onClick={() => history.goBack()}>
+      <Button variant="contained" color="secondary" className={classes.back} onClick={() => history.push(`/employee/${id}/`)}>
         <ArrowBackIosRoundedIcon fontSize={'large'} className={classes.iconOnBTN} />
           Назад
       </Button>

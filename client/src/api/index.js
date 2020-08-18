@@ -22,10 +22,6 @@ class backAPI {
   }
 
 //workers
-  async logout() {
-    const response = await axios.delete('/api/auth/login');
-    return {status: response.status}
-  }
 
   async addWorker(companyId, generalInfo, profInfo) {
     const response = await axios.post(`/api/workers/${companyId}/worker`, {
