@@ -79,6 +79,7 @@ mongoose.connection.on('error', console.error.bind(console, 'Ошибка сое
 
   // Creating a company
   const company = new CompanyModel({
+    companyEmail: 'croc@croc.io',
     companyName: 'КРОК',
     companyType: 'АО',
     city: 'Москва',
@@ -96,7 +97,28 @@ mongoose.connection.on('error', console.error.bind(console, 'Ошибка сое
       INN: '3664069397',
       tel: '79271669'
     },
-    fireSecret: await bcrypt.hash('fireSecret', 10),
+    fireSecret: await bcrypt.hash('croc', 10),
+    toDoList: {
+      todos: {
+        'todo1': {id: 'todo1', content: 'todo1 content'},
+        'todo2': {id: 'todo2', content: 'todo2 content'},
+        'todo3': {id: 'todo3', content: 'todo3 content'},
+        'todo4': {id: 'todo4', content: 'todo4 content'},
+      },
+      columns: {
+        'column1': {
+          id: 'column1',
+          title: 'column 1',
+          todosIds: ['todo1', 'todo2']
+        },
+        'column2': {
+          id: 'column2',
+          title: 'column 2',
+          todosIds: ['todo3', 'todo4']
+        },
+      },
+      columnOrder: ['column1', 'column2'],
+    },
     workers: [worker1._id, worker2._id]
   })
 

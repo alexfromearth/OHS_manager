@@ -3,8 +3,12 @@ import { Avatar, Button, CssBaseline, TextField, Typography, Container } from '@
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import { makeStyles } from '@material-ui/core/styles';
 import { useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { loginSC } from "../../redux/actionCreators/ActionCreators";
+import Alert from "@material-ui/lab/Alert";
+import { setError } from "../../redux/actionCreators/ActionCreators.js";
+
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -31,12 +35,17 @@ function LoginPage() {
   const classes = useStyles();
   const dispatch = useDispatch();
   const history = useHistory();
+  const errorMessage = useSelector(state => state.auth.errorMessage);
 
   function handleSubmit(e) {
     e.preventDefault();
     const { companyEmail, password } = e.target;
-    dispatch(loginSC(companyEmail.value, password.value))
-    history.push('/');
+    if (companyEmail.value === '' || password.value === '') {
+      dispatch(setError('Пожалуйста, заполните все поля'))
+    } else {
+      dispatch(loginSC({ companyEmail: companyEmail.value, password: password.value }))
+      history.push('/');
+    }
   }
 
   return (
@@ -49,6 +58,7 @@ function LoginPage() {
         <Typography component="h1" variant="h5">
           Sign in
                 </Typography>
+        {errorMessage && <Alert severity="error">{errorMessage}</Alert>}
         <form className={classes.form} noValidate onSubmit={handleSubmit}>
           <TextField
             variant="outlined"

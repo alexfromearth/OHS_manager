@@ -13,9 +13,7 @@ import EmployeeForm from "../Forms/EmployeeForm";
 import LoginPage from "../LoginPage";
 import Employees from "../Employees";
 import PrivateRoute from "../PrevateRoute";
-// dnd
 import Dnd from '../Dnd';
-//
 import Worker from '../Worker';
 import Timetable from '../Timetable'
 import Company from '../Company';
@@ -25,6 +23,7 @@ import portalStyles from '../ModalPortal/styles.module.sass'
 import UploadScans from "../UploadScans/UploadScans";
 import Documents from "../Worker/Documents/Documents";
 import DocumentsCopy from "../Worker/DocumentsCopy";
+import ToDoList from '../ToDoList';
 import Note from '../Note';
 import SwitchOfTheme from '../Worker/SwitchOfTheme';
 
