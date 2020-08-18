@@ -63,6 +63,9 @@ function MedicalDocsModal({worker, handleClick}) {
   return (
     <div className={styles.modalUploadWrapper}>
       <Typography variant="h6">Загрузка медицинских документов работника</Typography>
+      <div className={styles.requirements}>
+        <strong>Сначала</strong> загрузите паспорт сотрудника, <br/><strong>а потом</strong> заключение.
+      </div>
       <TextField
         required
         id="type"
@@ -73,6 +76,7 @@ function MedicalDocsModal({worker, handleClick}) {
         onChange={handleChange}
         className={styles.textField}
       />
+
       <TextField
         id="date"
         label="Дата прохождения мед.осмотра"
@@ -95,7 +99,7 @@ function MedicalDocsModal({worker, handleClick}) {
           className={styles.upload}
           type="primary"
           onClick={handleUpload}
-          disabled={fileList.length === 0}
+          disabled={fileList.length < 2}
           loading={uploadingScans}
         >
           {uploadingScans ? 'Загрузка' : 'Начать загрузку'}

@@ -21,26 +21,20 @@
   <component name="ChangeListManager">
     <list default="true" id="c03e058d-6bf5-4362-b599-b9d37e0d3b7f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/api/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/api/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Forms/EmployeeForm/MainEmployeeInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Forms/EmployeeForm/MainEmployeeInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Forms/EmployeeForm/ProEmployeeInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Forms/EmployeeForm/ProEmployeeInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Forms/EmployeeForm/Review.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Forms/EmployeeForm/Review.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Forms/EmployeeForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Forms/EmployeeForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ModalPortal/styles.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ModalPortal/styles.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/UploadScans/UploadScans.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UploadScans/UploadScans.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Worker/MedicalExaminations/MedicalDocsModal/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Worker/MedicalExaminations/MedicalDocsModal/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Worker/MedicalExaminations/MedicalDocsModal/styles.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Worker/MedicalExaminations/MedicalDocsModal/styles.module.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Worker/MedicalExaminations/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Worker/MedicalExaminations/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Worker/MedicalExaminations/styles.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Worker/MedicalExaminations/styles.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/redux/actionCreators/ActionCreators.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/actionCreators/ActionCreators.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/redux/actionTypes/actionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/actionTypes/actionTypes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/redux/reducers/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/reducers/reducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/redux/sagas/uploadScansSaga.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/sagas/uploadScansSaga.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/fileStore/5f37b9569811207dd01e0de4/5f3a8938ddb334c64691986e/contingentmedFilled (2).docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/fileStore/5f37b9569811207dd01e0de4/5f3a8938ddb334c64691986e/contingentmedFilled.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/fileStore/5f37b9569811207dd01e0de4/5f3a8938ddb334c64691986e/flushingDisinfectantsFilled.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/fileStore/5f37b9569811207dd01e0de4/5f3a8938ddb334c64691986e/lk.all.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/fileStore/5f37b9569811207dd01e0de4/5f3a8938ddb334c64691986e/personalTraningCardFilled.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/fileStore/5f37b9569811207dd01e0de4/5f3a8938ddb334c64691986e/protocolKnowledgeCheckFilled.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/fileStore/5f37b9569811207dd01e0de4/5f3a8938ddb334c64691986e/workwearСardFilled.docx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server/middleware/multer.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/middleware/multer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/models/medicalExamModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/medicalExamModel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/routes/workers.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/workers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/templater/fillTemplates.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/templater/fillTemplates.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +101,7 @@
       <workItem from="1597512478922" duration="2343000" />
       <workItem from="1597565349604" duration="24018000" />
       <workItem from="1597643534815" duration="35343000" />
-      <workItem from="1597729692955" duration="17147000" />
+      <workItem from="1597729692955" duration="23689000" />
     </task>
     <servers />
   </component>
