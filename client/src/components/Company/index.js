@@ -50,18 +50,23 @@ export default function Company() {
   const classes = useStyles()
   // const companyName = useSelector(state => state.auth.companyName)
   // const generalInfo = useSelector(state => state.auth.generalInfo)
-  const companyName = 'КРОК'
-  const generalInfo = {
-    site: 'https://www.croc.ru/',
-    year: 1956,
-    legal_address: 'Москва, Ленинский 17',
-    actual_address: 'Москва, Вавилова 1',
-    type: 'ООО',
-    countOfStaff: 26,
-    OGRN: '1053600591197',
-    BIK: '044540132',
-    INN: '3664069397',
-    tel: '79271669'
+  const company = {
+    companyName: 'КРОК',
+    companyType: 'ООО',
+    city: 'Москва',
+    director: 'Безобразов Григорий Андреевич',
+    generalInfo: {
+      site: 'https://www.croc.ru/',
+      year: 1956,
+      legal_address: 'Москва, Ленинский 17',
+      actual_address: 'Москва, Вавилова 1',
+      countOfStaff: 26,
+      OGRN: '1053600591197',
+      BIK: '044540132',
+      INN: '3664069397',
+      tel: '79271669'
+    },
+
   }
 
   return (
@@ -72,37 +77,41 @@ export default function Company() {
           src={`https://pm.expert/upload/iblock/27d/27d63a847f1d21f2c0f1a07e42ddff52.png`} //TODO
           className={classes.large}
         />
-        <a href={generalInfo.site} className={classes.a}>
-          <Box color="info.main">{companyName}</Box>
+        <a href={company.generalInfo.site} className={classes.a}>
+          <Box color="info.main">{company.companyType} {company.companyName}</Box>
         </a>
       </div>
 
       <Typography component="div" variant="body1" className={classes.info}>
         <div className={classes.infoRow}>
           <Box className={classes.inbox} color="text.primary">Дата основания:</Box>
-          <Box color="info.main">{generalInfo.year}</Box>
+          <Box color="info.main">{company.generalInfo.year}</Box>
+        </div>
+        <div className={classes.infoRow}>
+          <Box className={classes.inbox} color="text.primary">Город:</Box>
+          <Box color="info.main">{company.city}</Box>
         </div>
         <div className={classes.infoRow}>
           <Box className={classes.inbox} color="text.primary">Юридический адрес:</Box>
-          <Box color="info.main">{generalInfo.legal_address}</Box>
+          <Box color="info.main">{company.generalInfo.legal_address}</Box>
         </div>
         <div className={classes.infoRow}>
           <Box className={classes.inbox} color="text.primary">Фактический адрес:</Box>
-          <Box color="info.main">{generalInfo.actual_address}</Box>
+          <Box color="info.main">{company.generalInfo.actual_address}</Box>
         </div>
         <div className={classes.infoRow}>
-          <Box className={classes.inbox} color="text.primary">Тип компании:</Box>
-          <Box color="info.main">{generalInfo.type}</Box>
+          <Box className={classes.inbox} color="text.primary">Директор:</Box>
+          <Box color="info.main">{company.director}</Box>
         </div>
         <div className={classes.infoRow}>
           <Box className={classes.inbox} color="text.primary">Количество сотрудников:</Box>
-          <Box color="info.main">{generalInfo.countOfStaff}</Box>
+          <Box color="info.main">{company.generalInfo.countOfStaff}</Box>
         </div>
         <br></br>
         <div className={classes.infoRow}>
           <Box className={classes.inbox} color="text.primary">ОГРН:</Box>
-          <Box color="info.main">{generalInfo.OGRN}</Box>
-          <CopyToClipboard text={generalInfo.OGRN} >
+          <Box color="info.main">{company.generalInfo.OGRN}</Box>
+          <CopyToClipboard text={company.generalInfo.OGRN} >
             <Button className={classes.btn}>
               <FileCopyOutlinedIcon />
             </Button>
@@ -110,8 +119,8 @@ export default function Company() {
         </div>
         <div className={classes.infoRow}>
           <Box className={classes.inbox} color="text.primary">БИК:</Box>
-          <Box color="info.main">{generalInfo.BIK}</Box>
-          <CopyToClipboard text={generalInfo.BIK} >
+          <Box color="info.main">{company.generalInfo.BIK}</Box>
+          <CopyToClipboard text={company.generalInfo.BIK} >
             <Button className={classes.btn}>
               <FileCopyOutlinedIcon />
             </Button>
@@ -120,8 +129,8 @@ export default function Company() {
         </div>
         <div className={classes.infoRow}>
           <Box className={classes.inbox} color="text.primary">ИНН:</Box>
-          <Box color="info.main">{generalInfo.INN}</Box>
-          <CopyToClipboard text={generalInfo.INN} >
+          <Box color="info.main">{company.generalInfo.INN}</Box>
+          <CopyToClipboard text={company.generalInfo.INN} >
             <Button className={classes.btn}>
               <FileCopyOutlinedIcon />
             </Button>
@@ -129,8 +138,8 @@ export default function Company() {
         </div>
         <div className={classes.infoRow}>
           <Box className={classes.inbox} color="text.primary">Телефон:</Box>
-          <Box color="info.main">{generalInfo.tel}</Box>
-          <CopyToClipboard text={generalInfo.tel} >
+          <Box color="info.main">{company.generalInfo.tel}</Box>
+          <CopyToClipboard text={company.generalInfo.tel} >
             <Button className={classes.btn}>
               <FileCopyOutlinedIcon />
             </Button>

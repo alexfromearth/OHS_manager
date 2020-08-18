@@ -15,22 +15,6 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
-  switch: {
-    position: 'absolute',
-    right: 50,
-    marginTop: 20,
-  },
-  label: {
-    fontSize: 20,
-    color: 'rgb(64, 86, 181)',
-  },
-  grid: {
-    fontSize: 20,
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
   iconOnBTN: {
     marginRight: 5
   },
@@ -43,16 +27,33 @@ const useStyles = makeStyles({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 25
-  }
+    marginBottom: 30,
+  },
+  switch: {
+    position: 'absolute',
+    right: '10vw',
+    marginTop: 20,
+  },
+  label: {
+    fontSize: 20,
+    color: 'rgb(64, 86, 181)',
+    textAlign: 'center',
+    marginBottom: 3,
+  },
+  grid: {
+    fontSize: 20,
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
 });
 
 
 export default function SwitchOfTheme() {
   const history = useHistory()
   const classes = useStyles();
-  const [state, setState] = useState(true);
+  const [state, setState] = useState(false);
 
   const handleChange = () => {
     setState((state) => !state);
@@ -61,16 +62,16 @@ export default function SwitchOfTheme() {
   return (
     <>
       <FormControl className={classes.switch}>
-        <FormLabel className={classes.label}>Выбор темы в зависимости от компа</FormLabel>
+        <FormLabel className={classes.label}>Выбор темы</FormLabel>
         <Typography component="div" >
-          <Grid component="label" container alignItems="center" spacing={1} className={classes.grid}>
+          <Grid component="label" container alignItems="center" spacing={4} className={classes.grid}>
             <Grid item >Для слабых</Grid>
             <Grid>
               <FormControlLabel
-                control={<Switch color='primary' checked={state.gilad} onChange={handleChange} name="gilad" />}
+                control={<Switch color='primary' checked={state} onChange={handleChange} />}
               />
             </Grid>
-            <Grid item>Для сильных</Grid>
+            <Grid >Для сильных</Grid>
           </Grid>
         </Typography>
       </FormControl>
@@ -87,8 +88,8 @@ export default function SwitchOfTheme() {
       </div>
 
       {state
-        ? <DocumentsCopy />
-        : <Documents />
+        ? <Documents />
+        : <DocumentsCopy />
       }
     </>
   )

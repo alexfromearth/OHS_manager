@@ -5,9 +5,22 @@ import CloudDownloadOutlinedIcon from '@material-ui/icons/CloudDownloadOutlined'
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import InsertDriveFileRoundedIcon from '@material-ui/icons/InsertDriveFileRounded';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
 
+const useStyles = makeStyles(() =>
+  createStyles({
+    purple: {
+      backgroundColor: 'rgb(64, 86, 181)',
+    },
+    zagr: {
+      color: 'rgb(64, 86, 181)',
+      height: '100%'
+    },
+  }),
+);
 
 export default function ({ task, index }) {
+  const classes = useStyles();
   return (
     <Draggable draggableId={task._id} index={index}>
       {(provided, snapshot) => {
@@ -22,7 +35,7 @@ export default function ({ task, index }) {
             <div className={styles.filename}>
               {/* <img src="/file.png" alt="" className={styles.img} /> */}
               <ListItemAvatar>
-                <Avatar>
+                <Avatar className={classes.purple}>
                   <InsertDriveFileRoundedIcon />
                 </Avatar >
               </ListItemAvatar>
@@ -30,7 +43,7 @@ export default function ({ task, index }) {
             </div>
             <div className={styles.button}>
               <a href={task.metadata.downloadPath}>
-                <CloudDownloadOutlinedIcon />
+                <CloudDownloadOutlinedIcon className={classes.zagr} fontSize={'large'}/>
               </a>
             </div>
           </div>
