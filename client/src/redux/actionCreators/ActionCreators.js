@@ -7,6 +7,7 @@ export const setAuthUser = (_id, companyName, generalInfo, secret) => ({
   payload: {_id, companyName, generalInfo, secret}
 });
 export const setError = (message) => ({type: actionTypes.SET_VALIDATION_ERROR, payload: {message}});
+export const logout = () => ({ type: actionTypes.LOGOUT_SUCCESSFUL });
 // upload
 export const beforeUpload = (file) => ({type: actionTypes.BEFORE_UPLOAD, payload: {file}});
 export const scanRemove = (file) => ({type: actionTypes.ON_SCAN_REMOVE, payload: {file}});
@@ -30,19 +31,21 @@ export const submitFormInputSC = (companyId, generalInfo, profInfo) => ({
   type: actionTypes.SUBMIT_NEWEMPLOYEE_FORM,
   payload: {companyId, generalInfo, profInfo},
 })
-export const uploadScansSC = (formData, companyId, workerId) => ({
-  type: actionTypes.UPLOADS_SCANS_SC,
-  payload: {formData, companyId, workerId}
-});
+
+export const uploadScansSC = (formData, companyId, workerId) => ({type: actionTypes.UPLOADS_SCANS_SC,
+  payload: {formData, companyId, workerId}});
 
 export const uploadMedsSC = (formData, dateOf, type, companyId, workerId) => ({
   type: actionTypes.UPLOADS_MEDS_SC,
   payload: {formData, dateOf, type, companyId, workerId},
 })
 
-export const allStaff = (list) => ({type: actionTypes.ALL_EMPLOYEES, payload: {list}});
-
-export const eachWorker = (worker) => ({type: actionTypes.EACH_WORKER, payload: {worker}});
-
-export const deleteWorker = () => ({type: actionTypes.DELETE_WORKER});
-
+export const logoutSC = () => ({type: actionTypes.LOGOUT})
+  
+  export const allStaff = (list) => ({ type: actionTypes.ALL_EMPLOYEES, payload: { list } });
+  
+  export const eachWorker = (worker) => ({ type: actionTypes.EACH_WORKER, payload: { worker } });
+  
+  export const deleteWorker = () => ({ type: actionTypes.DELETE_WORKER });
+  
+  

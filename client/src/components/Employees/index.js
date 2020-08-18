@@ -65,7 +65,7 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 350,
     textAlign: "left",
   },
-  icon:{
+  icon: {
     marginRight: 5
   }
 }));
@@ -93,12 +93,12 @@ export default function Employees() {
         <Button variant="contained" color="primary"
           className={classes.btns}
           onClick={() => history.push('/employee/new')}>
-          <AddIcon className={classes.icon}/>
+          <AddIcon className={classes.icon} />
           Добавить работника
         </Button>
         <h1>Cотрудники</h1>
         <Button variant="contained" color="primary" className={classes.btns}>
-          <FilterListIcon className={classes.icon}/>
+          <FilterListIcon className={classes.icon} />
           Фильтр
         </Button>
       </div>
