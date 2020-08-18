@@ -33,6 +33,7 @@ const useStyles = makeStyles({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-end',
+    alignSelf: 'start'
   },
   purple: {
     backgroundColor: 'rgb(64, 86, 181)',

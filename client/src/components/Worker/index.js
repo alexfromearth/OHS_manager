@@ -40,14 +40,12 @@ const useStyles = makeStyles((theme) => ({
     marginRight: 50
   },
   info: {
-    // marginLeft: '35%',
-    marginTop: '10%',
-    marginBottom: '10%',
+    marginTop: '5%',
+    marginBottom: '5%',
     fontSize: 30,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    // justifyContent: 'center',
   },
   infoRow: {
     display: 'flex',
@@ -58,7 +56,6 @@ const useStyles = makeStyles((theme) => ({
   },
   head: {
     justifyContent: 'center',
-    // marginLeft: '33%',
     display: 'flex',
     flexDirection: 'row',
     alignItem: 'center'
@@ -75,31 +72,33 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 20,
   },
 }));
-
-const worker = {
-  generalInfo: {
-    lastName: 'Верин',
-    firstName: 'Василий',
-    middleName: 'Николаевич',
-    birthDay: '12.04.1986',
-    birthPlace: 'село Крыжовники, дом 7',
-    adress: 'Москва, Тропаревский лес, 5 дерево',
-    photo: 'https://img2.freepng.ru/20180523/tha/kisspng-businessperson-computer-icons-avatar-clip-art-lattice-5b0508dc6a3a10.0013931115270566044351.jpg',
-  },
-  profInfo: {
-    education: 'Среднее специальное',
-    position: 'Слесарь',
-    workExperience: '10 лет',
-  },
-}
+const photo = 'https://img2.freepng.ru/20180523/tha/kisspng-businessperson-computer-icons-avatar-clip-art-lattice-5b0508dc6a3a10.0013931115270566044351.jpg'
+// const worker2 = {
+//   generalInfo: {
+//     lastName: 'Верин',
+//     firstName: 'Василий',
+//     middleName: 'Николаевич',
+//     birthday: '12.04.1986',
+//     birthPlace: 'село Крыжовники, дом 7',
+//     address: 'Москва, Тропаревский лес, 5 дерево',
+//     photo: 'https://img2.freepng.ru/20180523/tha/kisspng-businessperson-computer-icons-avatar-clip-art-lattice-5b0508dc6a3a10.0013931115270566044351.jpg',
+//     sex: 'мужской',
+//   },
+//   profInfo: {
+//     education: 'Среднее специальное',
+//     position: 'Слесарь',
+//     workExperience: '10 лет',
+//     structuralSubdivision: 'схо',
+//     startWorkDate: '12.12.2016'
+//   },
+// }
 
 export default function Worker() {
   const history = useHistory();
   const dispatch = useDispatch();
   const { id } = useParams();
   const companyId = useSelector(state => state.auth.companyId);
-  // const worker = useSelector(state => state.allStaff.worker) //когда будет логинизация, через redux
-
+  const worker = useSelector(state => state.allStaff.worker) //когда будет логинизация, через redux
   const classes = useStyles();
 
   useEffect(() => {
@@ -111,6 +110,8 @@ export default function Worker() {
     history.push('/employees');
   }
 
+  console.log(worker);
+
   return (
     <>
       <Button variant="contained" color="secondary" className={classes.back} onClick={() => history.goBack()}>
@@ -119,38 +120,47 @@ export default function Worker() {
       </Button>
       <div className={classes.head}>
         <Avatar
-          src={worker.generalInfo.photo}
+          src={photo}
           className={classes.large}
         />
-        <h1>{worker && (worker.generalInfo.lastName + ' ' + worker.generalInfo.firstName + ' ' + worker.generalInfo.middleName)}</h1>
+        <h1>{worker.generalInfo && (worker.generalInfo.lastName + ' ' + worker.generalInfo.firstName + ' ' + worker.generalInfo.middleName)}</h1>
       </div>
-      <Typography component="div" variant="body1" className={classes.info}>
-        <div className={classes.infoRow}>
-          <Box className={classes.inbox} color="text.primary">Дата рождения:</Box>
-          <Box color="info.main">{worker.generalInfo.birthDay}</Box>
-        </div>
-        <div className={classes.infoRow}>
-          <Box className={classes.inbox} color="text.primary">Место рождения:</Box>
-          <Box color="info.main">{worker.generalInfo.birthPlace}</Box>
-        </div>
-        <div className={classes.infoRow}>
-          <Box className={classes.inbox} color="text.primary">Место проживания:</Box>
-          <Box color="info.main">{worker.generalInfo.adress}</Box>
-        </div>
-        <div className={classes.infoRow}>
-          <Box className={classes.inbox} color="text.primary">Образование:</Box>
-          <Box color="info.main">{worker.profInfo.education}</Box>
-        </div>
-        <div className={classes.infoRow}>
-          <Box className={classes.inbox} color="text.primary">Должность:</Box>
-          <Box color="info.main">{worker.profInfo.position}</Box>
-        </div>
-        <div className={classes.infoRow}>
-          <Box className={classes.inbox} color="text.primary">Стаж работы:</Box>
-          <Box color="info.main">{worker.profInfo.workExperience}</Box>
-        </div>
-      </Typography>
-
+      {worker.generalInfo &&
+        <Typography component="div" variant="body1" className={classes.info}>
+          <div className={classes.infoRow}>
+            <Box className={classes.inbox} color="text.primary">Дата рождения:</Box>
+            <Box color="info.main">{worker.generalInfo.birthday}</Box>
+          </div>
+          <div className={classes.infoRow}>
+            <Box className={classes.inbox} color="text.primary">Место рождения:</Box>
+            <Box color="info.main">{worker.generalInfo.birthPlace}</Box>
+          </div>
+          <div className={classes.infoRow}>
+            <Box className={classes.inbox} color="text.primary">Место проживания:</Box>
+            <Box color="info.main">{worker.generalInfo.address}</Box>
+          </div>
+          <div className={classes.infoRow}>
+            <Box className={classes.inbox} color="text.primary">Образование:</Box>
+            <Box color="info.main">{worker.profInfo.education}</Box>
+          </div>
+          <div className={classes.infoRow}>
+            <Box className={classes.inbox} color="text.primary">Должность:</Box>
+            <Box color="info.main">{worker.profInfo.position}</Box>
+          </div>
+          <div className={classes.infoRow}>
+            <Box className={classes.inbox} color="text.primary">Стаж работы:</Box>
+            <Box color="info.main">{worker.profInfo.workExperience}</Box>
+          </div>
+          <div className={classes.infoRow}>
+            <Box className={classes.inbox} color="text.primary">Структурное подразделение</Box>
+            <Box color="info.main">{worker.profInfo.structuralSubdivision}</Box>
+          </div>
+          <div className={classes.infoRow}>
+            <Box className={classes.inbox} color="text.primary">Дата начала работы:</Box>
+            <Box color="info.main">{worker.profInfo.startWorkDate}</Box>
+          </div>
+        </Typography>
+      }
       <div className={classes.root}>
         <Button className={classes.btn} variant="contained" color="primary" onClick={() => history.push(`/employee/${id}/medicInfo`)} >
           <LocalHospitalIcon className={classes.icon} /> Медицинский осмотр
