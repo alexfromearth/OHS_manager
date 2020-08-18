@@ -7,7 +7,8 @@ import GroupIcon from '@material-ui/icons/Group';
 import ListAltIcon from '@material-ui/icons/ListAlt';
 import EventNoteIcon from '@material-ui/icons/EventNote';
 import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
-
+import { useDispatch } from 'react-redux'
+import { logoutSC } from '../../redux/actionCreators/ActionCreators.js';
 const useStyles = makeStyles((theme) => ({
   link: {
     textDecoration: "none",
@@ -17,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
 
 const MainListItems = () => {
   const classes = useStyles();
-
+  const dispatch = useDispatch();
   return (
     <div>
       <Link to="/company" className={classes.link}>
@@ -52,8 +53,8 @@ const MainListItems = () => {
           <ListItemText primary="Памятка" />
         </ListItem>
       </Link>
-      <Link to="/выход" className={classes.link}>
-        <ListItem button>
+      <Link to="/" className={classes.link}>
+        <ListItem onClick={() => dispatch(logoutSC())} button>
           <ListItemIcon>
             <MeetingRoomIcon />
           </ListItemIcon>

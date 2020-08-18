@@ -6,6 +6,7 @@ export const setAuthUser = (_id, companyName, generalInfo, secret) => ({
   type: actionTypes.AUTENTICATED_SUCCESSFUL,
   payload: { _id, companyName, generalInfo, secret }
 });
+export const logout = () => ({ type: actionTypes.LOGOUT_SUCCESSFUL });
 export const setError = (message) => ({ type: actionTypes.SET_VALIDATION_ERROR, payload: { message } });
 // upload
 export const beforeUpload = (file) => ({ type: actionTypes.BEFORE_UPLOAD, payload: {file}});
@@ -32,6 +33,8 @@ export const submitFormInputSC = (companyId, generalInfo, profInfo) => ({
 })
 export const uploadScansSC = (formData, companyId, workerId) => ({type: actionTypes.UPLOADS_SCANS_SC,
   payload: {formData, companyId, workerId}});
+
+export const logoutSC = () => ({type: actionTypes.LOGOUT})
   
   export const allStaff = (list) => ({ type: actionTypes.ALL_EMPLOYEES, payload: { list } });
   
