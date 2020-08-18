@@ -24,4 +24,5 @@ export default {
   UPDATE_COLUMNS: "UPDATE_COLUMNS",
   // upload saga
   UPLOADS_SCANS_SC: "UPLOADS_SCANS_SC",
+  UPLOADS_MEDS_SC: "UPLOADS_MEDS_SC",
 }

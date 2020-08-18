@@ -5,6 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import {useDispatch, useSelector} from "react-redux";
 import {setNewEmployeeFormInput} from "../../../redux/actionCreators/ActionCreators";
 import Alert from "@material-ui/lab/Alert";
+import MenuItem from "@material-ui/core/MenuItem";
 
 export default function MainEmployeeInfo() {
   const forms = useSelector(state => state.forms);
@@ -15,6 +16,11 @@ export default function MainEmployeeInfo() {
     const name = e.target.name;
     dispatch(setNewEmployeeFormInput(name, e.target.value))
   }
+
+  const currencies = [
+    {value: 'Мужской'},
+    {value: 'Женский'},
+  ]
 
 
   return (
@@ -78,15 +84,22 @@ export default function MainEmployeeInfo() {
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
-            required
             id="sex"
-            name="sex"
+            select
             label="Пол"
-            fullWidth
+            name="sex"
             autoComplete="Пол"
             value={forms.sex}
+            fullWidth
             onChange={handleChange}
-          />
+            helperText="Пожалуйста выберите свой пол"
+          >
+            {currencies.map((option) => (
+              <MenuItem key={option.value} value={option.value} >
+                {option.value}
+              </MenuItem>
+            ))}
+          </TextField>
         </Grid>
         <Grid item xs={12}>
           <TextField

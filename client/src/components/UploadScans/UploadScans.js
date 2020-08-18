@@ -13,7 +13,6 @@ import {
   setUpload,
   uploadScansSC
 } from "../../redux/actionCreators/ActionCreators";
-import {call, put} from "redux-saga/effects";
 import sleep from "../../utils/sleep";
 
 function UploadScans({workerId, handleClose, setShowUploadModal}) {
@@ -53,10 +52,10 @@ function UploadScans({workerId, handleClose, setShowUploadModal}) {
 
   return (
     <div className={styles.modalUploadWrapper}>
-      <Typography variant="subtitle1" className={styles.title}>Загрузка документов</Typography>
+      <Typography variant="subtitle1" >Загрузка документов</Typography>
       <Upload {...props} listType="picture">
         <Button disabled={fileList.length !== 0} >
-          <UploadOutlined/>Select File
+          <UploadOutlined/>Выберете файл
         </Button>
       </Upload>
       <div>

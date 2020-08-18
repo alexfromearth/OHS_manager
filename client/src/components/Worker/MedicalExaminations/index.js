@@ -1,10 +1,9 @@
-import React from 'react';
-import { useSelector } from "react-redux";
-import { useHistory } from 'react-router-dom'
+import React, {useEffect, useState} from 'react';
+import {useDispatch, useSelector} from "react-redux";
+import {useHistory, useParams} from 'react-router-dom'
 
 import styles from './styles.module.sass'
-
-import { withStyles, Theme, createStyles, makeStyles } from '@material-ui/core/styles';
+import {withStyles, Theme, createStyles, makeStyles} from '@material-ui/core/styles';
 
 import Button from "@material-ui/core/Button";
 import PostAddIcon from '@material-ui/icons/PostAdd';
@@ -18,6 +17,9 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import ModalPortal from "../../ModalPortal/ModalPortal";
+import MedicalDocsModal from "./MedicalDocsModal";
+import {eachWorkerThunk} from "../../../redux/thunks/eachWorkerThunk";
 
 const rows = [
   createData('Первичный', '20.01.2018'),
@@ -25,7 +27,7 @@ const rows = [
   createData('Повторный', '12.12.2020'),
 ];
 
-const StyledTableCell = withStyles((theme: Theme) =>
+const StyledTableCell = withStyles((theme) =>
   createStyles({
     head: {
       backgroundColor: 'rgb(64, 86, 181)',
@@ -38,7 +40,7 @@ const StyledTableCell = withStyles((theme: Theme) =>
   }),
 )(TableCell);
 
-const StyledTableRow = withStyles((theme: Theme) =>
+const StyledTableRow = withStyles((theme) =>
   createStyles({
     root: {
       '&:nth-of-type(odd)': {
@@ -48,8 +50,8 @@ const StyledTableRow = withStyles((theme: Theme) =>
   }),
 )(TableRow);
 
-function createData(name: String, calories: String) {
-  return { name, calories };
+function createData(name, calories) {
+  return {name, calories};
 }
 
 const useStyles = makeStyles({
@@ -89,52 +91,74 @@ function MedicalExaminations() {
   const history = useHistory()
   const classes = useStyles();
   const worker = useSelector(state => state.allStaff.worker)
+  const companyId = useSelector(state => state.auth.companyId);
+  const dispatch = useDispatch();
+  const {id} = useParams();
+  const [showMedicalModal, setShowMedicalModal] = useState(false);
 
+
+  useEffect(() => {
+    if (!showMedicalModal) {
+      console.log('i dispatched');
+      dispatch(eachWorkerThunk(companyId, id));
+    }
+  }, [dispatch, companyId, id, showMedicalModal])
+
+
+  function handleClick() {
+    setShowMedicalModal(state => !state);
+  }
 
   return (
     <>
       <Button variant="contained" color="secondary" className={classes.back} onClick={() => history.goBack()}>
-        <ArrowBackIosRoundedIcon fontSize={'large'} className={classes.iconOnBTN} />
-          Назад
+        <ArrowBackIosRoundedIcon fontSize={'large'} className={classes.iconOnBTN}/>
+        Назад
       </Button>
       <div className={classes.root}>
 
         <div className={styles.medWrapper}>
           <h1>Медицинские осмотры</h1>
-          <h2>Сотрудник: Ударников Лопес Игоревич</h2>
-          {/* {worker && <h6> <h2>Сотрудник: {worker.generalInfo.lastName + ' ' + worker.generalInfo.firstName + ' ' + worker.generalInfo.middleName}</h2> */}
+          {/*<h2>Сотрудник: </h2>*/}
+          {worker.generalInfo
+          &&
+          <h2>Сотрудник: {worker.generalInfo.lastName + ' ' + worker.generalInfo.firstName + ' ' + worker.generalInfo.middleName}</h2>}
         </div>
 
-        <Button variant="contained" color="primary" className={classes.addMed}>
-          <PostAddIcon fontSize={'large'} className={classes.iconOnBTN} />
+        <Button variant="contained" color="primary" className={classes.addMed} onClick={handleClick}>
+          <PostAddIcon fontSize={'large'} className={classes.iconOnBTN}/>
           Добавить медосмотр
-      </Button>
-
+        </Button>
+        {showMedicalModal && <ModalPortal className={styles.myModal}>
+          <MedicalDocsModal worker={worker} handleClick={handleClick}/>
+        </ModalPortal>}
         <TableContainer component={Paper}>
           <Table className={classes.table} aria-label="customized table">
             <TableHead>
               <TableRow>
-                <StyledTableCell >Тип медицинского осмотра</StyledTableCell>
+                <StyledTableCell>Тип медицинского осмотра</StyledTableCell>
                 <StyledTableCell align="center">Дата осмотра</StyledTableCell>
                 <StyledTableCell align="center">Паспорт здоровья</StyledTableCell>
                 <StyledTableCell align="center">Заключение</StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows.map((row) => ( //worker.medInfo 
+              {rows.map((row) => ( //worker.medInfo
                 <StyledTableRow key={row.name}>
                   <StyledTableCell component="th" scope="row">
                     {row.name}
                   </StyledTableCell>
-                  <StyledTableCell align="center">{row.calories}</StyledTableCell>
+                  <StyledTableCell align="center">
+                    {row.calories}
+                  </StyledTableCell>
                   <StyledTableCell align="center">
                     <Button className={classes.btn}>
-                      <CloudDownloadOutlinedIcon fontSize={'large'} className={classes.zagr} />
+                      <CloudDownloadOutlinedIcon fontSize={'large'} className={classes.zagr}/>
                     </Button>
                   </StyledTableCell>
                   <StyledTableCell align="center">
                     <Button className={classes.btn}>
-                      <CloudDownloadOutlinedIcon fontSize={'large'} className={classes.zagr} />
+                      <CloudDownloadOutlinedIcon fontSize={'large'} className={classes.zagr}/>
                     </Button>
                   </StyledTableCell>
                 </StyledTableRow>
