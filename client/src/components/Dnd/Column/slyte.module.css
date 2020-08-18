@@ -1,35 +1,22 @@
 .container {
-  min-height: 8vh;
-  /* width: 115px; */
-  width: 21.15vw;
-  /* max-height: 85vh; */
-  /* overflow-y: scroll; */
-  margin-right: 1vw;
-  /* border: 1px solid black; */
-  border-radius: 4px;
-  /* display: flex;
-  flex-direction: column; */
-  /* flex-wrap: nowrap; */
+  min-height: 55vh;
+  width: 31vw;
+  margin-right: 1.5vw;
+  margin-left: 1.5vw;
   align-items: center;
-  /* justify-content: space-around; */
-  background-color: rgb(250,250,250);
+  background-color: rgb(250, 250, 250);
 }
 
 @media screen and (max-width: 800px) {
   .container {
     min-height: 10vh;
     width: 39vw;
-    /* max-height: 80vh; */
   }
 }
-
 .containerActive {
   min-height: 162px;
-  /* width: 115px; */
   width: 415px;
   margin-right: 10px;
-  /* border: 1px solid black; */
-  /* border-radius: 10px; */
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;

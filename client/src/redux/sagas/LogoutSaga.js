@@ -6,7 +6,6 @@ import backAPI from '../../api/index';
 const API = new backAPI();
 
 function* logoutWorker() {
-  console.log("Im here")
     yield put(isLoading(true));
     try {
         const data = yield call(API.logout);
