@@ -47,11 +47,9 @@ router.delete("/login", async (req, res) => {
         res.status(200).json({ msg: "session expired" });
       });
     } catch (error) {
-      console.log('here1')
       res.status(250).json({ msg: error.message });
     }
   } else {
-    console.log('here2')
     res.status(250).json({ msg: "something went wrong" });
   }
 });
@@ -59,7 +57,7 @@ router.delete("/login", async (req, res) => {
 router.get("/me", async (req, res, next) => {
   if (req.session.company) {
     const company = await CompanyModel.findOne({ _id: req.session.company._id });
-    res.status(200).json({ msg: "User is authenticated" });
+    res.status(200).json({ msg: "User is authenticated", company });
   } else {
     res.status(401).json({ msg: "User not authenticated" });
   }

@@ -13,6 +13,7 @@ import UploadMedicWatcher from "./sagas/uploadMedic";
 import LogoutSaga from './sagas/LogoutSaga';
 import EditEmployeeInfoWatcher from "./sagas/EditEmployeeInfoSaga";
 import SeedDBWatcher from "./sagas/SeedSaga";
+import AuthSaga from './sagas/authSaga.js';
 
 const sagaMiddlewear = reduxSaga()
 
@@ -28,6 +29,7 @@ const store = createStore(
 sagaMiddlewear.run(
   function* () {
     yield all([
+      AuthSaga(),
       LoginSaga(),
       LogoutSaga(),
       SubmitFormsWatcher(),

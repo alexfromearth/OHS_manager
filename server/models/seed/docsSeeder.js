@@ -121,7 +121,6 @@ mongoose.connection.on('error', console.error.bind(console, 'Ошибка сое
     worker1.unsignedOhsIds.push(doc._id);
     worker1.ohsDocs.push(doc);
   })
-  console.log('here')
   // Creating documents from worker2
   const response = await fillTemplates(company, worker2._id, worker2.generalInfo, worker2.profInfo);
   const basePath2 = response.basePath;
@@ -133,7 +132,7 @@ mongoose.connection.on('error', console.error.bind(console, 'Ошибка сое
     file = {
       filename: file, size: meta.size, originalname: file,
       path: `${basePath2}${file}`,
-      downloadPath2: `${downloadPath2}${file}`,
+      downloadPath: `${downloadPath2}${file}`,
     };
     return file;
   })

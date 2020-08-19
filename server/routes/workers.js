@@ -17,15 +17,13 @@ import bcrypt from 'bcrypt';
 const router = express.Router();
 
 router.post('/uploadWorkers', fileUpload(), async (req, res) => {
-  // console.log(req.files)
   if (!req.files || Object.keys(req.files).length === 0) {
     return res.status(400).send('NO files were uploaded');
   }
   try {
     const file = req.files.xlsx.data;
-    const company = await CompanyModel.findById('5f3d4d705220c22c70bf5696');
+    const company = await CompanyModel.findById(req.session.company._id);
     await parseXlsx(file, company);
-    console.log('sending status')
     return res.status(200).end();
   } catch (error) {
     console.log(error)
