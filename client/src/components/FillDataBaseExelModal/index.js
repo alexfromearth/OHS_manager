@@ -14,7 +14,7 @@ import {
 } from "../../redux/actionCreators/ActionCreators";
 import sleep from "../../utils/sleep";
 
-function FillDataBaseExelModal({ handleClose, setShowExelModal}) {
+function FillDataBaseExelModal({ handleClose, handleToggle}) {
   const fileList = useSelector(state => state.allStaff.fileList);
   const uploadingScans = useSelector(state => state.allStaff.uploadingScans);
   const history = useHistory();
@@ -27,9 +27,10 @@ function FillDataBaseExelModal({ handleClose, setShowExelModal}) {
       formData.append('xlsx', file);
     });
     dispatch(seedSC(formData));
-    await sleep(2000);
+    debugger;
+    await sleep(5000);
     dispatch(loadSuccess());
-    setShowExelModal(false);
+    handleToggle();
     history.push(`/employees`);
   };
 
