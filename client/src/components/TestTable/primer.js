@@ -198,7 +198,7 @@ export default function EnhancedTable() {
           <Table
             className={classes.table}
             aria-labelledby="tableTitle"
-            size={dense ? 'small' : 'medium'}
+            // size={dense ? 'small' : 'medium'}
             aria-label="enhanced table"
           >
             <EnhancedTableHead
@@ -237,7 +237,7 @@ export default function EnhancedTable() {
                   );
                 })}
               {emptyRows > 0 && (
-                <TableRow style={{ height: (dense ? 33 : 53) * emptyRows }}>
+                <TableRow style={{ height:  53 * emptyRows }}>
                   <TableCell colSpan={6} />
                 </TableRow>
               )}

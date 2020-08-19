@@ -4,9 +4,7 @@ import WorkerModel from '../models/workerModel.js';
 const router = express.Router();
 
 router.patch('/:workerId/ohsList', async (req, res) => {
-  // console.log('here123');
   const { signedOhsIds } = req.body;
-  // console.log(signedOhsIds);
   const { workerId } = req.params;
   try {
     await WorkerModel.findByIdAndUpdate(workerId, { $set: { signedOhsIds } });
