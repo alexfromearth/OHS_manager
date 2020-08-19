@@ -55,12 +55,13 @@ const rows = [
     prof: 'шиномонтажник'
   },
   {
-    name: 'вася',
-    prof: 'шиномонтажник'
+    name: 'женя',
+    prof: 'слесарь'
   },
 ];
 
 const headCells = [
+  { id: 'number', numeric: false, label: 'Номер' },
   { id: 'name', numeric: false, label: 'Сотрудник' },
   { id: 'profession', numeric: true, label: 'Должность' },
 ];
@@ -69,20 +70,18 @@ function EnhancedTableHead(props) {
   return (
     <TableHead>
       <TableRow>
-        {headCells.map((headCell) => {
-          return (
-            <TableCell
-              key={headCell.id}
-              align={headCell.numeric ? 'right' : 'left'}
-            >
-              <TableSortLabel
-              // onClick={createSortHandler(headCell.id)}
-              >
-                {headCell.label}
-              </TableSortLabel>
-            </TableCell>
-          )
-        })}
+        <TableCell>
+          Номер
+        </TableCell>
+        <TableCell>
+          Сотрудник
+        </TableCell>
+        <TableCell>
+          Должность
+          <TableSortLabel
+          // onClick={createSortHandler(headCell.id)}
+          />
+        </TableCell>
       </TableRow>
     </TableHead>
   )
@@ -108,7 +107,7 @@ export default function TestTable() {
   // const [order, setOrder] = useState('asc');
   // const [orderBy, setOrderBy] = useState('calories');
 
-  const handleChangePage = (newPage) => {
+  const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
 
@@ -129,15 +128,17 @@ export default function TestTable() {
           >
             <EnhancedTableHead />
             <TableBody>
-              {/* тут будет мэп с плагинацией, key={row._id} */}
-              {rows.map(el => {
-                return (
-                  <TableRow key={el.name} >
-                    <TableCell>{el.name}</TableCell>
-                    <TableCell align="right">{el.prof}</TableCell>
-                  </TableRow>
-                )
-              })}
+              {rows
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((el, index) => {
+                  return (
+                    <TableRow key={index} >
+                      <TableCell align="left">{index + 1}</TableCell>
+                      <TableCell align="left">{el.name}</TableCell>
+                      <TableCell align="right">{el.prof}</TableCell>
+                    </TableRow>
+                  )
+                })}
             </TableBody>
           </Table>
         </TableContainer>
