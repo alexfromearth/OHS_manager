@@ -28,6 +28,9 @@
     <list default="true" id="c03e058d-6bf5-4362-b599-b9d37e0d3b7f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Employees/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Employees/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Forms/EmployeeForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Forms/EmployeeForm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Worker/DeleteEmployeeModal/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Worker/DeleteEmployeeModal/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Worker/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Worker/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/redux/reducers/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/reducers/reducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/routes/workers.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/workers.js" afterDir="false" />
     </list>
@@ -97,7 +100,7 @@
       <workItem from="1597512478922" duration="2343000" />
       <workItem from="1597565349604" duration="24018000" />
       <workItem from="1597643534815" duration="35343000" />
-      <workItem from="1597729692955" duration="59224000" />
+      <workItem from="1597729692955" duration="62370000" />
     </task>
     <servers />
   </component>
@@ -163,6 +166,10 @@
     <state x="645" y="1369" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.1080.1920.1080/72.0.1848.1080@0.1080.1920.1080" timestamp="1597332348216" />
     <state x="693" y="289" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.1080.1920.1080/72.0.1848.1080@72.0.1848.1080" timestamp="1597305417701" />
     <state x="693" y="1107" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/72.0.1848.2160@72.0.1848.2160" timestamp="1597571056219" />
+    <state x="591" y="302" width="728" height="482" key="MultipleFileMergeDialog" timestamp="1597846910071">
+      <screen x="72" y="0" width="1848" height="1080" />
+    </state>
+    <state x="591" y="302" width="728" height="482" key="MultipleFileMergeDialog/0.1080.1920.1080/72.0.1848.1080@72.0.1848.1080" timestamp="1597846910071" />
     <state x="400" y="1261" width="1022" height="737" key="SettingsEditor" timestamp="1597389999791">
       <screen x="0" y="1080" width="1920" height="1080" />
     </state>
