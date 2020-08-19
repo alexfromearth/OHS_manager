@@ -62,8 +62,12 @@ class backAPI {
     return {...response.data, status: response.status};
   }
 
-  async deleteWorker(companyId, workerId) {
-    const response = await axios.delete(`/api/workers/${companyId}/worker/${workerId}`);
+  async deleteWorker(companyId, workerId, secretInput) {
+    const response = await axios.delete(`/api/workers/${companyId}/worker/${workerId}`,
+      {headers: {
+          secret: secretInput
+        }}
+      );
     return {...response.data, status: response.status};
   }
 

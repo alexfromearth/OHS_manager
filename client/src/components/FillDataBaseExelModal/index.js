@@ -8,7 +8,6 @@ import styles from './styles.module.sass';
 import {useHistory} from 'react-router-dom';
 import {
   beforeUpload,
-  loadSuccess,
   scanRemove, seedSC,
 } from "../../redux/actionCreators/ActionCreators";
 
