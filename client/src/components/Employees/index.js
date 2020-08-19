@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import { allStaffThunk } from '../../redux/thunks/allStaffThunk.js';
@@ -6,11 +6,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import AddIcon from '@material-ui/icons/Add';
-import FilterListIcon from '@material-ui/icons/FilterList';
+import InsertDriveFileIcon from '@material-ui/icons/InsertDriveFile';
 import ModalPortal from "../ModalPortal/ModalPortal";
 import FillDataBaseExelModal from "../FillDataBaseExelModal";
 import portalStyles from "../ModalPortal/styles.module.sass";
-import {clearFileList} from "../../redux/actionCreators/ActionCreators";
+import { clearFileList } from "../../redux/actionCreators/ActionCreators";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     height: 50,
   },
   btnExel: {
-    backgroundColor: "dodgerblue"
+    width: 300
   },
   employee: {
     display: "flex",
@@ -108,17 +108,10 @@ export default function Employees() {
   return (
     <>
       <div className={classes.hdr}>
-        <Button variant="contained"
-                className={classes.btnExel}
-                onClick={() => {setShowExelModal(state => !state)}}
-                >
-          <AddIcon className={classes.icon} />
-          Загрузить базу данных сотрудников
-        </Button>
         {showExelModal
-        && <ModalPortal className={portalStyles.myModal}>
-          <FillDataBaseExelModal setShowExelModal={setShowExelModal} handleClose={handleClose}/>
-        </ModalPortal>}
+          && <ModalPortal className={portalStyles.myModal}>
+            <FillDataBaseExelModal setShowExelModal={setShowExelModal} handleClose={handleClose} />
+          </ModalPortal>}
         <Button variant="contained" color="primary"
           className={classes.btns}
           onClick={() => history.push('/employee/new')}>
@@ -126,9 +119,13 @@ export default function Employees() {
           Добавить работника
         </Button>
         <h1>Cотрудники</h1>
-        <Button variant="contained" color="primary" className={classes.btns}>
-          <FilterListIcon className={classes.icon} />
-          Фильтр
+        <Button variant="contained" color="secondary"
+          className={classes.btnExel}
+          onClick={() => { setShowExelModal(state => !state) }}
+        >
+          <InsertDriveFileIcon className={classes.icon} />
+          {/* <AddIcon className={classes.icon} /> */}
+          Загрузить базу данных сотрудников
         </Button>
       </div>
       <div className={classes.root}>
