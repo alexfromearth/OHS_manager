@@ -5,9 +5,6 @@ import fs from "fs";
 export default async function fillTemplates(company, workerId, generalInfo, profInfo) {
   const {firstName, lastName, middleName, birthday, birthPlace, address, sex} = generalInfo;
   const {education, position, workExperience, structuralSubdivision, startWorkDate} = profInfo;
-  // console.log('here1')
-  // console.log('here3')
-  // console.log('here4')
   try {
     // создаем папки
     const companyDir = fs.readdirSync(`${process.env.PWD}/fileStore/`)

@@ -55,6 +55,8 @@ export const editEmployeeSC = (companyId, workerId, generalInfo, profInfo) => ({
   payload: {companyId, workerId, generalInfo, profInfo}
 })
 
+export const authSC = () => ({type: actionTypes.AUTH});
+
 export const seedSC = (formData) => ({type: actionTypes.SEED, payload: {formData}});
 
 export const allStaff = (list) => ({type: actionTypes.ALL_EMPLOYEES, payload: {list}});
