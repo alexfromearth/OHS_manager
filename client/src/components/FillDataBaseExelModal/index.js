@@ -10,9 +10,7 @@ import {
   beforeUpload,
   loadSuccess,
   scanRemove, seedSC,
-  uploadScansSC
 } from "../../redux/actionCreators/ActionCreators";
-import sleep from "../../utils/sleep";
 
 function FillDataBaseExelModal({ handleClose, handleToggle}) {
   const fileList = useSelector(state => state.allStaff.fileList);
@@ -27,9 +25,6 @@ function FillDataBaseExelModal({ handleClose, handleToggle}) {
       formData.append('xlsx', file);
     });
     dispatch(seedSC(formData));
-    debugger;
-    await sleep(5000);
-    dispatch(loadSuccess());
     handleToggle();
     history.push(`/employees`);
   };

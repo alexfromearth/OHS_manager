@@ -11,6 +11,7 @@ import ModalPortal from "../ModalPortal/ModalPortal";
 import FillDataBaseExelModal from "../FillDataBaseExelModal";
 import portalStyles from "../ModalPortal/styles.module.sass";
 import {clearFileList} from "../../redux/actionCreators/ActionCreators";
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
     '& > *': {
       margin: theme.spacing(1),
     },
+    minHeight: '85vh',
     justifyContent: "center",
   },
   hdr: {
@@ -46,6 +48,14 @@ const useStyles = makeStyles((theme) => ({
   },
   buttonGroup: {
     minWidth: 800,
+  },
+  progress: {
+    height: '77vh',
+    justifySelf: 'center',
+    alignSelf: 'center',
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center"
   },
   wrapperHead: {
     width: "100%",
@@ -81,8 +91,8 @@ export default function Employees() {
   const dispatch = useDispatch()
   const history = useHistory()
   const employees = useSelector(state => state.allStaff.list)
-  const uploadingScans = useSelector(state => state.allStaff.uploadingScans);
   const id = useSelector(state => state.auth.companyId)
+  const uploadingScans = useSelector(state => state.allStaff.uploadingScans);
   const classes = useStyles()
 
   const [showExelModal, setShowExelModal] = useState(false);
@@ -116,7 +126,7 @@ export default function Employees() {
     <>
       <div className={classes.hdr}>
         <Button variant="contained"
-                className={classes.btnExel}
+                color="secondary"
                 onClick={() => {
                   setShowExelModal(state => !state)
                 }}
@@ -155,7 +165,8 @@ export default function Employees() {
             size="large"
             variant="outlined"
           >
-            {employees && employees.map((el, index) => {
+            {uploadingScans ? <div className={classes.progress}><CircularProgress color="secondary" size={150}/></div>
+              : employees && employees.map((el, index) => {
               return <Button key={el._id}
                              className={classes.employee}
                              onClick={() => handleClick(el._id)}>
@@ -163,7 +174,8 @@ export default function Employees() {
                 <span className={classes.fio}>{el.name}</span>
                 <span className={classes.prof}>{el.profession} </span>
               </Button>
-            })}
+            })
+            }
           </ButtonGroup>
         </div>
       </div>
