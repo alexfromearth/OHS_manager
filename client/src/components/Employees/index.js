@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import { useHistory } from "react-router-dom";
-import { useSelector, useDispatch } from 'react-redux';
-import { allStaffThunk } from '../../redux/thunks/allStaffThunk.js';
-import { makeStyles } from '@material-ui/core/styles';
+import React, {useEffect, useState} from 'react';
+import {useHistory} from "react-router-dom";
+import {useSelector, useDispatch} from 'react-redux';
+import {allStaffThunk} from '../../redux/thunks/allStaffThunk.js';
+import {makeStyles} from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import AddIcon from '@material-ui/icons/Add';
-import InsertDriveFileIcon from '@material-ui/icons/InsertDriveFile';
 import ModalPortal from "../ModalPortal/ModalPortal";
 import FillDataBaseExelModal from "../FillDataBaseExelModal";
 import portalStyles from "../ModalPortal/styles.module.sass";
 import {clearFileList} from "../../redux/actionCreators/ActionCreators";
 import CircularProgress from '@material-ui/core/CircularProgress';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faFileExcel} from "@fortawesome/free-solid-svg-icons";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -82,6 +83,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "left",
   },
   icon: {
+    fontSize: 20,
     marginRight: 5
   }
 }));
@@ -132,13 +134,14 @@ export default function Employees() {
           Добавить работника
         </Button>
         <h1>Cотрудники</h1>
-         <Button variant="contained"
+        <Button variant="contained"
                 color="secondary"
                 onClick={() => {
                   setShowExelModal(state => !state)
                 }}
         >
-          <AddIcon className={classes.icon}/>
+          {/*<InsertDriveFileIcon className={classes.icon}/>*/}
+          <FontAwesomeIcon icon={faFileExcel} className={classes.icon}/>
           Загрузить базу данных сотрудников
         </Button>
         {showExelModal
@@ -170,8 +173,7 @@ export default function Employees() {
                 <span className={classes.fio}>{el.name}</span>
                 <span className={classes.prof}>{el.profession} </span>
               </Button>
-            })
-            }
+            })}
           </ButtonGroup>
         </div>
       </div>

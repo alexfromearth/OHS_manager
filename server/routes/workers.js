@@ -10,6 +10,7 @@ import fs from "fs";
 import { medStorage } from "../middleware/multer.js";
 import fileUpload from "express-fileupload";
 import parseXlsx from '../xlParcer/index.js';
+import bcrypt from 'bcrypt';
 
 // import {v4} from ('uuid');
 
@@ -22,7 +23,7 @@ router.post('/uploadWorkers', fileUpload(), async (req, res) => {
   }
   try {
     const file = req.files.xlsx.data;
-    const company = await CompanyModel.findById('5f3ce078a87838caa8714066');
+    const company = await CompanyModel.findById('5f3cfcf74dd64ae18d4f0e4c');
     await parseXlsx(file, company);
     console.log('sending status')
     return res.status(200).end();
@@ -65,16 +66,25 @@ router.get('/:companyId/worker/:workerId', async (req, res) => {
 
 router.delete('/:companyId/worker/:workerId', async (req, res) => {
   const { companyId, workerId } = req.params;
+  const {secret} = req.headers;
+  console.log(secret);
   // if (req.session.company._id !== companyId) {
   //   return res.status(401).json({ msg: "Unauthorized" });
   // }
-  try {
-    await WorkerModel.findByIdAndRemove(workerId);
-    await CompanyModel.findByIdAndUpdate(companyId, { $pull: { workers: { $in: [workerId] } } });
-    res.status(200).end()
-  } catch (error) {
-    res.status(500).json({ msg: 'Failed to remove worker', serverMsg: error.message });
+  const company = await CompanyModel.findById(companyId);
+
+  if (await bcrypt.compare(secret, company.fireSecret)) {
+    try {
+      await WorkerModel.findByIdAndRemove(workerId);
+      await CompanyModel.findByIdAndUpdate(companyId, { $pull: { workers: { $in: [workerId] } } });
+      res.status(200).end()
+    } catch (error) {
+      res.status(500).json({ msg: 'Failed to remove worker', serverMsg: error.message });
+    }
+  } else {
+    res.status(264).json({msg: "Неправильный секретный ключ"})
   }
+
 });
 
 router.patch('/:companyId/worker/:workerId', async (req, res) => {

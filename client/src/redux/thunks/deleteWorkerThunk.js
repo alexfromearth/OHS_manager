@@ -1,16 +1,15 @@
-import { deleteWorker, isLoading, setError } from "../actionCreators/ActionCreators";
+import {setError, setUpload} from "../actionCreators/ActionCreators";
 import backAPI from '../../api/';
 const API = new backAPI();
 
-export function deleteWorkerThunk(company_id, worker_id) {
+export function deleteWorkerThunk(company_id, worker_id, secretInput) {
   return async (dispatch) => {
-    dispatch(isLoading(true));
+    dispatch(setUpload(true));
     try {
-      const resp = await API.deleteWorker(company_id, worker_id);
-      dispatch(deleteWorker());
-      dispatch(isLoading(false));
+      const resp = await API.deleteWorker(company_id, worker_id, secretInput);
+      dispatch(setUpload(false));
     } catch (error) {
-      dispatch(isLoading(false));
+      dispatch(setUpload(false));
       dispatch(setError(error.message));
     }
   }

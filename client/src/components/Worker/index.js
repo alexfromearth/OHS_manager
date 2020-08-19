@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 import { useParams, useHistory } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux';
 import { eachWorkerThunk } from '../../redux/thunks/eachWorkerThunk';
@@ -13,6 +13,9 @@ import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import ArrowBackIosRoundedIcon from '@material-ui/icons/ArrowBackIosRounded';
+import ModalPortal from "../ModalPortal/ModalPortal";
+import DeleteEmployeeModal from "./DeleteEmployeeModal";
+import ModalStyles from './../ModalPortal/styles.module.sass'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -82,14 +85,24 @@ export default function Worker() {
   const worker = useSelector(state => state.allStaff.worker) //когда будет логинизация, через redux
   const classes = useStyles();
 
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+
+
+
   useEffect(() => {
     dispatch(eachWorkerThunk(companyId, id));
   }, [dispatch, companyId, id])
 
-  function handleDeleteWorker() {
-    dispatch(deleteWorkerThunk(companyId, id));
+  function handleDeleteWorker(companyId, id, secret) {
+    dispatch(deleteWorkerThunk(companyId, id, secret));
     history.push('/employees');
   }
+
+  function handleShowModal() {
+    setShowDeleteModal(state => !state);
+  }
+
+
 
   return (
     <>
@@ -152,9 +165,13 @@ export default function Worker() {
         </Button>
       </div>
       <div className={classes.retire}>
-        <Button className={classes.btn} variant="contained" color="secondary" onClick={() => { handleDeleteWorker() }} >
+        <Button className={classes.btn} variant="contained" color="secondary" onClick={handleShowModal} >
           <ClearIcon className={classes.icon} /> Удалить из списка сотрудников
         </Button>
+        {showDeleteModal && <ModalPortal className={ModalStyles.myModal}>
+          <DeleteEmployeeModal handleShowModal={handleShowModal} companyId={companyId} workerId={worker._id}
+                               handleDeleteWorker={handleDeleteWorker}/>
+        </ModalPortal>}
       </div>
     </>
   )
