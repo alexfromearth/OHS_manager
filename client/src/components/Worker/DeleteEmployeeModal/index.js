@@ -30,7 +30,7 @@ function DeleteEmployeeModal({handleShowModal, companyId, workerId}) {
   return (
     <div className={styles.wrapper}>
       <p><strong>Введите секретный ключ <br/>для удаления сотрудника</strong></p>
-      <TextField id="secret" label="Секретный ключ" variant="outlined" value={secretInput}
+      <TextField id="secret" label="Секретный ключ" type="password" variant="outlined" value={secretInput}
                  onChange={handleInputChange}/>
       <div>
         <Button
