@@ -21,11 +21,7 @@ import ModalPortal from "../../ModalPortal/ModalPortal";
 import MedicalDocsModal from "./MedicalDocsModal";
 import {eachWorkerThunk} from "../../../redux/thunks/eachWorkerThunk";
 
-const rows = [
-  createData('Первичный', '20.01.2018'),
-  createData('Повторный', '12.12.2019'),
-  createData('Повторный', '12.12.2020'),
-];
+
 
 const StyledTableCell = withStyles((theme) =>
   createStyles({
@@ -96,6 +92,11 @@ function MedicalExaminations() {
   const {id} = useParams();
   const [showMedicalModal, setShowMedicalModal] = useState(false);
 
+  const rows = [
+    createData('Первичный', '20.01.2018'),
+    createData('Повторный', '12.12.2019'),
+    createData('Повторный', '12.12.2020'),
+  ];
 
   useEffect(() => {
     if (!showMedicalModal) {
@@ -119,7 +120,6 @@ function MedicalExaminations() {
 
         <div className={styles.medWrapper}>
           <h1>Медицинские осмотры</h1>
-          {/*<h2>Сотрудник: </h2>*/}
           {worker.generalInfo
           &&
           <h2>Сотрудник: {worker.generalInfo.lastName + ' ' + worker.generalInfo.firstName + ' ' + worker.generalInfo.middleName}</h2>}
@@ -143,21 +143,21 @@ function MedicalExaminations() {
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows.map((row) => ( //worker.medInfo
+              {worker.medicalExams && worker.medicalExams.map((row) => ( //worker.medInfo
                 <StyledTableRow key={row.name}>
                   <StyledTableCell component="th" scope="row">
-                    {row.name}
+                    {row.type}
                   </StyledTableCell>
                   <StyledTableCell align="center">
-                    {row.calories}
+                    {new Date(row.createdAt).toLocaleDateString()}
                   </StyledTableCell>
                   <StyledTableCell align="center">
-                    <Button className={classes.btn}>
+                    <Button className={classes.btn} href={row.passportMetadata.downloadPath}>
                       <CloudDownloadOutlinedIcon fontSize={'large'} className={classes.zagr}/>
                     </Button>
                   </StyledTableCell>
                   <StyledTableCell align="center">
-                    <Button className={classes.btn}>
+                    <Button className={classes.btn} href={row.doctorOpinionMetadata.downloadPath}>
                       <CloudDownloadOutlinedIcon fontSize={'large'} className={classes.zagr}/>
                     </Button>
                   </StyledTableCell>
