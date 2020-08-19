@@ -20,6 +20,7 @@ import Paper from '@material-ui/core/Paper';
 import ModalPortal from "../../ModalPortal/ModalPortal";
 import MedicalDocsModal from "./MedicalDocsModal";
 import {eachWorkerThunk} from "../../../redux/thunks/eachWorkerThunk";
+import {clearFileList} from "../../../redux/actionCreators/ActionCreators";
 
 
 
@@ -110,6 +111,13 @@ function MedicalExaminations() {
     setShowMedicalModal(state => !state);
   }
 
+  function handleClose() {
+    if (showMedicalModal) {
+      dispatch(clearFileList());
+    }
+    setShowMedicalModal((state) => (!state));
+  }
+
   return (
     <>
       <Button variant="contained" color="secondary" className={classes.back} onClick={() => history.goBack()}>
@@ -129,8 +137,8 @@ function MedicalExaminations() {
           <PostAddIcon fontSize={'large'} className={classes.iconOnBTN}/>
           Добавить медосмотр
         </Button>
-        {showMedicalModal && <ModalPortal className={styles.myModal}>
-          <MedicalDocsModal worker={worker} handleClick={handleClick}/>
+        {showMedicalModal && <ModalPortal className={styles.myModal} >
+          <MedicalDocsModal worker={worker} handleClick={handleClick} handleClose={handleClose}/>
         </ModalPortal>}
         <TableContainer component={Paper}>
           <Table className={classes.table} aria-label="customized table">

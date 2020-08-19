@@ -26,6 +26,7 @@ import DocumentsCopy from "../Worker/DocumentsCopy";
 import ToDoList from '../ToDoList';
 import Note from '../Note';
 import SwitchOfTheme from '../Worker/SwitchOfTheme';
+import EditEmployeeForm from "../Forms/EditEmployeeForm";
 
 const drawerWidth = 240;
 
@@ -175,6 +176,7 @@ export default function Dashboard() {
                   <PrivateRoute exact path='/employee/:id'> <Worker /> </PrivateRoute>
                   <PrivateRoute exact path='/employee/:id/medicInfo'> <MedicalExaminations /> </PrivateRoute>
                   <PrivateRoute exact path='/employee/:id/documents'> <SwitchOfTheme /> </PrivateRoute>
+                  <PrivateRoute exact path='/employee/:id/update'> <EditEmployeeForm /> </PrivateRoute>
                   <PrivateRoute exact path='/test'>
                     <ModalPortal className={portalStyles.myModal}>
                       <UploadScans />

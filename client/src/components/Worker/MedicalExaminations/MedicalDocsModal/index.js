@@ -17,7 +17,7 @@ import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
 
 
-function MedicalDocsModal({worker, handleClick}) {
+function MedicalDocsModal({worker, handleClick, handleClose}) {
   const fileList = useSelector(state => state.allStaff.fileList);
   const uploadingScans = useSelector(state => state.allStaff.uploadingScans);
   const companyId = useSelector(state => state.auth.companyId);
@@ -104,7 +104,7 @@ function MedicalDocsModal({worker, handleClick}) {
         >
           {uploadingScans ? 'Загрузка' : 'Начать загрузку'}
         </Button>
-        <Button className={styles.exit} onClick={handleClick}>Отмена</Button>
+        <Button className={styles.exit} onClick={handleClose}>Отмена</Button>
       </div>
     </div>
   );
