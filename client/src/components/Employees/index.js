@@ -6,13 +6,20 @@ import {makeStyles} from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import AddIcon from '@material-ui/icons/Add';
+<<<<<<< HEAD
+=======
+import FilterListIcon from '@material-ui/icons/FilterList';
+>>>>>>> 87652ecfa038d5b04c599db010e98dc047646c2b
 import ModalPortal from "../ModalPortal/ModalPortal";
 import FillDataBaseExelModal from "../FillDataBaseExelModal";
 import portalStyles from "../ModalPortal/styles.module.sass";
 import {clearFileList} from "../../redux/actionCreators/ActionCreators";
+<<<<<<< HEAD
 import CircularProgress from '@material-ui/core/CircularProgress';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faFileExcel} from "@fortawesome/free-solid-svg-icons";
+=======
+>>>>>>> 87652ecfa038d5b04c599db010e98dc047646c2b
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,7 +27,6 @@ const useStyles = makeStyles((theme) => ({
     '& > *': {
       margin: theme.spacing(1),
     },
-    minHeight: '85vh',
     justifyContent: "center",
   },
   hdr: {
@@ -33,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     height: 50,
   },
   btnExel: {
-    width: 300
+    backgroundColor: "dodgerblue"
   },
   employee: {
     display: "flex",
@@ -49,14 +55,6 @@ const useStyles = makeStyles((theme) => ({
   },
   buttonGroup: {
     minWidth: 800,
-  },
-  progress: {
-    height: '77vh',
-    justifySelf: 'center',
-    alignSelf: 'center',
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center"
   },
   wrapperHead: {
     width: "100%",
@@ -93,8 +91,8 @@ export default function Employees() {
   const dispatch = useDispatch()
   const history = useHistory()
   const employees = useSelector(state => state.allStaff.list)
-  const id = useSelector(state => state.auth.companyId)
   const uploadingScans = useSelector(state => state.allStaff.uploadingScans);
+  const id = useSelector(state => state.auth.companyId)
   const classes = useStyles()
 
   const [showExelModal, setShowExelModal] = useState(false);
@@ -127,6 +125,7 @@ export default function Employees() {
   return (
     <>
       <div className={classes.hdr}>
+<<<<<<< HEAD
         <Button variant="contained" color="primary"
                 className={classes.btns}
                 onClick={() => history.push('/employee/new')}>
@@ -136,6 +135,10 @@ export default function Employees() {
         <h1>Cотрудники</h1>
         <Button variant="contained"
                 color="secondary"
+=======
+        <Button variant="contained"
+                className={classes.btnExel}
+>>>>>>> 87652ecfa038d5b04c599db010e98dc047646c2b
                 onClick={() => {
                   setShowExelModal(state => !state)
                 }}
@@ -148,6 +151,17 @@ export default function Employees() {
         && <ModalPortal className={portalStyles.myModal}>
           <FillDataBaseExelModal handleToggle={handleToggle} handleClose={handleClose}/>
         </ModalPortal>}
+        <Button variant="contained" color="primary"
+                className={classes.btns}
+                onClick={() => history.push('/employee/new')}>
+          <AddIcon className={classes.icon}/>
+          Добавить работника
+        </Button>
+        <h1>Cотрудники</h1>
+        <Button variant="contained" color="primary" className={classes.btns}>
+          <FilterListIcon className={classes.icon}/>
+          Фильтр
+        </Button>
       </div>
       <div className={classes.root}>
         <div className={classes.wrapper}>
@@ -164,8 +178,7 @@ export default function Employees() {
             size="large"
             variant="outlined"
           >
-            {uploadingScans ? <div className={classes.progress}><CircularProgress color="secondary" size={150}/></div>
-              : employees && employees.map((el, index) => {
+            {employees && employees.map((el, index) => {
               return <Button key={el._id}
                              className={classes.employee}
                              onClick={() => handleClick(el._id)}>

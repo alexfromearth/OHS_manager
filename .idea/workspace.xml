@@ -19,20 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c03e058d-6bf5-4362-b599-b9d37e0d3b7f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/api/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/api/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Employees/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Employees/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/FillDataBaseExelModal/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/FillDataBaseExelModal/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Worker/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Worker/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/redux/reducers/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/reducers/reducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/redux/sagas/EditEmployeeInfoSaga.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/sagas/EditEmployeeInfoSaga.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/redux/thunks/deleteWorkerThunk.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/thunks/deleteWorkerThunk.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/client/yarn.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/workers.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/workers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/xlParcer/Test.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/server/xlParcer/Test.xlsx" afterDir="false" />
-    </list>
+    <list default="true" id="c03e058d-6bf5-4362-b599-b9d37e0d3b7f" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -99,7 +86,7 @@
       <workItem from="1597512478922" duration="2343000" />
       <workItem from="1597565349604" duration="24018000" />
       <workItem from="1597643534815" duration="35343000" />
-      <workItem from="1597729692955" duration="57660000" />
+      <workItem from="1597729692955" duration="57994000" />
     </task>
     <servers />
   </component>
