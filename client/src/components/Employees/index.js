@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import { useHistory } from "react-router-dom";
-import { useSelector, useDispatch } from 'react-redux';
-import { allStaffThunk } from '../../redux/thunks/allStaffThunk.js';
-import { makeStyles } from '@material-ui/core/styles';
+import {useHistory} from "react-router-dom";
+import {useSelector, useDispatch} from 'react-redux';
+import {allStaffThunk} from '../../redux/thunks/allStaffThunk.js';
+import {makeStyles} from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import AddIcon from '@material-ui/icons/Add';
@@ -81,19 +81,26 @@ export default function Employees() {
   const dispatch = useDispatch()
   const history = useHistory()
   const employees = useSelector(state => state.allStaff.list)
+  const uploadingScans = useSelector(state => state.allStaff.uploadingScans);
   const id = useSelector(state => state.auth.companyId)
   const classes = useStyles()
 
   const [showExelModal, setShowExelModal] = useState(false);
 
   useEffect(() => {
-    dispatch(allStaffThunk(id))
-  }, [dispatch, id])
+    if (!uploadingScans) {
+      dispatch(allStaffThunk(id))
+    }
+  }, [dispatch, id, uploadingScans])
 
   function handleClick(id) {
     setTimeout(() => {
       history.push(`/employee/${id}`)
     }, 210);
+  }
+
+  function handleToggle() {
+    setShowExelModal(state => !state);
   }
 
 
@@ -110,24 +117,26 @@ export default function Employees() {
       <div className={classes.hdr}>
         <Button variant="contained"
                 className={classes.btnExel}
-                onClick={() => {setShowExelModal(state => !state)}}
-                >
-          <AddIcon className={classes.icon} />
+                onClick={() => {
+                  setShowExelModal(state => !state)
+                }}
+        >
+          <AddIcon className={classes.icon}/>
           Загрузить базу данных сотрудников
         </Button>
         {showExelModal
         && <ModalPortal className={portalStyles.myModal}>
-          <FillDataBaseExelModal setShowExelModal={setShowExelModal} handleClose={handleClose}/>
+          <FillDataBaseExelModal handleToggle={handleToggle} handleClose={handleClose}/>
         </ModalPortal>}
         <Button variant="contained" color="primary"
-          className={classes.btns}
-          onClick={() => history.push('/employee/new')}>
-          <AddIcon className={classes.icon} />
+                className={classes.btns}
+                onClick={() => history.push('/employee/new')}>
+          <AddIcon className={classes.icon}/>
           Добавить работника
         </Button>
         <h1>Cотрудники</h1>
         <Button variant="contained" color="primary" className={classes.btns}>
-          <FilterListIcon className={classes.icon} />
+          <FilterListIcon className={classes.icon}/>
           Фильтр
         </Button>
       </div>
@@ -148,8 +157,8 @@ export default function Employees() {
           >
             {employees && employees.map((el, index) => {
               return <Button key={el._id}
-                className={classes.employee}
-                onClick={() => handleClick(el._id)}>
+                             className={classes.employee}
+                             onClick={() => handleClick(el._id)}>
                 <span className={classes.index}>{index + 1}</span>
                 <span className={classes.fio}>{el.name}</span>
                 <span className={classes.prof}>{el.profession} </span>

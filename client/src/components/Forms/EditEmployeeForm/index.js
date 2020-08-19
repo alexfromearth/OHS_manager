@@ -67,7 +67,7 @@ export default function EditEmployeeForm() {
     if (worker.generalInfo && worker.profInfo) {
       dispatch(setAllEmployeeFormInputs(generalInfo, profInfo))
     }
-  }, [dispatch, setAllEmployeeFormInputs, worker])
+  }, [dispatch, setAllEmployeeFormInputs, worker.generalInfo, worker.profInfo])
 
   function handleChange(e) {
     const name = e.target.name;
