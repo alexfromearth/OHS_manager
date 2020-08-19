@@ -1,12 +1,12 @@
-import React, {useEffect, useState} from 'react';
-import {useHistory} from "react-router-dom";
-import {useSelector, useDispatch} from 'react-redux';
-import {allStaffThunk} from '../../redux/thunks/allStaffThunk.js';
-import {makeStyles} from '@material-ui/core/styles';
+import React, { useEffect, useState } from 'react';
+import { useHistory } from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux';
+import { allStaffThunk } from '../../redux/thunks/allStaffThunk.js';
+import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import AddIcon from '@material-ui/icons/Add';
-import FilterListIcon from '@material-ui/icons/FilterList';
+import InsertDriveFileIcon from '@material-ui/icons/InsertDriveFile';
 import ModalPortal from "../ModalPortal/ModalPortal";
 import FillDataBaseExelModal from "../FillDataBaseExelModal";
 import portalStyles from "../ModalPortal/styles.module.sass";
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     height: 50,
   },
   btnExel: {
-    backgroundColor: "dodgerblue"
+    width: 300
   },
   employee: {
     display: "flex",
@@ -125,7 +125,14 @@ export default function Employees() {
   return (
     <>
       <div className={classes.hdr}>
-        <Button variant="contained"
+        <Button variant="contained" color="primary"
+                className={classes.btns}
+                onClick={() => history.push('/employee/new')}>
+          <AddIcon className={classes.icon}/>
+          Добавить работника
+        </Button>
+        <h1>Cотрудники</h1>
+         <Button variant="contained"
                 color="secondary"
                 onClick={() => {
                   setShowExelModal(state => !state)
@@ -138,17 +145,6 @@ export default function Employees() {
         && <ModalPortal className={portalStyles.myModal}>
           <FillDataBaseExelModal handleToggle={handleToggle} handleClose={handleClose}/>
         </ModalPortal>}
-        <Button variant="contained" color="primary"
-                className={classes.btns}
-                onClick={() => history.push('/employee/new')}>
-          <AddIcon className={classes.icon}/>
-          Добавить работника
-        </Button>
-        <h1>Cотрудники</h1>
-        <Button variant="contained" color="primary" className={classes.btns}>
-          <FilterListIcon className={classes.icon}/>
-          Фильтр
-        </Button>
       </div>
       <div className={classes.root}>
         <div className={classes.wrapper}>
