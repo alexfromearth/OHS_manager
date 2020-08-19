@@ -132,7 +132,7 @@ mongoose.connection.on('error', console.error.bind(console, 'Ошибка сое
     file = {
       filename: file, size: meta.size, originalname: file,
       path: `${basePath2}${file}`,
-      downloadPath2: `${downloadPath2}${file}`,
+      downloadPath: `${downloadPath2}${file}`,
     };
     return file;
   })
