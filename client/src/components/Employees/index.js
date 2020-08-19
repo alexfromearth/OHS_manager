@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from 'react';
-import {useHistory} from "react-router-dom";
-import {useSelector, useDispatch} from 'react-redux';
-import {allStaffThunk} from '../../redux/thunks/allStaffThunk.js';
-import {makeStyles} from '@material-ui/core/styles';
+import React, { useEffect, useState } from 'react';
+import { useHistory } from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux';
+import { allStaffThunk } from '../../redux/thunks/allStaffThunk.js';
+import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import AddIcon from '@material-ui/icons/Add';
@@ -10,10 +10,10 @@ import FilterListIcon from '@material-ui/icons/FilterList';
 import ModalPortal from "../ModalPortal/ModalPortal";
 import FillDataBaseExelModal from "../FillDataBaseExelModal";
 import portalStyles from "../ModalPortal/styles.module.sass";
-import {clearFileList} from "../../redux/actionCreators/ActionCreators";
+import { clearFileList } from "../../redux/actionCreators/ActionCreators";
 import CircularProgress from '@material-ui/core/CircularProgress';
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faFileExcel} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFileExcel } from "@fortawesome/free-solid-svg-icons";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     height: 50,
   },
   btnExel: {
-    backgroundColor: "dodgerblue"
+    // backgroundColor: "dodgerblue"
   },
   employee: {
     display: "flex",
@@ -120,39 +120,26 @@ export default function Employees() {
     <>
       <div className={classes.hdr}>
         <Button variant="contained" color="primary"
-                className={classes.btns}
-                onClick={() => history.push('/employee/new')}>
-          <AddIcon className={classes.icon}/>
+          className={classes.btns}
+          onClick={() => history.push('/employee/new')}>
+          <AddIcon className={classes.icon} />
           Добавить работника
         </Button>
         <h1>Cотрудники</h1>
         <Button variant="contained"
-                color="secondary"
-        <Button variant="contained"
-                className={classes.btnExel}
-                onClick={() => {
-                  setShowExelModal(state => !state)
-                }}
+          className={classes.btnExel}
+          color="secondary"
+          onClick={() => {
+            setShowExelModal(state => !state)
+          }}
         >
-          {/*<InsertDriveFileIcon className={classes.icon}/>*/}
-          <FontAwesomeIcon icon={faFileExcel} className={classes.icon}/>
+          <FontAwesomeIcon icon={faFileExcel} className={classes.icon} />
           Загрузить базу данных сотрудников
         </Button>
         {showExelModal
-        && <ModalPortal className={portalStyles.myModal}>
-          <FillDataBaseExelModal handleToggle={handleToggle} handleClose={handleClose}/>
-        </ModalPortal>}
-        <Button variant="contained" color="primary"
-                className={classes.btns}
-                onClick={() => history.push('/employee/new')}>
-          <AddIcon className={classes.icon}/>
-          Добавить работника
-        </Button>
-        <h1>Cотрудники</h1>
-        <Button variant="contained" color="primary" className={classes.btns}>
-          <FilterListIcon className={classes.icon}/>
-          Фильтр
-        </Button>
+          && <ModalPortal className={portalStyles.myModal}>
+            <FillDataBaseExelModal handleToggle={handleToggle} handleClose={handleClose} />
+          </ModalPortal>}
       </div>
       <div className={classes.root}>
         <div className={classes.wrapper}>
@@ -171,8 +158,8 @@ export default function Employees() {
           >
             {employees && employees.map((el, index) => {
               return <Button key={el._id}
-                             className={classes.employee}
-                             onClick={() => handleClick(el._id)}>
+                className={classes.employee}
+                onClick={() => handleClick(el._id)}>
                 <span className={classes.index}>{index + 1}</span>
                 <span className={classes.fio}>{el.name}</span>
                 <span className={classes.prof}>{el.profession} </span>
