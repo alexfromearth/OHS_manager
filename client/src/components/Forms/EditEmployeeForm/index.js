@@ -67,7 +67,7 @@ export default function EditEmployeeForm() {
     if (worker.generalInfo && worker.profInfo) {
       dispatch(setAllEmployeeFormInputs(generalInfo, profInfo))
     }
-  }, [dispatch, setAllEmployeeFormInputs, worker])
+  }, [dispatch, setAllEmployeeFormInputs, worker.generalInfo, worker.profInfo])
 
   function handleChange(e) {
     const name = e.target.name;
@@ -84,7 +84,6 @@ export default function EditEmployeeForm() {
       education, structuralSubdivision, startWorkDate, position, workExperience
     };
     dispatch(trimFormInputs());
-    debugger;
     dispatch(editEmployeeSC(companyId, worker._id, generalInfo, profInfo));
     history.push(`/employee/${worker._id}`);
   }

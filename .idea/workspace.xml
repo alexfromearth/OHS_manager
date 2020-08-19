@@ -21,18 +21,11 @@
   <component name="ChangeListManager">
     <list default="true" id="c03e058d-6bf5-4362-b599-b9d37e0d3b7f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/api/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/api/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Dashboard/Dashbord.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Dashboard/Dashbord.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Employees/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Employees/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Forms/EmployeeForm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Forms/EmployeeForm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Worker/MedicalExaminations/MedicalDocsModal/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Worker/MedicalExaminations/MedicalDocsModal/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Worker/MedicalExaminations/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Worker/MedicalExaminations/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/redux/actionCreators/ActionCreators.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/actionCreators/ActionCreators.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/redux/actionTypes/actionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/actionTypes/actionTypes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/redux/reducers/newEmployeeReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/reducers/newEmployeeReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/FillDataBaseExelModal/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/FillDataBaseExelModal/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/redux/reducers/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/reducers/reducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/redux/sagas/SubmitFormsSaga.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/sagas/SubmitFormsSaga.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/redux/sagas/SeedSaga.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/sagas/SeedSaga.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/workers.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/workers.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +93,7 @@
       <workItem from="1597512478922" duration="2343000" />
       <workItem from="1597565349604" duration="24018000" />
       <workItem from="1597643534815" duration="35343000" />
-      <workItem from="1597729692955" duration="41110000" />
+      <workItem from="1597729692955" duration="46001000" />
     </task>
     <servers />
   </component>

@@ -53,7 +53,6 @@ class backAPI {
   }
 
   async uploadMeds(formData, dateOf, type, companyId, workerId) {
-    debugger
     const response = await axios.post(`/api/workers/${companyId}/worker/${workerId}/med/${type}`, formData,
       {
         headers: {
