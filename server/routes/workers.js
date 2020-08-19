@@ -23,11 +23,7 @@ router.post('/uploadWorkers', fileUpload(), async (req, res) => {
   }
   try {
     const file = req.files.xlsx.data;
-<<<<<<< HEAD
     const company = await CompanyModel.findById('5f3cfcf74dd64ae18d4f0e4c');
-=======
-    const company = await CompanyModel.findById('5f3ced711951370547481545');
->>>>>>> 87652ecfa038d5b04c599db010e98dc047646c2b
     await parseXlsx(file, company);
     console.log('sending status')
     return res.status(200).end();

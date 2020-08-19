@@ -6,20 +6,14 @@ import {makeStyles} from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import AddIcon from '@material-ui/icons/Add';
-<<<<<<< HEAD
-=======
 import FilterListIcon from '@material-ui/icons/FilterList';
->>>>>>> 87652ecfa038d5b04c599db010e98dc047646c2b
 import ModalPortal from "../ModalPortal/ModalPortal";
 import FillDataBaseExelModal from "../FillDataBaseExelModal";
 import portalStyles from "../ModalPortal/styles.module.sass";
 import {clearFileList} from "../../redux/actionCreators/ActionCreators";
-<<<<<<< HEAD
 import CircularProgress from '@material-ui/core/CircularProgress';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faFileExcel} from "@fortawesome/free-solid-svg-icons";
-=======
->>>>>>> 87652ecfa038d5b04c599db010e98dc047646c2b
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -125,7 +119,6 @@ export default function Employees() {
   return (
     <>
       <div className={classes.hdr}>
-<<<<<<< HEAD
         <Button variant="contained" color="primary"
                 className={classes.btns}
                 onClick={() => history.push('/employee/new')}>
@@ -135,10 +128,8 @@ export default function Employees() {
         <h1>Cотрудники</h1>
         <Button variant="contained"
                 color="secondary"
-=======
         <Button variant="contained"
                 className={classes.btnExel}
->>>>>>> 87652ecfa038d5b04c599db010e98dc047646c2b
                 onClick={() => {
                   setShowExelModal(state => !state)
                 }}
