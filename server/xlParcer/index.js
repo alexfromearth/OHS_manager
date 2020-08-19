@@ -7,7 +7,11 @@ import fs from 'fs'
 
 export default async (file, company) => {
   const workerArr = parseXlsx(file);
-  workerArr.forEach( async ({ generalInfo, profInfo }, index) => {
+  for (let index = 0; index < workerArr.length; index++) {
+    const { generalInfo, profInfo } = workerArr[index];
+    //////////////////////////
+    // workerArr.forEach( async ({ generalInfo, profInfo }, index) => {
+    console.log('im in ' + index)
     const newWorker = new WorkerModel({
       generalInfo,
       profInfo,
@@ -38,8 +42,11 @@ export default async (file, company) => {
       newWorker.ohsDocs.push(doc);
     })
     // сохраняем
-      await newWorker.save();
-      await CompanyModel.findByIdAndUpdate(company._id, { $push: { workers: newWorker } });
-  })
+    await newWorker.save();
+    await CompanyModel.findByIdAndUpdate(company._id, { $push: { workers: newWorker } });
+    console.log('done one')
+  }
+  // ) /////////////////////////////////////////
+  console.log('all done');
   return true;
 }
