@@ -93,10 +93,6 @@ export default function Worker() {
     dispatch(eachWorkerThunk(companyId, id));
   }, [dispatch, companyId, id])
 
-  function handleDeleteWorker(companyId, id, secret) {
-    dispatch(deleteWorkerThunk(companyId, id, secret));
-    history.push('/employees');
-  }
 
   function handleShowModal() {
     setShowDeleteModal(state => !state);
@@ -169,8 +165,7 @@ export default function Worker() {
           <ClearIcon className={classes.icon} /> Удалить из списка сотрудников
         </Button>
         {showDeleteModal && <ModalPortal className={ModalStyles.myModal}>
-          <DeleteEmployeeModal handleShowModal={handleShowModal} companyId={companyId} workerId={worker._id}
-                               handleDeleteWorker={handleDeleteWorker}/>
+          <DeleteEmployeeModal handleShowModal={handleShowModal} companyId={companyId} workerId={worker._id}/>
         </ModalPortal>}
       </div>
     </>
