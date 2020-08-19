@@ -22,10 +22,6 @@ class backAPI {
   }
 
 //workers
-  async logout() {
-    const response = await axios.delete('/api/auth/login');
-    return {status: response.status}
-  }
 
   async addWorker(companyId, generalInfo, profInfo) {
     const response = await axios.post(`/api/workers/${companyId}/worker`, {
@@ -42,6 +38,11 @@ class backAPI {
 
   async eachWorker(companyId, workerId) {
     const response = await axios.get(`/api/workers/${companyId}/worker/${workerId}`);
+    return {...response.data, status: response.status};
+  }
+
+  async editEmployeeInfo(companyId, workerId, generalInfo, profInfo) {
+    const response = await axios.patch(`/api/workers/${companyId}/worker/${workerId}`, {generalInfo, profInfo});
     return {...response.data, status: response.status};
   }
 
@@ -70,6 +71,11 @@ class backAPI {
 // dnd docs
   async updateSgnedList(workerId, signedOhsIds) {
     const response = await axios.patch(`/api/documents/${workerId}/ohsList`, {signedOhsIds});
+    return {...response.data, status: response.status};
+  }
+  // seed
+  async seedDataBase(formData) {
+    const response = await axios.post('api/workers/uploadWorkers', formData);
     return {...response.data, status: response.status};
   }
 }
