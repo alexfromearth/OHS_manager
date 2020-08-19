@@ -2,37 +2,56 @@ import express from 'express';
 import CompanyModel from '../models/companyModel.js';
 import WorkerModel from '../models/workerModel.js';
 import multer from "multer";
-import {scanStorage} from "../middleware/multer.js";
+import { scanStorage } from "../middleware/multer.js";
 import OhsDocModel from "../models/ohsDocModel.js";
 import MedicalDocModel from '../models/medicalExamModel.js'
 import fillTemplates from "../templater/fillTemplates.js";
 import fs from "fs";
-import {medStorage} from "../middleware/multer.js";
+import { medStorage } from "../middleware/multer.js";
+import fileUpload from "express-fileupload";
+import parseXlsx from '../xlParcer/index.js';
+
 // import {v4} from ('uuid');
 
 const router = express.Router();
 
-router.get('/:companyId/list', async (req, res) => {
-  const {companyId} = req.params;
+router.post('/uploadWorkers', fileUpload(), async (req, res) => {
+  // console.log(req.files)
+  if (!req.files || Object.keys(req.files).length === 0) {
+    return res.status(400).send('NO files were uploaded');
+  }
   try {
-    const company = await CompanyModel.findOne({_id: companyId}).populate('workers');
+    const file = req.files.xlsx.data;
+    const company = await CompanyModel.findById('5f3cced3c44ce626723a94d0');
+    await parseXlsx(file, company);
+    return res.status(200);
+  } catch (error) {
+    console.log(error)
+    return res.status(500).send('sorry')
+  }
+})
+
+router.get('/:companyId/list', async (req, res) => {
+  const { companyId } = req.params;
+  try {
+    const company = await CompanyModel.findOne({ _id: companyId }).populate('workers');
     if (company) {
       const list = company.workers.map(worker => ({
         _id: worker._id,
         name: worker.generalInfo.lastName + ' ' + worker.generalInfo.firstName + ' ' + worker.generalInfo.middleName,
         profession: worker.profInfo.profession
       }));
-      return res.status(200).json({list});
+      return res.status(200).json({ list });
     }
   } catch (error) {
     console.log(error)
-    return res.status(500).json({msg: "Load failed!", serverMsg: error.message});
+    return res.status(500).json({ msg: "Load failed!", serverMsg: error.message });
   }
   res.sendStatus(404);
 })
 
 router.get('/:companyId/worker/:workerId', async (req, res) => {
-  const {companyId, workerId} = req.params;
+  const { companyId, workerId } = req.params;
   // if (req.session.company._id !== companyId) {
   //   return res.status(401).json({ msg: "Unauthorized" });
   // }
@@ -40,41 +59,41 @@ router.get('/:companyId/worker/:workerId', async (req, res) => {
   if (worker) {
     return res.status(200).json(worker);
   }
-  return res.status(404).json({msg: "Not Found"})
+  return res.status(404).json({ msg: "Not Found" })
 });
 
 router.delete('/:companyId/worker/:workerId', async (req, res) => {
-  const {companyId, workerId} = req.params;
+  const { companyId, workerId } = req.params;
   // if (req.session.company._id !== companyId) {
   //   return res.status(401).json({ msg: "Unauthorized" });
   // }
   try {
     await WorkerModel.findByIdAndRemove(workerId);
-    await CompanyModel.findByIdAndUpdate(companyId, {$pull: {workers: {$in: [workerId]}}});
+    await CompanyModel.findByIdAndUpdate(companyId, { $pull: { workers: { $in: [workerId] } } });
     res.status(200).end()
   } catch (error) {
-    res.status(500).json({msg: 'Failed to remove worker', serverMsg: error.message});
+    res.status(500).json({ msg: 'Failed to remove worker', serverMsg: error.message });
   }
 });
 
 router.patch('/:companyId/worker/:workerId', async (req, res) => {
-  const {companyId, workerId} = req.params;
-  const {generalInfo, profInfo} = req.body;
+  const { companyId, workerId } = req.params;
+  const { generalInfo, profInfo } = req.body;
   // if (req.session.company._id !== companyId) {
   //   return res.status(401).json({ msg: "Unauthorized" });
   // }
   try {
-    await WorkerModel.findByIdAndUpdate(workerId, {$set: {"generalInfo": generalInfo, "profInfo": profInfo}});
+    await WorkerModel.findByIdAndUpdate(workerId, { $set: { "generalInfo": generalInfo, "profInfo": profInfo } });
     res.status(200).end();
   } catch (error) {
-    res.status(500).json({msg: 'Failed to remove worker', serverMsg: error.message});
+    res.status(500).json({ msg: 'Failed to remove worker', serverMsg: error.message });
   }
 
 });
 
 router.post('/:companyId/worker', async (req, res) => {
-  const {companyId} = req.params;
-  const {generalInfo, profInfo} = req.body;
+  const { companyId } = req.params;
+  const { generalInfo, profInfo } = req.body;
 
   // Security
   // if (req.session.company._id !== companyId) {
@@ -97,7 +116,7 @@ router.post('/:companyId/worker', async (req, res) => {
     ohsDocs: []
   });
   // генерируем все файлы и возвращаем урлы из функции
-  const {basePath, downloadPath} = await fillTemplates(company, newWorker._id, generalInfo, profInfo);
+  const { basePath, downloadPath } = await fillTemplates(company, newWorker._id, generalInfo, profInfo);
   console.log(basePath, downloadPath);
   // читаем директорию с сгенерированными файлами
   let files = await fs.promises.readdir(basePath);
@@ -122,18 +141,18 @@ router.post('/:companyId/worker', async (req, res) => {
   // сохраняем
   try {
     await newWorker.save();
-    await CompanyModel.findByIdAndUpdate(companyId, {$push: {workers: newWorker}});
+    await CompanyModel.findByIdAndUpdate(companyId, { $push: { workers: newWorker } });
     return res.status(200).end();
   } catch (error) {
     console.log(error)
-    return res.status(500).json({msg: "Load failed!", serverMsg: error.message});
+    return res.status(500).json({ msg: "Load failed!", serverMsg: error.message });
   }
 });
 
 
-router.put('/:companyId/worker/:workerId', multer({storage: scanStorage}).single('fileStore[]'),
+router.put('/:companyId/worker/:workerId', multer({ storage: scanStorage }).single('fileStore[]'),
   async (req, res) => {
-    const {workerId, companyId} = req.params;
+    const { workerId, companyId } = req.params;
     const metadata = {
       ...req.file,
       downloadPath: `http://localhost:3001/fileStore/${companyId}/${workerId}/${req.file.originalname}`
@@ -144,21 +163,21 @@ router.put('/:companyId/worker/:workerId', multer({storage: scanStorage}).single
         isSigned: true,
       });
 
-      await WorkerModel.findByIdAndUpdate(workerId, {$push: {ohsDocs: doc, signedOhsIds: doc._id}});
-      res.status(200).json({msg: 'document successfully been added to fileStorage and database.'});
+      await WorkerModel.findByIdAndUpdate(workerId, { $push: { ohsDocs: doc, signedOhsIds: doc._id } });
+      res.status(200).json({ msg: 'document successfully been added to fileStorage and database.' });
     } catch (error) {
       console.log(error.message);
-      res.status(401).json({msg: error.message});
+      res.status(401).json({ msg: error.message });
     }
   });
 
 router.post('/:companyId/worker/:workerId/med/:medType',
-  multer({storage: medStorage}).array('files', 2),
+  multer({ storage: medStorage }).array('files', 2),
   async (req, res) => {
     console.log(".>>>>>>>>>")
-    const {workerId, companyId, medType} = req.params;
+    const { workerId, companyId, medType } = req.params;
     console.log(req.files);
-    const {dateofmed} = req.headers;
+    const { dateofmed } = req.headers;
     try {
       const medDoc = new MedicalDocModel({
         type: medType,
@@ -172,13 +191,13 @@ router.post('/:companyId/worker/:workerId/med/:medType',
         },
         createdAt: new Date(dateofmed),
       });
-      await WorkerModel.findByIdAndUpdate(workerId, {$push: {medicalExams: medDoc}});
+      await WorkerModel.findByIdAndUpdate(workerId, { $push: { medicalExams: medDoc } });
       res.status(200).json({
         msg: `Medical document for worker ID: ${workerId} successfully been added to fileStorage and database.`
       });
     } catch (error) {
       console.log(error.message);
-      res.status(401).json({msg: error.message});
+      res.status(401).json({ msg: error.message });
     }
   })
 

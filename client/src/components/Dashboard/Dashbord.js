@@ -26,6 +26,7 @@ import DocumentsCopy from "../Worker/DocumentsCopy";
 import ToDoList from '../ToDoList';
 import Note from '../Note';
 import SwitchOfTheme from '../Worker/SwitchOfTheme';
+import Test from '../Test';
 
 const drawerWidth = 240;
 
@@ -171,6 +172,7 @@ export default function Dashboard() {
                   <PrivateRoute exact path='/company'><Company /></PrivateRoute>
                   <PrivateRoute exact path='/timetable'><Timetable /> </PrivateRoute>
                   <PrivateRoute exact path='/note'> <Note /> </PrivateRoute>
+                  <PrivateRoute exact path='/test'> <Test /> </PrivateRoute>
                   <PrivateRoute exact path='/employees'> <Employees /> </PrivateRoute>
                   <PrivateRoute exact path='/employee/:id'> <Worker /> </PrivateRoute>
                   <PrivateRoute exact path='/employee/:id/medicInfo'> <MedicalExaminations /> </PrivateRoute>
