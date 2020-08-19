@@ -22,7 +22,7 @@ router.post('/uploadWorkers', fileUpload(), async (req, res) => {
   }
   try {
     const file = req.files.xlsx.data;
-    const company = await CompanyModel.findById('5f3ce078a87838caa8714066');
+    const company = await CompanyModel.findById('5f3d19165eb7134d7064d20e');
     await parseXlsx(file, company);
     console.log('sending status')
     return res.status(200).end();
@@ -40,7 +40,7 @@ router.get('/:companyId/list', async (req, res) => {
       const list = company.workers.map(worker => ({
         _id: worker._id,
         name: worker.generalInfo.lastName + ' ' + worker.generalInfo.firstName + ' ' + worker.generalInfo.middleName,
-        profession: worker.profInfo.profession
+        profession: worker.profInfo.position
       }));
       return res.status(200).json({ list });
     }
@@ -118,7 +118,6 @@ router.post('/:companyId/worker', async (req, res) => {
   });
   // генерируем все файлы и возвращаем урлы из функции
   const { basePath, downloadPath } = await fillTemplates(company, newWorker._id, generalInfo, profInfo);
-  console.log(basePath, downloadPath);
   // читаем директорию с сгенерированными файлами
   let files = await fs.promises.readdir(basePath);
   // приводим все файлы к объекту с правильными полями

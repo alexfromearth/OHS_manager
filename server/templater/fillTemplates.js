@@ -5,17 +5,19 @@ import fs from "fs";
 export default async function fillTemplates(company, workerId, generalInfo, profInfo) {
   const {firstName, lastName, middleName, birthday, birthPlace, address, sex} = generalInfo;
   const {education, position, workExperience, structuralSubdivision, startWorkDate} = profInfo;
-
+  // console.log('here1')
+  // console.log('here3')
+  // console.log('here4')
   try {
     // создаем папки
     const companyDir = fs.readdirSync(`${process.env.PWD}/fileStore/`)
-      .find(folder => folder === company._id.toString());
-
+    .find(folder => folder === company._id.toString());
+    
     if (!companyDir) {
       await fs.promises.mkdir(`${process.env.PWD}/fileStore/${company._id}`);
     }
     await fs.promises.mkdir(`${process.env.PWD}/fileStore/${company._id}/${workerId}`);
-
+    
     const basePath = `${process.env.PWD}/fileStore/${company._id}/${workerId}/`;
     const downloadPath = `http://localhost:3001/fileStore/${company._id}/${workerId}/`;
 

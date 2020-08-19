@@ -1,10 +1,12 @@
 import mongoose from 'mongoose';
-import OhsDocsModel from "../ohsDocModel.js";
+import OhsDocModel from "../ohsDocModel.js";
 import MedicalExamModel from '../medicalExamModel.js';
 import workerModel from '../workerModel.js';
 import CompanyModel from '../companyModel.js';
 import docTemplateModel from '../docTemplatesModel.js';
+import fillTemplates from '../../templater/fillTemplates.js';
 import bcrypt from 'bcrypt';
+import fs from 'fs';
 
 // mongoose.pluralize(null);
 mongoose.connect('mongodb://localhost/ohs_manager', { useNewUrlParser: true, useUnifiedTopology: true });
@@ -13,67 +15,49 @@ mongoose.connection.on('error', console.error.bind(console, 'Ошибка сое
 (async () => {
 
   console.log("seeding started")
-  // Creating ohsDocs
-  const ohsDoc1 = new OhsDocsModel({
-    metadata: {
-      message: "ohsDoc One"
-    },
-  })
-  const ohsDoc2 = new OhsDocsModel({
-    metadata: {
-      message: "ohsDoc Two"
-    },
-  })
-  const ohsDoc3 = new OhsDocsModel({
-    metadata: {
-      message: "ohsDoc Three"
-    },
-  })
-
-  // Creating medicalExams
-  const medicalExam1 = new MedicalExamModel({
-    metadata: {
-      message: "medicalExam 1"
-    }
-  })
-  const medicalExam2 = new MedicalExamModel({
-    metadata: {
-      message: "medicalExam 2"
-    }
-  })
-  const medicalExam3 = new MedicalExamModel({
-    metadata: {
-      message: "medicalExam 3"
-    }
-  })
-
   // Creating workers
   const worker1 = new workerModel({
     generalInfo: {
-      firstName: "Vasya",
-      lastName: "Vasin",
-      middleName: "Vasilyev"
+      firstName: "Василий",
+      lastName: "Беляев",
+      middleName: "Иванович",
+      birthday: "1950-12-31",
+      birthPlace: "деревня Грязь, дом 23 к2",
+      address: "деревня Грязь, дом 22",
+      sex: "Мужской",
     },
     profInfo: {
-      profession: "Plumber"
+      education: "Среднее специальное",
+      position: "Слесарь",
+      workExperience: "40 лет",
+      structuralSubdivision: "Служба хоз. обеспечения",
+      startWorkDate: "2020-12-1"
     },
-    medicalExams: [medicalExam1, medicalExam2],
-    ohsDocs: [ohsDoc2, ohsDoc3],
-    unsignedOhsIds: [ohsDoc2._id, ohsDoc3._id],
+    medicalExams: [],
+    ohsDocs: [],
+    unsignedOhsIds: [],
     signedOhsIds: [],
   })
   const worker2 = new workerModel({
     generalInfo: {
-      firstName: "Grigoriy",
-      lastName: "Grigoriev",
-      middleName: "Grigoryan"
+      firstName: "Елена",
+      lastName: "Ленина",
+      middleName: "Иосифна",
+      birthday: "1978-9-15",
+      birthPlace: "Деревня Синьково",
+      address: "Сыктывкар, Окрябрьский пр. дом 5",
+      sex: "Мужской",
     },
     profInfo: {
-      profession: "Software developer"
+      education: "Высшее магистратура",
+      position: "Бухгалтер",
+      workExperience: "5 лет",
+      structuralSubdivision: "Служба хоз. обеспечения",
+      startWorkDate: "2019-5-10"
     },
-    medicalExams: [medicalExam3],
-    ohsDocs: [ohsDoc1],
-    unsignedOhsIds: [ohsDoc1._id],
+    medicalExams: [],
+    ohsDocs: [],
+    unsignedOhsIds: [],
     signedOhsIds: [],
   })
 
@@ -98,27 +82,6 @@ mongoose.connection.on('error', console.error.bind(console, 'Ошибка сое
       tel: '79271669'
     },
     fireSecret: await bcrypt.hash('croc', 10),
-    toDoList: {
-      todos: {
-        'todo1': {id: 'todo1', content: 'todo1 content'},
-        'todo2': {id: 'todo2', content: 'todo2 content'},
-        'todo3': {id: 'todo3', content: 'todo3 content'},
-        'todo4': {id: 'todo4', content: 'todo4 content'},
-      },
-      columns: {
-        'column1': {
-          id: 'column1',
-          title: 'column 1',
-          todosIds: ['todo1', 'todo2']
-        },
-        'column2': {
-          id: 'column2',
-          title: 'column 2',
-          todosIds: ['todo3', 'todo4']
-        },
-      },
-      columnOrder: ['column1', 'column2'],
-    },
     workers: [worker1._id, worker2._id]
   })
 
@@ -136,14 +99,61 @@ mongoose.connection.on('error', console.error.bind(console, 'Ошибка сое
     file: 'template filename 3'
   })
 
+  // Creating documents from worker1
+  let { basePath, downloadPath } = await fillTemplates(company, worker1._id, worker1.generalInfo, worker1.profInfo);
+  
+  let files1 = await fs.promises.readdir(basePath);
+
+  files1 = files1.map(file => {
+    const meta = fs.statSync(basePath + file);
+    file = {
+      filename: file, size: meta.size, originalname: file,
+      path: `${basePath}${file}`,
+      downloadPath: `${downloadPath}${file}`,
+    };
+    return file;
+  })
+
+  files1.forEach((file) => {
+    const doc = new OhsDocModel({
+      metadata: file,
+    })
+    worker1.unsignedOhsIds.push(doc._id);
+    worker1.ohsDocs.push(doc);
+  })
+  console.log('here')
+  // Creating documents from worker2
+  const response = await fillTemplates(company, worker2._id, worker2.generalInfo, worker2.profInfo);
+  const basePath2 = response.basePath;
+  const downloadPath2 = response.downloadPath;
+  let files2 = await fs.promises.readdir(basePath2);
+
+  files2 = files2.map(file => {
+    const meta = fs.statSync(basePath2 + file);
+    file = {
+      filename: file, size: meta.size, originalname: file,
+      path: `${basePath2}${file}`,
+      downloadPath2: `${downloadPath2}${file}`,
+    };
+    return file;
+  })
+
+  files2.forEach((file) => {
+    const doc = new OhsDocModel({
+      metadata: file,
+    })
+    worker2.unsignedOhsIds.push(doc._id);
+    worker2.ohsDocs.push(doc);
+  })
+
   // Saving workers, templates and company to db
   await worker1.save();
   await worker2.save();
-
+  
   await docTemplate1.save();
   await docTemplate2.save();
   await docTemplate3.save();
-
+  
   await company.save();
 
   console.log("seeding finished");
