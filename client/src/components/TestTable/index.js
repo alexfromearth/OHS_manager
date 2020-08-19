@@ -59,29 +59,54 @@ const rows = [
     prof: 'слесарь'
   },
 ];
+function descendingComparator(a, b, orderBy) {
+  if (b[orderBy] < a[orderBy]) {
+    return -1;
+  }
+  if (b[orderBy] > a[orderBy]) {
+    return 1;
+  }
+  return 0;
+}
 
-const headCells = [
-  { id: 'number', numeric: false, label: 'Номер' },
-  { id: 'name', numeric: false, label: 'Сотрудник' },
-  { id: 'profession', numeric: true, label: 'Должность' },
-];
+function getComparator(order, orderBy) {
+  return order === 'desc'
+    ? (a, b) => descendingComparator(a, b, orderBy)
+    : (a, b) => -descendingComparator(a, b, orderBy);
+}
+
+function stableSort(array, comparator) {
+  const stabilizedThis = array.map((el, index) => [el, index]);
+  stabilizedThis.sort((a, b) => {
+    const order = comparator(a[0], b[0]);
+    if (order !== 0) return order;
+    return a[1] - b[1];
+  });
+  return stabilizedThis.map((el) => el[0]);
+}
 
 function EnhancedTableHead(props) {
+  
   return (
     <TableHead>
       <TableRow>
+
         <TableCell>
           Номер
         </TableCell>
+
         <TableCell>
           Сотрудник
         </TableCell>
+
         <TableCell>
-          Должность
           <TableSortLabel
           // onClick={createSortHandler(headCell.id)}
-          />
+          >
+            Должность
+          </TableSortLabel>
         </TableCell>
+
       </TableRow>
     </TableHead>
   )
@@ -104,8 +129,14 @@ export default function TestTable() {
   const classes = useStyles();
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
-  // const [order, setOrder] = useState('asc');
-  // const [orderBy, setOrderBy] = useState('calories');
+  const [order, setOrder] = useState('asc');
+  const [orderBy, setOrderBy] = useState('profession');
+
+  const handleRequestSort = (event, property) => {
+    const isAsc = orderBy === property && order === 'asc';
+    setOrder(isAsc ? 'desc' : 'asc');
+    setOrderBy(property);
+  };
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -126,9 +157,14 @@ export default function TestTable() {
             aria-labelledby="tableTitle"
             aria-label="enhanced table"
           >
-            <EnhancedTableHead />
+            <EnhancedTableHead
+              classes={classes}
+              order={order}
+              orderBy={orderBy}
+              onRequestSort={handleRequestSort}
+            />
             <TableBody>
-              {rows
+              {stableSort(rows, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((el, index) => {
                   return (
