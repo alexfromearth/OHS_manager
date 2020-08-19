@@ -22,6 +22,7 @@ import portalStyles from '../ModalPortal/styles.module.sass'
 import UploadScans from "../UploadScans/UploadScans";
 import Note from '../Note';
 import SwitchOfTheme from '../Worker/SwitchOfTheme';
+import TestTable from '../TestTable';
 
 const drawerWidth = 240;
 
@@ -103,7 +104,10 @@ const useStyles = makeStyles((theme) => ({
   },
   list: {
     minHeight: "90vh"
-  }
+  },
+  logo: {
+    height: 65
+  },
 }));
 
 export default function Dashboard() {
@@ -134,6 +138,7 @@ export default function Dashboard() {
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
             OHS Manager
                     </Typography>
+          <img src="mainLogo8.png" className={classes.logo} />
         </Toolbar>
       </AppBar>
       <>
@@ -176,6 +181,7 @@ export default function Dashboard() {
                       <UploadScans />
                     </ModalPortal>
                   </PrivateRoute>
+                  <PrivateRoute exact path='/test2'> <TestTable /> </PrivateRoute>
                 </Switch>
               </Grid>
             </Grid>

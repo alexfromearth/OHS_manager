@@ -73,25 +73,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 const photo = 'https://img2.freepng.ru/20180523/tha/kisspng-businessperson-computer-icons-avatar-clip-art-lattice-5b0508dc6a3a10.0013931115270566044351.jpg'
-// const worker2 = {
-//   generalInfo: {
-//     lastName: 'Верин',
-//     firstName: 'Василий',
-//     middleName: 'Николаевич',
-//     birthday: '12.04.1986',
-//     birthPlace: 'село Крыжовники, дом 7',
-//     address: 'Москва, Тропаревский лес, 5 дерево',
-//     photo: 'https://img2.freepng.ru/20180523/tha/kisspng-businessperson-computer-icons-avatar-clip-art-lattice-5b0508dc6a3a10.0013931115270566044351.jpg',
-//     sex: 'мужской',
-//   },
-//   profInfo: {
-//     education: 'Среднее специальное',
-//     position: 'Слесарь',
-//     workExperience: '10 лет',
-//     structuralSubdivision: 'схо',
-//     startWorkDate: '12.12.2016'
-//   },
-// }
 
 export default function Worker() {
   const history = useHistory();
