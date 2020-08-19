@@ -107,6 +107,7 @@ export default function DocumentsCopy() {
                 </ListItem>
               )
             }
+            else return undefined
           })}
         </List>
 
@@ -119,7 +120,7 @@ export default function DocumentsCopy() {
 
         <List component="div" className={classes.list2} >
           {worker.ohsDocs && worker.ohsDocs.map(el => {
-            if (worker.signedOhsIds.includes(el._id))
+            if (worker.signedOhsIds.includes(el._id)) {
               return (
                 <ListItem button className={classes.listitem} onClick={() => { window.location = el.metadata.downloadPath }} key={el._id}>
                   <CloudDownloadOutlinedIcon fontSize={'large'} className={classes.zagr} />
@@ -131,6 +132,8 @@ export default function DocumentsCopy() {
                   </ListItemAvatar>
                 </ListItem>
               )
+            }
+            else return undefined
           })}
         </List>
       </div>

@@ -13,7 +13,6 @@ import EmployeeForm from "../Forms/EmployeeForm";
 import LoginPage from "../LoginPage";
 import Employees from "../Employees";
 import PrivateRoute from "../PrevateRoute";
-import Dnd from '../Dnd';
 import Worker from '../Worker';
 import Timetable from '../Timetable'
 import Company from '../Company';
@@ -21,11 +20,9 @@ import MedicalExaminations from "../Worker/MedicalExaminations";
 import ModalPortal from "../ModalPortal/ModalPortal";
 import portalStyles from '../ModalPortal/styles.module.sass'
 import UploadScans from "../UploadScans/UploadScans";
-import Documents from "../Worker/Documents/Documents";
-import DocumentsCopy from "../Worker/DocumentsCopy";
-import ToDoList from '../ToDoList';
 import Note from '../Note';
 import SwitchOfTheme from '../Worker/SwitchOfTheme';
+import TestTable from '../TestTable';
 import EditEmployeeForm from "../Forms/EditEmployeeForm";
 
 const drawerWidth = 240;
@@ -108,7 +105,10 @@ const useStyles = makeStyles((theme) => ({
   },
   list: {
     minHeight: "90vh"
-  }
+  },
+  logo: {
+    height: 65
+  },
 }));
 
 export default function Dashboard() {
@@ -139,6 +139,7 @@ export default function Dashboard() {
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
             OHS Manager
                     </Typography>
+          <img src="mainLogo8.png" className={classes.logo} />
         </Toolbar>
       </AppBar>
       <>
@@ -183,6 +184,7 @@ export default function Dashboard() {
                       <UploadScans />
                     </ModalPortal>
                   </PrivateRoute>
+                  <PrivateRoute exact path='/test2'> <TestTable /> </PrivateRoute>
                 </Switch>
               </Grid>
             </Grid>
