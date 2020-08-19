@@ -27,7 +27,6 @@ function FillDataBaseExelModal({ handleClose, handleToggle}) {
       formData.append('xlsx', file);
     });
     dispatch(seedSC(formData));
-    debugger;
     await sleep(5000);
     dispatch(loadSuccess());
     handleToggle();

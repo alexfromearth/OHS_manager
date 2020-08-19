@@ -84,7 +84,6 @@ export default function EditEmployeeForm() {
       education, structuralSubdivision, startWorkDate, position, workExperience
     };
     dispatch(trimFormInputs());
-    debugger;
     dispatch(editEmployeeSC(companyId, worker._id, generalInfo, profInfo));
     history.push(`/employee/${worker._id}`);
   }

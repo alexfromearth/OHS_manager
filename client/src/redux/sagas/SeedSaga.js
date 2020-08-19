@@ -9,7 +9,6 @@ const API = new backAPI();
 
 function* SeedDBWorker(action) {
   yield put(setUpload(true))
-  debugger;
   try {
     const data = yield call(API.seedDataBase, action.payload.formData);
   } catch (error) {
