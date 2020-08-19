@@ -91,8 +91,6 @@ export default function Worker() {
     history.push('/employees');
   }
 
-  console.log(worker);
-
   return (
     <>
       <Button variant="contained" color="secondary" className={classes.back} onClick={() => history.push(`/employees/`)}>

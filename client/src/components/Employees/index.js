@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import { allStaffThunk } from '../../redux/thunks/allStaffThunk.js';
@@ -7,7 +7,10 @@ import Button from '@material-ui/core/Button';
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import AddIcon from '@material-ui/icons/Add';
 import FilterListIcon from '@material-ui/icons/FilterList';
-
+import ModalPortal from "../ModalPortal/ModalPortal";
+import FillDataBaseExelModal from "../FillDataBaseExelModal";
+import portalStyles from "../ModalPortal/styles.module.sass";
+import {clearFileList} from "../../redux/actionCreators/ActionCreators";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,6 +28,9 @@ const useStyles = makeStyles((theme) => ({
   },
   btns: {
     height: 50,
+  },
+  btnExel: {
+    backgroundColor: "dodgerblue"
   },
   employee: {
     display: "flex",
@@ -78,6 +84,8 @@ export default function Employees() {
   const id = useSelector(state => state.auth.companyId)
   const classes = useStyles()
 
+  const [showExelModal, setShowExelModal] = useState(false);
+
   useEffect(() => {
     dispatch(allStaffThunk(id))
   }, [dispatch, id])
@@ -87,9 +95,30 @@ export default function Employees() {
       history.push(`/employee/${id}`)
     }, 210);
   }
+
+
+  function handleClose() {
+    if (showExelModal) {
+      dispatch(clearFileList());
+    }
+    setShowExelModal((state) => (!state));
+  }
+
+
   return (
     <>
       <div className={classes.hdr}>
+        <Button variant="contained"
+                className={classes.btnExel}
+                onClick={() => {setShowExelModal(state => !state)}}
+                >
+          <AddIcon className={classes.icon} />
+          Загрузить базу данных сотрудников
+        </Button>
+        {showExelModal
+        && <ModalPortal className={portalStyles.myModal}>
+          <FillDataBaseExelModal setShowExelModal={setShowExelModal} handleClose={handleClose}/>
+        </ModalPortal>}
         <Button variant="contained" color="primary"
           className={classes.btns}
           onClick={() => history.push('/employee/new')}>

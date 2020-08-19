@@ -23,6 +23,7 @@ import UploadScans from "../UploadScans/UploadScans";
 import Note from '../Note';
 import SwitchOfTheme from '../Worker/SwitchOfTheme';
 import TestTable from '../TestTable';
+import EditEmployeeForm from "../Forms/EditEmployeeForm";
 
 const drawerWidth = 240;
 
@@ -172,10 +173,12 @@ export default function Dashboard() {
                   <PrivateRoute exact path='/company'><Company /></PrivateRoute>
                   <PrivateRoute exact path='/timetable'><Timetable /> </PrivateRoute>
                   <PrivateRoute exact path='/note'> <Note /> </PrivateRoute>
+                  <PrivateRoute exact path='/test'> <Test /> </PrivateRoute>
                   <PrivateRoute exact path='/employees'> <Employees /> </PrivateRoute>
                   <PrivateRoute exact path='/employee/:id'> <Worker /> </PrivateRoute>
                   <PrivateRoute exact path='/employee/:id/medicInfo'> <MedicalExaminations /> </PrivateRoute>
                   <PrivateRoute exact path='/employee/:id/documents'> <SwitchOfTheme /> </PrivateRoute>
+                  <PrivateRoute exact path='/employee/:id/update'> <EditEmployeeForm /> </PrivateRoute>
                   <PrivateRoute exact path='/test'>
                     <ModalPortal className={portalStyles.myModal}>
                       <UploadScans />

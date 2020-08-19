@@ -11,6 +11,8 @@ import SubmitFormsWatcher from "./sagas/SubmitFormsSaga";
 import UploadScansWatcher from "./sagas/uploadScansSaga";
 import UploadMedicWatcher from "./sagas/uploadMedic";
 import LogoutSaga from './sagas/LogoutSaga';
+import EditEmployeeInfoWatcher from "./sagas/EditEmployeeInfoSaga";
+import SeedDBWatcher from "./sagas/SeedSaga";
 
 const sagaMiddlewear = reduxSaga()
 
@@ -31,6 +33,8 @@ sagaMiddlewear.run(
       SubmitFormsWatcher(),
       UploadScansWatcher(),
       UploadMedicWatcher(),
+      EditEmployeeInfoWatcher(),
+      SeedDBWatcher(),
     ])
   })
 

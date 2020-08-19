@@ -11,7 +11,12 @@ import MainEmployeeInfo from "./MainEmployeeInfo";
 import ProEmployeeInfo from "./ProEmployeeInfo";
 import {useDispatch, useSelector} from "react-redux";
 import {useHistory} from 'react-router-dom';
-import {setError, submitFormInputSC} from "../../../redux/actionCreators/ActionCreators";
+import {
+  clearFormInputs,
+  setError,
+  submitFormInputSC,
+  trimFormInputs
+} from "../../../redux/actionCreators/ActionCreators";
 import Review from "./Review";
 
 
@@ -137,6 +142,7 @@ export default function EmployeeForm() {
         },
         {education, position, workExperience, structuralSubdivision, startWorkDate}))
       setTimeout(() => {
+        dispatch(clearFormInputs());
         history.push('/employees');
       }, 3000);
     } else if (isNotEmpty()) {

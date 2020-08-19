@@ -41,6 +41,11 @@ class backAPI {
     return {...response.data, status: response.status};
   }
 
+  async editEmployeeInfo(companyId, workerId, generalInfo, profInfo) {
+    const response = await axios.patch(`/api/workers/${companyId}/worker/${workerId}`, {generalInfo, profInfo});
+    return {...response.data, status: response.status};
+  }
+
   // uploadDocs
   async uploadScans(formData, companyId, workerId) {
     const response = await axios.put(`/api/workers/${companyId}/worker/${workerId}`, formData);
@@ -66,6 +71,11 @@ class backAPI {
 // dnd docs
   async updateSgnedList(workerId, signedOhsIds) {
     const response = await axios.patch(`/api/documents/${workerId}/ohsList`, {signedOhsIds});
+    return {...response.data, status: response.status};
+  }
+  // seed
+  async seedDataBase(formData) {
+    const response = await axios.post('api/workers/uploadWorkers', formData);
     return {...response.data, status: response.status};
   }
 }
