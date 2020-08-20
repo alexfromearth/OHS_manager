@@ -14,11 +14,11 @@ function* isUserAuthenticatedWorker(action) {
       const { _id, companyName, generalInfo, secret } = data.company;
       yield put(setAuthUser(_id, companyName, generalInfo, secret));
     } else {
-      yield put(setError(data.msg));
+      // yield put(setError(data.msg));
     }
   } catch (error) {
     yield put(isLoading(false));
-    yield put(setError(error.message))
+    // yield put(setError(error.message))
   }
 }
 

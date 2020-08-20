@@ -8,7 +8,8 @@
     "dev": "run-p client server",
     "client": "cd client && yarn start",
     "server": "cd server && yarn start",
-    "i": "yarn && cd client && yarn && cd .. && cd server && yarn"
+    "i": "yarn && cd client && yarn && cd .. && cd server && yarn",
+    "seed": "cd server && yarn seed"
   },
   "repository": {
     "type": "git",
