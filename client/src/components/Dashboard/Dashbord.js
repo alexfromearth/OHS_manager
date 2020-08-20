@@ -22,7 +22,7 @@ import portalStyles from '../ModalPortal/styles.module.sass'
 import UploadScans from "../UploadScans/UploadScans";
 import Note from '../Note';
 import SwitchOfTheme from '../Worker/SwitchOfTheme';
-import TestTable from '../TestTable/primer';
+import TestTable from '../TestTable';
 import EditEmployeeForm from "../Forms/EditEmployeeForm";
 import { authSC } from "../../redux/actionCreators/ActionCreators.js";
 import SecondaryListItems from "./SecondListItem";
@@ -190,7 +190,7 @@ export default function Dashboard() {
                       <UploadScans />
                     </ModalPortal>
                   </PrivateRoute>
-                  <PrivateRoute exact path='/test2'> <TestTable /> </PrivateRoute>
+                  <Route exact path='/test2'> <TestTable /> </Route>
                 </Switch>
               </Grid>
             </Grid>
