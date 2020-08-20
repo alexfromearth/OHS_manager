@@ -47,13 +47,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Company() {
-  const classes = useStyles()
-  const companyName = useSelector(state => state.auth.companyName)
-  const companyType = useSelector(state => state.auth.companyType)
-  const companyCity = useSelector(state => state.auth.companyCity)
-  const companyDirector = useSelector(state => state.auth.companyDirector)
-  const companyEmail = useSelector(state => state.auth.companyEmail)
-  const generalInfo = useSelector(state => state.auth.generalInfo)
+  const classes = useStyles();
+  const companyName = useSelector(state => state.auth.companyName);
+  const companyType = useSelector(state => state.auth.companyType);
+  const companyCity = useSelector(state => state.auth.companyCity);
+  const companyDirector = useSelector(state => state.auth.companyDirector);
+  const companyEmail = useSelector(state => state.auth.companyEmail);
+  const generalInfo = useSelector(state => state.auth.generalInfo);
 
   return (
     <>

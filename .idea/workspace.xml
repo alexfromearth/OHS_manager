@@ -27,7 +27,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c03e058d-6bf5-4362-b599-b9d37e0d3b7f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Employees/Table/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Employees/Table/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Company/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Company/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/redux/sagas/LoginSaga.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/sagas/LoginSaga.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +98,8 @@
       <workItem from="1597643534815" duration="35343000" />
       <workItem from="1597729692955" duration="67042000" />
       <workItem from="1597857469858" duration="2196000" />
-      <workItem from="1597903248981" duration="19478000" />
+      <workItem from="1597903248981" duration="21017000" />
+      <workItem from="1597947332984" duration="39000" />
     </task>
     <servers />
   </component>
