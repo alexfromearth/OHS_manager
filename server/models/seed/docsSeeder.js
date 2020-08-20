@@ -71,11 +71,11 @@ mongoose.connection.on('error', console.error.bind(console, 'Ошибка сое
     generalInfo: {
       // message: 'Company gen',
       site: 'https://www.croc.ru/',
-      year: 1956,
+      year: 1999,
       legal_address: 'Москва, Ленинский 17',
       actual_address: 'Москва, Вавилова 1',
       // type: 'ООО',
-      countOfStaff: 26,
+      countOfStaff: 52,
       OGRN: '1053600591197',
       BIK: '044540132',
       INN: '3664069397',
