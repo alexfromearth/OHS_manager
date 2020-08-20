@@ -14,6 +14,7 @@ import { clearFileList } from "../../redux/actionCreators/ActionCreators";
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFileExcel } from "@fortawesome/free-solid-svg-icons";
+import Table from "./Table";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -106,9 +107,9 @@ export default function Employees() {
   }, [dispatch, id, uploadingScans])
 
   function handleClick(id) {
-    setTimeout(() => {
+    // setTimeout(() => {
       history.push(`/employee/${id}`)
-    }, 210);
+    // }, 210);
   }
 
   function handleToggle() {
@@ -149,7 +150,7 @@ export default function Employees() {
             <FillDataBaseExelModal handleToggle={handleToggle} handleClose={handleClose} />
           </ModalPortal>}
       </div>
-      <div className={classes.root}>
+      {/* <div className={classes.root}>
         <div className={classes.wrapper}>
           <div className={classes.wrapperHead}>
             <span className={classes.index}>№</span>
@@ -177,7 +178,12 @@ export default function Employees() {
             })}
           </ButtonGroup>
         </div>
-      </div>
+      </div> */}
+      {uploadingScans
+        ? <div className={classes.progress}><CircularProgress color={"secondary"} size={160} /></div>
+        : employees &&
+        <Table employees={employees} handleClick={handleClick} />
+      }
     </>
   )
 }

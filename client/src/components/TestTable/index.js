@@ -195,7 +195,7 @@ function EnhancedTableHead(props) {
 
 export default function TestTable() {
   const employees = useSelector(state => state.allStaff.list);
-  const id = useSelector(state => state.auth.companyId);
+  const companyId = useSelector(state => state.auth.companyId);
   const classes = useStyles();
   const history = useHistory();
   const dispatch = useDispatch();
@@ -211,8 +211,10 @@ export default function TestTable() {
   }
 
   useEffect(() => {
-      dispatch(allStaffThunk(id))
-  }, [dispatch, id])
+    if (companyId) {
+      dispatch(allStaffThunk(companyId))
+    }
+  }, [dispatch, companyId])
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
