@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { CssBaseline, Drawer, AppBar, Toolbar, List, Typography, Divider, IconButton } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import MainListItems from './ListItems';
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import clsx from "clsx";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
@@ -22,9 +22,9 @@ import portalStyles from '../ModalPortal/styles.module.sass'
 import UploadScans from "../UploadScans/UploadScans";
 import Note from '../Note';
 import SwitchOfTheme from '../Worker/SwitchOfTheme';
-import TestTable from '../TestTable';
+import TestTable from '../TestTable/primer';
 import EditEmployeeForm from "../Forms/EditEmployeeForm";
-
+import { authSC } from "../../redux/actionCreators/ActionCreators.js";
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -113,6 +113,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Dashboard() {
   const isAuth = useSelector(state => state.auth.isAuth);
+  const dispatch = useDispatch();
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
@@ -121,6 +122,10 @@ export default function Dashboard() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  useEffect(()=>{
+    dispatch(authSC());
+  }, [])
 
   return (
     <div className={classes.root}>

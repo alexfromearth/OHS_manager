@@ -68,8 +68,6 @@ export default function DocumentsCopy() {
     }
   }, [dispatch, companyId, id, showUploadModal])
 
-  console.log(worker);
-
   function handleClick() {
     if (showUploadModal) {
       dispatch(clearFileList());

@@ -11,7 +11,6 @@ export default async (file, company) => {
     const { generalInfo, profInfo } = workerArr[index];
     //////////////////////////
     // workerArr.forEach( async ({ generalInfo, profInfo }, index) => {
-    console.log('im in ' + index)
     const newWorker = new WorkerModel({
       generalInfo,
       profInfo,
@@ -44,9 +43,7 @@ export default async (file, company) => {
     // сохраняем
     await newWorker.save();
     await CompanyModel.findByIdAndUpdate(company._id, { $push: { workers: newWorker } });
-    console.log('done one')
   }
   // ) /////////////////////////////////////////
-  console.log('all done');
   return true;
 }

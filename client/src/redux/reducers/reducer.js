@@ -3,11 +3,11 @@ import actionTypes from "../actionTypes/actionTypes";
 
 
 const initialState = {
-  companyId: "5f3d4ba7ebadac0c460f631a", // !!!!!!
+  companyId: null, // !!!!!!
   companyName: null,
   generalInfo: null,
   secret: null,
-  isAuth: true,
+  isAuth: false,
   errorMessage: null,
 }
 
@@ -15,7 +15,6 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     // логинизация
     case actionTypes.AUTENTICATED_SUCCESSFUL: {
-      console.log('here')
       const newState = deepcopy(state);
       newState.companyId = action.payload._id;
       newState.companyName = action.payload.companyName;

@@ -77,6 +77,14 @@ const useStyles = makeStyles((theme) => ({
   icon: {
     fontSize: 20,
     marginRight: 5
+  },
+  progress: {
+    justifySelf: "center",
+    alignSelf: "center",
+    minHeight: "74vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center"
   }
 }));
 
@@ -156,7 +164,9 @@ export default function Employees() {
             size="large"
             variant="outlined"
           >
-            {employees && employees.map((el, index) => {
+            {uploadingScans
+              ? <div className={classes.progress}><CircularProgress color={"secondary"} size={160}/></div>
+              : employees && employees.map((el, index) => {
               return <Button key={el._id}
                 className={classes.employee}
                 onClick={() => handleClick(el._id)}>
