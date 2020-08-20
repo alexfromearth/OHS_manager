@@ -16,8 +16,8 @@ const useStyles = makeStyles((theme) => ({
   },
   info: {
     // marginLeft: '35%',
-    marginTop: '10%',
-    marginBottom: '15%',
+    marginTop: '9%',
+    marginBottom: '9%',
     fontSize: 30,
     display: 'flex',
     flexDirection: 'column',

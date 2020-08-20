@@ -25,6 +25,7 @@ import SwitchOfTheme from '../Worker/SwitchOfTheme';
 import TestTable from '../TestTable/primer';
 import EditEmployeeForm from "../Forms/EditEmployeeForm";
 import { authSC } from "../../redux/actionCreators/ActionCreators.js";
+import SecondaryListItems from "./SecondListItem";
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -104,7 +105,7 @@ const useStyles = makeStyles((theme) => ({
     height: 240,
   },
   list: {
-    minHeight: "90vh"
+    height: "76vh",
   },
   logo: {
     height: 65
@@ -162,8 +163,9 @@ export default function Dashboard() {
               </IconButton>
             </div>
             <Divider />
-            <List className={classes.list}><MainListItems /></List>
+            <List><MainListItems /></List>
             <Divider />
+            <List className={classes.list}><SecondaryListItems /></List>
           </Drawer>
         }
         <main className={classes.content}>

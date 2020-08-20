@@ -29,7 +29,7 @@ function MedicalDocsModal({worker, handleClick, handleClose}) {
 
 
   async function handleUpload() {
-    if (!dateOf && !medType) return;
+    if (!dateOf || !medType) return;
     const formData = new FormData();
     fileList.forEach(file => {
       formData.append('files', file);
@@ -64,7 +64,7 @@ function MedicalDocsModal({worker, handleClick, handleClose}) {
     <div className={styles.modalUploadWrapper}>
       <Typography variant="h6">Загрузка медицинских документов работника</Typography>
       <div className={styles.requirements}>
-        <strong>Сначала</strong> загрузите паспорт сотрудника, <br/><strong>а потом</strong> заключение.
+        <strong>Сначала</strong> загрузите паспорт здоровья сотрудника, <br/><strong>а потом</strong> заключение врача.
       </div>
       <TextField
         required
@@ -99,7 +99,7 @@ function MedicalDocsModal({worker, handleClick, handleClose}) {
           className={styles.upload}
           type="primary"
           onClick={handleUpload}
-          disabled={fileList.length < 2}
+          disabled={fileList.length < 2 || dateOf.length < 5 || medType < 1}
           loading={uploadingScans}
         >
           {uploadingScans ? 'Загрузка' : 'Начать загрузку'}
