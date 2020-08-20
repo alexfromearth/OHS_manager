@@ -152,7 +152,7 @@ function MedicalExaminations() {
             </TableHead>
             <TableBody>
               {worker.medicalExams && worker.medicalExams.map((row) => ( //worker.medInfo
-                <StyledTableRow key={row.name}>
+                <StyledTableRow key={row._id}>
                   <StyledTableCell component="th" scope="row">
                     {row.type}
                   </StyledTableCell>
