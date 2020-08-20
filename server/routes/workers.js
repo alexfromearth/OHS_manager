@@ -11,6 +11,8 @@ import { medStorage } from "../middleware/multer.js";
 import fileUpload from "express-fileupload";
 import parseXlsx from '../xlParcer/index.js';
 import bcrypt from 'bcrypt';
+import rimraf from 'rimraf';
+import removeDir from '../templater/removeDir.js';
 
 // import {v4} from ('uuid');
 
@@ -65,14 +67,14 @@ router.get('/:companyId/worker/:workerId', async (req, res) => {
 router.delete('/:companyId/worker/:workerId', async (req, res) => {
   const { companyId, workerId } = req.params;
   const {secret} = req.headers;
-  console.log(secret);
   // if (req.session.company._id !== companyId) {
   //   return res.status(401).json({ msg: "Unauthorized" });
   // }
   const company = await CompanyModel.findById(companyId);
-
+  const path = `${process.env.PWD}/fileStore/${companyId}/${workerId}`;
   if (await bcrypt.compare(secret, company.fireSecret)) {
     try {
+      await rimraf(path, {}, (error) => {console.log(error)});
       await WorkerModel.findByIdAndRemove(workerId);
       await CompanyModel.findByIdAndUpdate(companyId, { $pull: { workers: { $in: [workerId] } } });
       res.status(200).end()

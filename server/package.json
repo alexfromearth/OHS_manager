@@ -22,6 +22,7 @@
     "mongoose": "^5.9.28",
     "multer": "^1.4.2",
     "pizzip": "^3.0.6",
+    "rimraf": "^3.0.2",
     "session-file-store": "^1.4.0",
     "uuid": "^8.3.0",
     "xlsx": "^0.16.6"
