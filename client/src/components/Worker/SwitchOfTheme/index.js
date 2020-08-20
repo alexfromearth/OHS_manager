@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useHistory, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
+import { eachWorkerThunk } from '../../../redux/thunks/eachWorkerThunk';
 import DocumentsCopy from "../DocumentsCopy"
 import Documents from "../Documents/Documents"
 
@@ -53,8 +55,15 @@ const useStyles = makeStyles({
 export default function SwitchOfTheme() {
   const { id } = useParams();
   const history = useHistory()
+  const dispatch= useDispatch()
   const classes = useStyles();
+  const companyId = useSelector(state => state.auth.companyId);
+  const worker = useSelector(state => state.allStaff.worker);
   const [state, setState] = useState(false);
+
+  useEffect(() => {
+      dispatch(eachWorkerThunk(companyId, id));
+  }, [dispatch, companyId, id])
 
   const handleChange = () => {
     setState((state) => !state);
@@ -66,13 +75,13 @@ export default function SwitchOfTheme() {
         <FormLabel className={classes.label}>Выбор темы</FormLabel>
         <Typography component="div" >
           <Grid component="label" container alignItems="center" spacing={4} className={classes.grid}>
-            <Grid item >Для слабых</Grid>
+            <Grid item >Стандартная</Grid>
             <Grid>
               <FormControlLabel
                 control={<Switch color='primary' checked={state} onChange={handleChange} />}
               />
             </Grid>
-            <Grid >Для сильных</Grid>
+            <Grid >DND version</Grid>
           </Grid>
         </Typography>
       </FormControl>
@@ -84,8 +93,9 @@ export default function SwitchOfTheme() {
 
       <div className={classes.zagolovok}>
         <h1>Документы</h1>
-        <h2>Сотрудник: Ударников Лопес Игоревич</h2>
-        {/* {worker && <h6> <h2>Сотрудник: {worker.generalInfo.lastName + ' ' + worker.generalInfo.firstName + ' ' + worker.generalInfo.middleName}</h2> */}
+        {worker.generalInfo
+          &&
+          <h2>Сотрудник: {worker.generalInfo.lastName + ' ' + worker.generalInfo.firstName + ' ' + worker.generalInfo.middleName}</h2>}
       </div>
 
       {state
