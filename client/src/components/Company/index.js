@@ -50,30 +50,10 @@ export default function Company() {
   const classes = useStyles()
   const companyName = useSelector(state => state.auth.companyName)
   const companyType = useSelector(state => state.auth.companyType)
-  const companyCity = useSelector(state => state.auth.city)
-  const companyDirector = useSelector(state => state.auth.director)
+  const companyCity = useSelector(state => state.auth.companyCity)
+  const companyDirector = useSelector(state => state.auth.companyDirector)
   const companyEmail = useSelector(state => state.auth.companyEmail)
   const generalInfo = useSelector(state => state.auth.generalInfo)
-  console.log(companyName)
-  console.log(generalInfo)
-  // const company = {
-  //   companyName: 'КРОК',
-  //   companyType: 'ООО',
-  //   city: 'Москва',
-  //   director: 'Безобразов Григорий Андреевич',
-  //   generalInfo: {
-  //     site: 'https://www.croc.ru/',
-  //     year: 1956,
-  //     legal_address: 'Москва, Ленинский 17',
-  //     actual_address: 'Москва, Вавилова 1',
-  //     countOfStaff: 26,
-  //     OGRN: '1053600591197',
-  //     BIK: '044540132',
-  //     INN: '3664069397',
-  //     tel: '79271669'
-  //   },
-
-  // }
 
   return (
     <>
@@ -94,10 +74,6 @@ export default function Company() {
           <Box color="info.main">{generalInfo.year}</Box>
         </div>
         <div className={classes.infoRow}>
-          <Box className={classes.inbox} color="text.primary">Город:</Box>
-          <Box color="info.main">{companyCity}</Box>
-        </div>
-        <div className={classes.infoRow}>
           <Box className={classes.inbox} color="text.primary">Юридический адрес:</Box>
           <Box color="info.main">{generalInfo.legal_address}</Box>
         </div>
@@ -109,15 +85,16 @@ export default function Company() {
           <Box className={classes.inbox} color="text.primary">Директор:</Box>
           <Box color="info.main">{companyDirector}</Box>
         </div>
+        <br></br>
         <div className={classes.infoRow}>
           <Box className={classes.inbox} color="text.primary">Email:</Box>
           <Box color="info.main">{companyEmail}</Box>
+          <CopyToClipboard text={companyEmail} >
+            <Button className={classes.btn}>
+              <FileCopyOutlinedIcon />
+            </Button>
+          </CopyToClipboard>
         </div>
-        <div className={classes.infoRow}>
-          <Box className={classes.inbox} color="text.primary">Количество сотрудников:</Box>
-          <Box color="info.main">{generalInfo.countOfStaff}</Box>
-        </div>
-        <br></br>
         <div className={classes.infoRow}>
           <Box className={classes.inbox} color="text.primary">ОГРН:</Box>
           <Box color="info.main">{generalInfo.OGRN}</Box>

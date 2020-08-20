@@ -11,8 +11,8 @@ function* isUserAuthenticatedWorker(action) {
     const data = yield call(API.isUserAuthenticated);
     yield put(isLoading(false));
     if (data.status === 200) {
-      const { _id, companyName, generalInfo, secret } = data.company;
-      yield put(setAuthUser(_id, companyName, generalInfo, secret));
+      const { _id, companyName, generalInfo, secret, companyEmail, companyType, director } = data.company;
+      yield put(setAuthUser(_id, companyName, generalInfo, secret, companyEmail, companyType, director));
     } else {
       // yield put(setError(data.msg));
     }
