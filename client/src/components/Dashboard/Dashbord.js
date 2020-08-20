@@ -22,7 +22,7 @@ import portalStyles from '../ModalPortal/styles.module.sass'
 import UploadScans from "../UploadScans/UploadScans";
 import Note from '../Note';
 import SwitchOfTheme from '../Worker/SwitchOfTheme';
-import TestTable from '../TestTable';
+import TestTable from '../Employees/Table';
 import EditEmployeeForm from "../Forms/EditEmployeeForm";
 import { authSC } from "../../redux/actionCreators/ActionCreators.js";
 import SecondaryListItems from "./SecondListItem";
