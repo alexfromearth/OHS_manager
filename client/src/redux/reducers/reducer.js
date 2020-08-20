@@ -6,6 +6,9 @@ const initialState = {
   companyId: null, // !!!!!!
   companyName: null,
   generalInfo: null,
+  companyEmail: null,
+  companyType: null,
+  companyDirector: null,
   secret: null,
   isAuth: false,
   errorMessage: null,
@@ -19,7 +22,11 @@ const reducer = (state = initialState, action) => {
       newState.companyId = action.payload._id;
       newState.companyName = action.payload.companyName;
       newState.generalInfo = action.payload.generalInfo;
+      newState.companyEmail = action.payload.companyEmail;
+      newState.companyDirector = action.payload.companyDirector;
+      newState.companyType = action.payload.companyType;
       newState.secret = action.payload.secret;
+      newState.workers = action.payload.workers;
       newState.isAuth = true;
       //делаем
       return newState;
