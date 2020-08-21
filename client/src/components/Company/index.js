@@ -47,6 +47,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Company() {
+
   const classes = useStyles()
   const companyName = useSelector(state => state.auth.companyName)
   const companyType = useSelector(state => state.auth.companyType)

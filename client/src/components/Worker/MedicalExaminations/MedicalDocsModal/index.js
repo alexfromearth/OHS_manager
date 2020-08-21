@@ -64,7 +64,7 @@ function MedicalDocsModal({worker, handleClick, handleClose}) {
     <div className={styles.modalUploadWrapper}>
       <Typography variant="h6">Загрузка медицинских документов работника</Typography>
       <div className={styles.requirements}>
-        <strong>Сначала</strong> загрузите паспорт здоровья сотрудника, <br/><strong>а потом</strong> заключение врача.
+        <strong>Сначала</strong> загрузите паспорт здоровья сотрудника, <br/><strong>а следом</strong> заключение врача.
       </div>
       <TextField
         required
@@ -91,7 +91,7 @@ function MedicalDocsModal({worker, handleClick, handleClose}) {
       />
       <Upload {...props} listType="picture" className={styles.select}>
         <Button disabled={fileList.length >= 2}>
-          <UploadOutlined/>Выберете файлы
+          <UploadOutlined/>Выберите файлы
         </Button>
       </Upload>
       <div>

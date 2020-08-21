@@ -45,10 +45,10 @@ function FillDataBaseExelModal({ handleClose, handleToggle}) {
 
   return (
     <div className={styles.modalUploadWrapper}>
-      <Typography variant="subtitle1" >Загрузите Exel документ</Typography>
+      <Typography variant="subtitle1" >Загрузите Exсel документ</Typography>
       <Upload {...props} listType="picture">
         <Button disabled={fileList.length !== 0} >
-          <UploadOutlined/>Выберете файл
+          <UploadOutlined/>Выберите файл
         </Button>
       </Upload>
       <div>
