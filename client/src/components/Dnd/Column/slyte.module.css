@@ -8,7 +8,9 @@
   /* border: 1px solid grey; */
   border-radius: 5px;
   background-color: rgb(238, 238, 238);
-  padding: 20px
+  padding: 20px;
+  /* box-shadow: inherit 5px 5px 5px rgba(46, 16, 43, 0.3); */
+  box-shadow: inset 1px 1px 3px rgba(46, 16, 43, 0.3);
 }
 
 @media screen and (max-width: 800px) {

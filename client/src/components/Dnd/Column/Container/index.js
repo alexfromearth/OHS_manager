@@ -11,10 +11,12 @@ const useStyles = makeStyles(() =>
   createStyles({
     purple: {
       backgroundColor: 'rgb(64, 86, 181)',
+      marginLeft: '5px'
     },
     zagr: {
       color: 'rgb(64, 86, 181)',
-      height: '100%'
+      height: '100%',
+      marginRight: '5px'
     },
   }),
 );

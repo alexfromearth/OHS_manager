@@ -8,10 +8,12 @@
   height:  10vh;
   margin: 5px 0px 5px 0px;
   background-color: rgb(238, 238, 238);
+  box-shadow: 3px 3px 5px rgba(46, 16, 43, 0.3);
+  border-radius: 5px;
 }
 
 .dragging {
-  border: 1px solid rgb(201, 201, 201);
+  border: 1px solid rgb(201, 201, 201, 0.4);
   font-size: 17px;
   display: flex;
   flex-direction: row;
@@ -22,6 +24,7 @@
   margin: 5px 0px 5px 0px;
   background-color: rgb(238, 238, 238);
   box-shadow: 10px 15px 10px rgba(46, 16, 43, 0.3);
+  border-radius: 5px;
 }
 
 @media screen and (max-width: 800px) {
