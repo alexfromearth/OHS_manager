@@ -31,7 +31,7 @@ export default function EnhancedTableHead(props) {
             ) : null}
           </TableSortLabel>
         </TableCell>
-
+        
         <TableCell
           align='right'
           sortDirection={orderBy === 'profession' ? order : false}
