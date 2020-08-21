@@ -16,6 +16,9 @@ import styles from './styles.module.sass';
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-end"
     marginTop: "20px"
   },
   paper: {
@@ -36,6 +39,15 @@ const useStyles = makeStyles((theme) => ({
     top: 20,
     width: 1,
   },
+  search: {
+    marginTop: '1vh',
+    marginBottom: '2vh',
+    fontSize: 18
+  },
+  input: {
+    border: '1px solid grey',
+    width: "13vw",
+  }
 }));
 
 function descendingComparator(a, b, orderBy) {
@@ -64,10 +76,11 @@ function stableSort(array, comparator) {
   return stabilizedThis.map((el) => el[0]);
 }
 
-export default function TestTable({employees, handleClick}) {
+export default function TestTable({ employees, handleClick }) {
   // const employees = useSelector(state => state.allStaff.list);
   // const companyId = useSelector(state => state.auth.companyId);
   const classes = useStyles();
+  const [search, setSearch] = useState('');
   // const history = useHistory();
   // const dispatch = useDispatch();
   const [page, setPage] = useState(0);
@@ -102,10 +115,23 @@ export default function TestTable({employees, handleClick}) {
     setPage(0);
   };
 
+  const findFilter = (arr, search) => {
+    if (search !== '') {
+      return arr.filter(el => {
+        return el.name.includes(search) || el.profession.includes(search);
+      })
+    }
+    return arr;
+  }
+
   if (employees) {
 
     return (
       <div className={classes.root}>
+        <div className={classes.search}>
+          <strong>Поиск: </strong>
+          <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} className={classes.input}/>
+        </div>
         <Paper className={classes.paper}>
           <TableContainer>
             <Table
@@ -120,7 +146,7 @@ export default function TestTable({employees, handleClick}) {
                 onRequestSort={handleRequestSort}
               />
               <TableBody>
-                {stableSort(employees, getComparator(order, orderBy))
+                {stableSort(findFilter(employees, search), getComparator(order, orderBy))
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   .map((el, index) => {
                     return (
@@ -136,7 +162,7 @@ export default function TestTable({employees, handleClick}) {
           <TablePagination
             rowsPerPageOptions={[10, 25, 50]}
             component="div"
-            count={employees.length}
+            count={findFilter(employees, search).length}
             rowsPerPage={rowsPerPage}
             page={page}
             onChangePage={handleChangePage}
