@@ -55,7 +55,7 @@ function UploadScans({workerId, handleClose, setShowUploadModal}) {
       <Typography variant="subtitle1" >Загрузка документов</Typography>
       <Upload {...props} listType="picture">
         <Button disabled={fileList.length !== 0} >
-          <UploadOutlined/>Выберете файл
+          <UploadOutlined/>Выберите файл
         </Button>
       </Upload>
       <div>
