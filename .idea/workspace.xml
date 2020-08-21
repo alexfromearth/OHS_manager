@@ -27,9 +27,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c03e058d-6bf5-4362-b599-b9d37e0d3b7f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/workers.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/workers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/server/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/FillDataBaseExelModal/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/FillDataBaseExelModal/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/UploadScans/UploadScans.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UploadScans/UploadScans.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Worker/MedicalExaminations/MedicalDocsModal/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Worker/MedicalExaminations/MedicalDocsModal/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +39,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="formReviewFix" />
+        <entry key="$PROJECT_DIR$" value="Search" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -99,7 +99,9 @@
       <workItem from="1597643534815" duration="35343000" />
       <workItem from="1597729692955" duration="67042000" />
       <workItem from="1597857469858" duration="2196000" />
-      <workItem from="1597903248981" duration="11448000" />
+      <workItem from="1597903248981" duration="21017000" />
+      <workItem from="1597947332984" duration="1823000" />
+      <workItem from="1597988820525" duration="2053000" />
     </task>
     <servers />
   </component>
@@ -159,11 +161,11 @@
     </state>
     <state x="630" y="171" width="685" height="223" key="#com.intellij.fileTypes.FileTypeChooser/0.1080.1920.1080/72.0.1848.1080@72.0.1848.1080" timestamp="1597837862342" />
     <state x="630" y="342" width="650" height="403" key="#com.intellij.fileTypes.FileTypeChooser/72.0.1848.2160@72.0.1848.2160" timestamp="1597586924370" />
-    <state x="693" y="1107" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1597571056219">
-      <screen x="72" y="0" width="1848" height="2160" />
+    <state x="693" y="289" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1597925773696">
+      <screen x="72" y="0" width="1848" height="1080" />
     </state>
     <state x="645" y="1369" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.1080.1920.1080/72.0.1848.1080@0.1080.1920.1080" timestamp="1597332348216" />
-    <state x="693" y="289" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.1080.1920.1080/72.0.1848.1080@72.0.1848.1080" timestamp="1597305417701" />
+    <state x="693" y="289" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.1080.1920.1080/72.0.1848.1080@72.0.1848.1080" timestamp="1597925773696" />
     <state x="693" y="1107" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/72.0.1848.2160@72.0.1848.2160" timestamp="1597571056219" />
     <state x="591" y="302" width="728" height="482" key="MultipleFileMergeDialog" timestamp="1597846910071">
       <screen x="72" y="0" width="1848" height="1080" />

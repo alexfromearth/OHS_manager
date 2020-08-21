@@ -11,14 +11,15 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from "react-router-dom";
 import { allStaffThunk } from '../../../redux/thunks/allStaffThunk.js';
 import EnhancedTableHead from './Header';
+import styles from './styles.module.sass';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
-    marginTop: "10px",
     display: "flex",
     flexDirection: "column",
     alignItems: "flex-end"
+    marginTop: "20px"
   },
   paper: {
     width: '100%',
@@ -149,7 +150,7 @@ export default function TestTable({ employees, handleClick }) {
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   .map((el, index) => {
                     return (
-                      <TableRow key={index} onClick={() => handleClick(el._id)}>
+                      <TableRow key={index} onClick={()=>handleClick(el._id)} className={styles.lol}>
                         <TableCell align="left">{el.name}</TableCell>
                         <TableCell align="right">{el.profession}</TableCell>
                       </TableRow>
