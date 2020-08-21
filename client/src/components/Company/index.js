@@ -50,7 +50,6 @@ export default function Company() {
   const classes = useStyles()
   const companyName = useSelector(state => state.auth.companyName)
   const companyType = useSelector(state => state.auth.companyType)
-  const companyCity = useSelector(state => state.auth.companyCity)
   const companyDirector = useSelector(state => state.auth.companyDirector)
   const companyEmail = useSelector(state => state.auth.companyEmail)
   const generalInfo = useSelector(state => state.auth.generalInfo)
@@ -96,6 +95,15 @@ export default function Company() {
           </CopyToClipboard>
         </div>
         <div className={classes.infoRow}>
+          <Box className={classes.inbox} color="text.primary">ИНН:</Box>
+          <Box color="info.main">{generalInfo.INN}</Box>
+          <CopyToClipboard text={generalInfo.INN} >
+            <Button className={classes.btn}>
+              <FileCopyOutlinedIcon />
+            </Button>
+          </CopyToClipboard>
+        </div>
+        <div className={classes.infoRow}>
           <Box className={classes.inbox} color="text.primary">ОГРН:</Box>
           <Box color="info.main">{generalInfo.OGRN}</Box>
           <CopyToClipboard text={generalInfo.OGRN} >
@@ -112,12 +120,20 @@ export default function Company() {
               <FileCopyOutlinedIcon />
             </Button>
           </CopyToClipboard>
-
         </div>
         <div className={classes.infoRow}>
-          <Box className={classes.inbox} color="text.primary">ИНН:</Box>
-          <Box color="info.main">{generalInfo.INN}</Box>
-          <CopyToClipboard text={generalInfo.INN} >
+          <Box className={classes.inbox} color="text.primary">РС:</Box>
+          <Box color="info.main">40821810450340038980</Box>
+          <CopyToClipboard text={generalInfo.OGRN} >
+            <Button className={classes.btn}>
+              <FileCopyOutlinedIcon />
+            </Button>
+          </CopyToClipboard>
+        </div>
+        <div className={classes.infoRow}>
+          <Box className={classes.inbox} color="text.primary">ЛС:</Box>
+          <Box color="info.main">4082183450340038980</Box>
+          <CopyToClipboard text={generalInfo.OGRN} >
             <Button className={classes.btn}>
               <FileCopyOutlinedIcon />
             </Button>
