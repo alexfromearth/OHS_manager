@@ -81,7 +81,7 @@ export default function SwitchOfTheme() {
                 control={<Switch color='primary' checked={state} onChange={handleChange} />}
               />
             </Grid>
-            <Grid >DND version</Grid>
+            <Grid >Продвинутая</Grid>
           </Grid>
         </Typography>
       </FormControl>
