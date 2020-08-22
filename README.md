@@ -42,17 +42,19 @@ $ yarn dev
 - password: croc
 
 ### Step 3
+![company](https://github.com/alexfromearth/OHS_manager/raw/master/readme-assets/company.png)
 
 > Далее вы попадаете в основной экран приложения с боковым Drawerом 
 
-![company](https://github.com/alexfromearth/OHS_manager/raw/master/readme-assets/company.png)
-
 ### Step 4
-> Во вкладке "Сотрудники" находится основной функционал нашего приложения.
 
 ![workers](https://github.com/alexfromearth/OHS_manager/raw/master/readme-assets/workers.png)
 
+> Во вкладке "Сотрудники" находится основной функционал нашего приложения.
+
 ### Step Excel Seed
+
+![meds](https://github.com/alexfromearth/OHS_manager/raw/master/readme-assets/worker.png)
 
 > Для того чтобы заполнить базу большим количеством сотрудников необходимо:
 
@@ -88,11 +90,10 @@ $ yarn dev
 
 ### Step Medics
 
->Нажав на странице сотрудника кнопку "медицинские осмотры" мы попадаем на страницу 
->прикрепления документов работника после прохождения медицинского осмотра.
-
 ![meds](https://github.com/alexfromearth/OHS_manager/raw/master/readme-assets/med.png)
 
+>Нажав на странице сотрудника кнопку "медицинские осмотры" мы попадаем на страницу 
+>прикрепления документов работника после прохождения медицинского осмотра.
 
 ### WHAT'S NEXT
 В последствие будет реализована возможность создавать уникальные шаблоны для всех сотрудников, в зависимости от запросов заказчика
