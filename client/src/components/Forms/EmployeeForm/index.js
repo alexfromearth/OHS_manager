@@ -15,10 +15,8 @@ import {
   clearFormInputs,
   setError,
   submitFormInputSC,
-  trimFormInputs
 } from "../../../redux/actionCreators/ActionCreators";
 import Review from "./Review";
-import ArrowBackIosRoundedIcon from "@material-ui/icons/ArrowBackIosRounded";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -78,7 +76,6 @@ export default function EmployeeForm() {
   const [activeStep, setActiveStep] = React.useState(0);
   const forms = useSelector(state => state.forms);
   const companyId = useSelector(state => state.auth.companyId);
-  const errorMessage = useSelector(state => state.auth.errorMessage);
   const dispatch = useDispatch();
   const history = useHistory();
   const {

@@ -1,4 +1,4 @@
-import {call, put, takeEvery, takeLatest} from "redux-saga/effects";
+import {call, put, takeEvery} from "redux-saga/effects";
 import actionTypes from "../actionTypes/actionTypes";
 import backAPI from '../../api/index';
 import { setUpload, uploadingFailed} from "../actionCreators/ActionCreators";

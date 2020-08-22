@@ -1,6 +1,6 @@
 import express from 'express';
 
-
+// на будущее, реализация download через отдельный endpoint с js-file-download
 const router = express.Router();
 
 router.get('/download', async (req, res, next) => {

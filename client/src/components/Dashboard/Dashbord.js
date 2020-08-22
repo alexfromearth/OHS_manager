@@ -126,7 +126,7 @@ export default function Dashboard() {
 
   useEffect(()=>{
     dispatch(authSC());
-  }, [])
+  }, [dispatch])
 
   return (
     <div className={classes.root}>

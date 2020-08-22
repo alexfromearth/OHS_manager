@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
@@ -31,7 +31,7 @@ export default function EnhancedTableHead(props) {
             ) : null}
           </TableSortLabel>
         </TableCell>
-        
+
         <TableCell
           align='right'
           sortDirection={orderBy === 'profession' ? order : false}

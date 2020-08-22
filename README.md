@@ -4,13 +4,105 @@
 
 ### QUICK START
 
-### REQUIREMENTS
+> Склонируйте репозиторий и пропишите команды:
+
+```shell
+$ npm i
+$ npm seed 
+```
+
+> или
+
+```shell
+$ yarn
+$ yarn seed
+```
+
+
+### USAGE(optional)
+
+### Step 1
+
+> Запустите приложение с помощью команды: 
+
+```shell
+$ npm run dev
+```
+> или
+
+```shell
+$ yarn dev
+```
+
+### Step 2
+
+> На странице Login введите тестовый логин и пароль:
+
+- login: croc@croc.io
+- password: croc
+
+### Step 3
+
+> Далее вы попадаете в основной экран приложения с боковым Drawerом 
+
+![company](https://github.com/alexfromearth/OHS_manager/raw/master/readme-assets/worker.png)
+
+### Step 4
+> Во вкладке "Сотрудники" находится основной функционал нашего приложения.
+
+![workers](https://github.com/alexfromearth/OHS_manager/raw/master/readme-assets/workers.png)
+
+### Step Excel Seed
+
+> Для того чтобы заполнить базу большим количеством сотрудников необходимо:
+
+- Нажать на кнопку "Загрузить базу данных сотрудников"
+
+- В появившееся модальное окно загрузить файл лежащий в папке `/excelTestSeed/Test.xlsx`
+
+- Нажать кнопку "Начать загрузку"
+
+> После этого для каждого из добавленных сотрудников сгенерируются файлы шаблоны
+> по охране труда в формате .docx которые в последствии можно скачать перейдя на: 
+>
+> `страницу сотрудника > документы` 
+
+
+### Step Documents
+
+![documents](https://github.com/alexfromearth/OHS_manager/raw/master/readme-assets/documents.png)
+
+
+> Во вкладке документы для каждого сотрудника у нас есть 2 режима пользования:
+- Стандартный 
+- React beautiful dnd version
+
+> Как только специалист по охране труда подписал сгенерированные и скачаные документы
+> он имеет возможность прикрепить их подписанные сканы в наше приложение 
+- кнопкой загрузить сканы (для стандартной версии)
+- перетащив любой документ из левого поля "неподписанные" в правое поле "подписанные"  
+
+> В появившееся модальное окно прикрепляем сканы и нажимаем кнопку "загрузить"
+>
+>Далее они появляются и доступны в правом поле "подписанные" 
+
+### Step Medics
+
+>Нажав на странице сотрудника кнопку "медицинские осмотры" мы попадаем на страницу 
+>прикрепления документов работника после прохождения медицинского осмотра.
+
+![meds](https://github.com/alexfromearth/OHS_manager/raw/master/readme-assets/med.png)
+
 
 ### WHAT'S NEXT
 В последствие будет реализована возможность создавать уникальные шаблоны для всех сотрудников, в зависимости от запросов заказчика
 
 ### CREATORS
 
-[mastermind, developer alexei]: https://instagram.com/alexey_1mp?igshid=kdbfqlje21jj
-[developer alexanr]: https://instagram.com/voronalk?igshid=1khklcn4ofq1k
-[developer grisha]: https://www.instagram.com/bezz_g/
+
+
+[Автор идеи, Fullstack Developer, Широков Алексей](https://github.com/alexfromearth/)
+
+[Fullstack Developer Ворона Александр](https://github.com/CrowAlcoholic)
+
+[Fullstack Developer Безобразов Григорий](https://github.com/bezzskilla)
