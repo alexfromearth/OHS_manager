@@ -1,4 +1,4 @@
-import replaceErrors from './replaseErrors';
+import replaceErrors from './replaseErrors.js';
 
 export default function errorHandler(error) {
     console.log(JSON.stringify({error: error}, replaceErrors));

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import { allStaffThunk } from '../../redux/thunks/allStaffThunk.js';
@@ -7,7 +7,14 @@ import Button from '@material-ui/core/Button';
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import AddIcon from '@material-ui/icons/Add';
 import FilterListIcon from '@material-ui/icons/FilterList';
-
+import ModalPortal from "../ModalPortal/ModalPortal";
+import FillDataBaseExelModal from "../FillDataBaseExelModal";
+import portalStyles from "../ModalPortal/styles.module.sass";
+import { clearFileList } from "../../redux/actionCreators/ActionCreators";
+import CircularProgress from '@material-ui/core/CircularProgress';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFileExcel } from "@fortawesome/free-solid-svg-icons";
+import Table from "./Table";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,6 +32,9 @@ const useStyles = makeStyles((theme) => ({
   },
   btns: {
     height: 50,
+  },
+  btnExel: {
+    // backgroundColor: "dodgerblue"
   },
   employee: {
     display: "flex",
@@ -65,8 +75,17 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 350,
     textAlign: "left",
   },
-  icon:{
+  icon: {
+    fontSize: 20,
     marginRight: 5
+  },
+  progress: {
+    justifySelf: "center",
+    alignSelf: "center",
+    minHeight: "74vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center"
   }
 }));
 
@@ -75,34 +94,63 @@ export default function Employees() {
   const dispatch = useDispatch()
   const history = useHistory()
   const employees = useSelector(state => state.allStaff.list)
+  const uploadingScans = useSelector(state => state.allStaff.uploadingScans);
   const id = useSelector(state => state.auth.companyId)
   const classes = useStyles()
 
+  const [showExelModal, setShowExelModal] = useState(false);
+
   useEffect(() => {
-    dispatch(allStaffThunk(id))
-  }, [dispatch, id])
+    if (!uploadingScans) {
+      dispatch(allStaffThunk(id))
+    }
+  }, [dispatch, id, uploadingScans])
 
   function handleClick(id) {
-    setTimeout(() => {
+    // setTimeout(() => {
       history.push(`/employee/${id}`)
-    }, 210);
+    // }, 210);
   }
+
+  function handleToggle() {
+    setShowExelModal(state => !state);
+  }
+
+
+  function handleClose() {
+    if (showExelModal) {
+      dispatch(clearFileList());
+    }
+    setShowExelModal((state) => (!state));
+  }
+
+
   return (
     <>
       <div className={classes.hdr}>
         <Button variant="contained" color="primary"
           className={classes.btns}
           onClick={() => history.push('/employee/new')}>
-          <AddIcon className={classes.icon}/>
+          <AddIcon className={classes.icon} />
           Добавить работника
         </Button>
         <h1>Cотрудники</h1>
-        <Button variant="contained" color="primary" className={classes.btns}>
-          <FilterListIcon className={classes.icon}/>
-          Фильтр
+        <Button variant="contained"
+          className={classes.btnExel}
+          color="secondary"
+          onClick={() => {
+            setShowExelModal(state => !state)
+          }}
+        >
+          <FontAwesomeIcon icon={faFileExcel} className={classes.icon} />
+          Загрузить базу данных сотрудников
         </Button>
+        {showExelModal
+          && <ModalPortal className={portalStyles.myModal}>
+            <FillDataBaseExelModal handleToggle={handleToggle} handleClose={handleClose} />
+          </ModalPortal>}
       </div>
-      <div className={classes.root}>
+      {/* <div className={classes.root}>
         <div className={classes.wrapper}>
           <div className={classes.wrapperHead}>
             <span className={classes.index}>№</span>
@@ -117,7 +165,9 @@ export default function Employees() {
             size="large"
             variant="outlined"
           >
-            {employees && employees.map((el, index) => {
+            {uploadingScans
+              ? <div className={classes.progress}><CircularProgress color={"secondary"} size={160}/></div>
+              : employees && employees.map((el, index) => {
               return <Button key={el._id}
                 className={classes.employee}
                 onClick={() => handleClick(el._id)}>
@@ -128,7 +178,12 @@ export default function Employees() {
             })}
           </ButtonGroup>
         </div>
-      </div>
+      </div> */}
+      {uploadingScans
+        ? <div className={classes.progress}><CircularProgress color={"secondary"} size={160} /></div>
+        : employees &&
+        <Table employees={employees} handleClick={handleClick} />
+      }
     </>
   )
 }

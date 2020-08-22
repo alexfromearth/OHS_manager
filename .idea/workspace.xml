@@ -16,13 +16,20 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:DeleteUserModal" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c03e058d-6bf5-4362-b599-b9d37e0d3b7f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/server/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/FillDataBaseExelModal/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/FillDataBaseExelModal/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/UploadScans/UploadScans.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UploadScans/UploadScans.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Worker/MedicalExaminations/MedicalDocsModal/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Worker/MedicalExaminations/MedicalDocsModal/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +39,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="loginWithRedux" />
+        <entry key="$PROJECT_DIR$" value="Search" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -48,7 +55,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/server" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/client/src/components/FillDataBaseExelModal" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -57,15 +64,20 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/server/templater/docTemplates" />
+      <recent name="$PROJECT_DIR$/server" />
+      <recent name="$PROJECT_DIR$/server/public/files" />
+      <recent name="$PROJECT_DIR$/client/src/components/Worker" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/src/components/FillDataBaseExelModal" />
       <recent name="$PROJECT_DIR$/server" />
       <recent name="$PROJECT_DIR$/client/src/components/LoginPage" />
       <recent name="$PROJECT_DIR$" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/client/src/components/Worker" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -80,7 +92,16 @@
       <workItem from="1597305819240" duration="28578000" />
       <workItem from="1597345144006" duration="2342000" />
       <workItem from="1597386115015" duration="12738000" />
-      <workItem from="1597417804198" duration="1469000" />
+      <workItem from="1597417804198" duration="3704000" />
+      <workItem from="1597425230955" duration="28309000" />
+      <workItem from="1597512478922" duration="2343000" />
+      <workItem from="1597565349604" duration="24018000" />
+      <workItem from="1597643534815" duration="35343000" />
+      <workItem from="1597729692955" duration="67042000" />
+      <workItem from="1597857469858" duration="2196000" />
+      <workItem from="1597903248981" duration="21017000" />
+      <workItem from="1597947332984" duration="1823000" />
+      <workItem from="1597988820525" duration="2053000" />
     </task>
     <servers />
   </component>
@@ -92,7 +113,34 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="DeleteUserModal" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="development" />
+                </option>
+              </RecentGroup>
+            </list>
           </value>
         </entry>
       </map>
@@ -100,29 +148,59 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="654" y="228" width="611" height="630" key="#JavaScript" timestamp="1597574118687">
+      <screen x="72" y="0" width="1848" height="2160" />
+    </state>
+    <state x="654" y="228" width="611" height="630" key="#JavaScript/72.0.1848.2160@72.0.1848.2160" timestamp="1597574118687" />
     <state x="454" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597345721549">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="454" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog/72.27.1848.1053@72.27.1848.1053" timestamp="1597345721549" />
-    <state x="645" y="1369" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1597332348216">
-      <screen x="0" y="1080" width="1920" height="1080" />
+    <state x="630" y="171" width="685" height="223" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1597837862342">
+      <screen x="72" y="0" width="1848" height="1080" />
+    </state>
+    <state x="630" y="171" width="685" height="223" key="#com.intellij.fileTypes.FileTypeChooser/0.1080.1920.1080/72.0.1848.1080@72.0.1848.1080" timestamp="1597837862342" />
+    <state x="630" y="342" width="650" height="403" key="#com.intellij.fileTypes.FileTypeChooser/72.0.1848.2160@72.0.1848.2160" timestamp="1597586924370" />
+    <state x="693" y="289" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1597925773696">
+      <screen x="72" y="0" width="1848" height="1080" />
     </state>
     <state x="645" y="1369" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.1080.1920.1080/72.0.1848.1080@0.1080.1920.1080" timestamp="1597332348216" />
-    <state x="693" y="289" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.1080.1920.1080/72.0.1848.1080@72.0.1848.1080" timestamp="1597305417701" />
+    <state x="693" y="289" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.1080.1920.1080/72.0.1848.1080@72.0.1848.1080" timestamp="1597925773696" />
+    <state x="693" y="1107" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/72.0.1848.2160@72.0.1848.2160" timestamp="1597571056219" />
+    <state x="591" y="302" width="728" height="482" key="MultipleFileMergeDialog" timestamp="1597846910071">
+      <screen x="72" y="0" width="1848" height="1080" />
+    </state>
+    <state x="591" y="302" width="728" height="482" key="MultipleFileMergeDialog/0.1080.1920.1080/72.0.1848.1080@72.0.1848.1080" timestamp="1597846910071" />
     <state x="400" y="1261" width="1022" height="737" key="SettingsEditor" timestamp="1597389999791">
       <screen x="0" y="1080" width="1920" height="1080" />
     </state>
     <state x="400" y="1261" width="1022" height="737" key="SettingsEditor/0.1080.1920.1080/72.0.1848.1080@0.1080.1920.1080" timestamp="1597389999791" />
     <state x="457" y="181" width="1022" height="737" key="SettingsEditor/0.1080.1920.1080/72.0.1848.1080@72.0.1848.1080" timestamp="1597307825671" />
-    <state x="574" y="1325" width="672" height="677" key="run.anything.popup" timestamp="1597397556005">
+    <state x="72" y="1124" width="1848" height="1036" key="dock-window-1" timestamp="1597655603838">
       <screen x="0" y="1080" width="1920" height="1080" />
+    </state>
+    <state x="72" y="1124" width="1848" height="1036" key="dock-window-1/0.1080.1920.1080/72.0.1848.1080@72.0.1848.1080" timestamp="1597655603838" />
+    <state x="72" y="1107" width="1521" height="1036" maximized="true" key="dock-window-1/72.0.1848.2160@72.0.1848.2160" timestamp="1597573891391" />
+    <state x="72" y="1107" width="1522" height="1036" key="dock-window-2" timestamp="1597673365930">
+      <screen x="0" y="1080" width="1920" height="1080" />
+    </state>
+    <state x="72" y="1107" width="1522" height="1036" key="dock-window-2/0.1080.1920.1080/72.0.1848.1080@72.0.1848.1080" timestamp="1597673365930" />
+    <state x="651" y="279" width="618" height="580" key="find.popup" timestamp="1597842523970">
+      <screen x="72" y="0" width="1848" height="1080" />
+    </state>
+    <state x="651" y="279" width="618" height="580" key="find.popup/0.1080.1920.1080/72.0.1848.1080@72.0.1848.1080" timestamp="1597842523970" />
+    <state x="624" y="245" key="run.anything.popup" timestamp="1597854145746">
+      <screen x="72" y="0" width="1848" height="1080" />
     </state>
     <state x="574" y="1325" width="672" height="677" key="run.anything.popup/0.1080.1920.1080/72.0.1848.1080@0.1080.1920.1080" timestamp="1597397556005" />
-    <state x="624" y="245" key="run.anything.popup/0.1080.1920.1080/72.0.1848.1080@72.0.1848.1080" timestamp="1597310128352" />
-    <state x="572" y="1319" width="699" height="678" key="search.everywhere.popup" timestamp="1597326105918">
-      <screen x="0" y="1080" width="1920" height="1080" />
+    <state x="624" y="245" key="run.anything.popup/0.1080.1920.1080/72.0.1848.1080@72.0.1848.1080" timestamp="1597854145746" />
+    <state x="624" y="490" width="647" height="1354" key="run.anything.popup/72.0.1848.2160@72.0.1848.2160" timestamp="1597587792878" />
+    <state x="623" y="239" width="672" height="678" key="search.everywhere.popup" timestamp="1597842790437">
+      <screen x="72" y="0" width="1848" height="1080" />
     </state>
     <state x="572" y="1319" width="699" height="678" key="search.everywhere.popup/0.1080.1920.1080/72.0.1848.1080@0.1080.1920.1080" timestamp="1597326105918" />
-    <state x="623" y="239" width="672" height="678" key="search.everywhere.popup/0.1080.1920.1080/72.0.1848.1080@72.0.1848.1080" timestamp="1597308526363" />
+    <state x="623" y="239" width="672" height="678" key="search.everywhere.popup/0.1080.1920.1080/72.0.1848.1080@72.0.1848.1080" timestamp="1597842790437" />
+    <state x="623" y="478" width="672" height="1356" key="search.everywhere.popup/72.0.1848.2160@72.0.1848.2160" timestamp="1597573736040" />
+    <state x="623" y="260" width="672" height="662" key="search.everywhere.popup/72.27.1848.1053@72.27.1848.1053" timestamp="1597596913120" />
   </component>
 </project>

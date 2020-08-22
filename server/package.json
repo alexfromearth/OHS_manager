@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "npx nodemon index.js --ignore 'sessions'",
+    "start": "npx nodemon index.js --ignore 'sessions' --ignore 'fileStore'",
     "seed": "node models/seed/docsSeeder.js"
   },
   "keywords": [],
@@ -17,9 +17,14 @@
     "docxtemplater": "^3.18.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "express-fileupload": "^1.2.0",
     "express-session": "^1.17.1",
     "mongoose": "^5.9.28",
+    "multer": "^1.4.2",
     "pizzip": "^3.0.6",
-    "session-file-store": "^1.4.0"
+    "rimraf": "^3.0.2",
+    "session-file-store": "^1.4.0",
+    "uuid": "^8.3.0",
+    "xlsx": "^0.16.6"
   }
 }

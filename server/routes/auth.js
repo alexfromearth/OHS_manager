@@ -24,44 +24,43 @@ const salt = 10;
 //     }
 // });
 
-router.post("/auth/login", async (req, res) => {
-    const {fieldData} = req.body;
-    const {companyEmail, password} = fieldData;
-    let company = await CompanyModel.findOne({companyEmail});
-    if (!company) {
-        return res.status(401).json({msg: "Invalid login or password"});
-    }
-    if (await bcrypt.compare(password, company.password)) {
-        req.session.company = company;
-        res.status(200).json({msg: "Successful login", company});
-    } else {
-        return res.status(401).json({msg: "Invalid login or password"});
-    }
+router.post("/login", async (req, res) => {
+  const { companyEmail, password } = req.body;
+  let company = await CompanyModel.findOne({ companyEmail });
+  if (!company) {
+    return res.status(250).json({ msg: "Invalid login or password" });
+  }
+  if (await bcrypt.compare(password, company.fireSecret)) {
+    req.session.company = company;
+    res.status(200).json({ msg: "Successful login", company });
+  } else {
+    return res.status(250).json({ msg: "Invalid login or password" });
+  }
 
 });
 
-router.delete("/auth/login", async (req, res, next) => {
-    if (req.session.company) {
-        try {
-            await req.session.destroy(() => {
-                res.clearCookie("company_sid");
-                res.status(200).json({msg: "session expired"});
-            });
-        } catch (error) {
-            res.status(401).json({msg: error.message});
-        }
-    } else {
-        res.status(401).json({msg: "something went wrong"});
+router.delete("/login", async (req, res) => {
+  if (req.session.company) {
+    try {
+      req.session.destroy(() => {
+        res.clearCookie("company_sid");
+        res.status(200).json({ msg: "session expired" });
+      });
+    } catch (error) {
+      res.status(250).json({ msg: error.message });
     }
+  } else {
+    res.status(250).json({ msg: "something went wrong" });
+  }
 });
 
-router.get("/auth/me", async (req, res, next) => {
-    if (req.session.company) {
-        const company = await CompanyModel.findOne({_id: req.session.company._id});
-        res.status(200).json({msg: "User is authenticated"});
-    } else {
-        res.status(401).json({msg: "User not authenticated"});
-    }
+router.get("/me", async (req, res, next) => {
+  if (req.session.company) {
+    const company = await CompanyModel.findOne({ _id: req.session.company._id });
+    res.status(200).json({ msg: "User is authenticated", company });
+  } else {
+    res.status(401).json({ msg: "User not authenticated" });
+  }
 });
 
 

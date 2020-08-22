@@ -1,21 +1,20 @@
-import {call, put, takeEvery, takeLatest} from "redux-saga/effects";
+import { call, put, takeEvery } from "redux-saga/effects";
 import actionTypes from "../actionTypes/actionTypes";
-import {isLoading, setAuthUser, setError} from "../actionCreators/ActionCreators";
+import {setError, trimFormInputs} from "../actionCreators/ActionCreators";
 import backAPI from '../../api/index';
 
 const API = new backAPI();
 
 function* SubmitFormsWorker(action) {
-    debugger;
-    try {
-        const data = yield call(API.addWorker, action.payload.companyId, action.payload.generalInfo, action.payload.profInfo);
-    } catch (error) {
-        yield put(setError(error.message))
-    }
+  try {
+    const data = yield call(API.addWorker, action.payload.companyId, action.payload.generalInfo, action.payload.profInfo);
+  } catch (error) {
+    yield put(setError(error.message))
+  }
 }
 
 
 export default function* SubmitFormsWatcher() {
-    yield takeEvery(actionTypes.SUBMIT_NEWEMPLOYEE_FORM, SubmitFormsWorker);
+  yield takeEvery(actionTypes.SUBMIT_NEWEMPLOYEE_FORM, SubmitFormsWorker);
 }
 

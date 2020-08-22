@@ -3,12 +3,14 @@ import actionTypes from "../actionTypes/actionTypes";
 
 
 const initialState = {
-  companyId: "5f36c4e32ed2a36a0902dc4b", // !!!!!!
+  companyId: null, // !!!!!!
   companyName: null,
   generalInfo: null,
+  companyEmail: null,
+  companyType: null,
+  companyDirector: null,
   secret: null,
-  workers: [], // используется? TODO
-  isAuth: true,
+  isAuth: false,
   errorMessage: null,
 }
 
@@ -20,16 +22,32 @@ const reducer = (state = initialState, action) => {
       newState.companyId = action.payload._id;
       newState.companyName = action.payload.companyName;
       newState.generalInfo = action.payload.generalInfo;
+      newState.companyEmail = action.payload.companyEmail;
+      newState.companyDirector = action.payload.companyDirector;
+      newState.companyType = action.payload.companyType;
       newState.secret = action.payload.secret;
+      newState.workers = action.payload.workers;
       newState.isAuth = true;
       //делаем
       return newState;
     }
     case actionTypes.SET_VALIDATION_ERROR: {
-        return {
-          ...state,
-          errorMessage: action.payload.message
-        }
+      return {
+        ...state,
+        errorMessage: action.payload.message
+      }
+    }
+
+    case actionTypes.LOGOUT_SUCCESSFUL: {
+      return {
+        companyId: null,
+        companyName: null,
+        generalInfo: null,
+        secret: null,
+        workers: [],
+        isAuth: false,
+        errorMessage: null,
+      }
     }
 
     default:

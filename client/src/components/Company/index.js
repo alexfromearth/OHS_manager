@@ -16,8 +16,8 @@ const useStyles = makeStyles((theme) => ({
   },
   info: {
     // marginLeft: '35%',
-    marginTop: '10%',
-    marginBottom: '15%',
+    marginTop: '9%',
+    marginBottom: '9%',
     fontSize: 30,
     display: 'flex',
     flexDirection: 'column',
@@ -47,22 +47,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Company() {
+
   const classes = useStyles()
-  // const companyName = useSelector(state => state.auth.companyName)
-  // const generalInfo = useSelector(state => state.auth.generalInfo)
-  const companyName = 'КРОК'
-  const generalInfo = {
-    site: 'https://www.croc.ru/',
-    year: 1956,
-    legal_address: 'Москва, Ленинский 17',
-    actual_address: 'Москва, Вавилова 1',
-    type: 'ООО',
-    countOfStaff: 26,
-    OGRN: '1053600591197',
-    BIK: '044540132',
-    INN: '3664069397',
-    tel: '79271669'
-  }
+  const companyName = useSelector(state => state.auth.companyName)
+  const companyType = useSelector(state => state.auth.companyType)
+  const companyDirector = useSelector(state => state.auth.companyDirector)
+  const companyEmail = useSelector(state => state.auth.companyEmail)
+  const generalInfo = useSelector(state => state.auth.generalInfo)
 
   return (
     <>
@@ -73,7 +64,7 @@ export default function Company() {
           className={classes.large}
         />
         <a href={generalInfo.site} className={classes.a}>
-          <Box color="info.main">{companyName}</Box>
+          <Box color="info.main">{companyType} {companyName}</Box>
         </a>
       </div>
 
@@ -91,14 +82,28 @@ export default function Company() {
           <Box color="info.main">{generalInfo.actual_address}</Box>
         </div>
         <div className={classes.infoRow}>
-          <Box className={classes.inbox} color="text.primary">Тип компании:</Box>
-          <Box color="info.main">{generalInfo.type}</Box>
-        </div>
-        <div className={classes.infoRow}>
-          <Box className={classes.inbox} color="text.primary">Количество сотрудников:</Box>
-          <Box color="info.main">{generalInfo.countOfStaff}</Box>
+          <Box className={classes.inbox} color="text.primary">Директор:</Box>
+          <Box color="info.main">{companyDirector}</Box>
         </div>
         <br></br>
+        <div className={classes.infoRow}>
+          <Box className={classes.inbox} color="text.primary">Email:</Box>
+          <Box color="info.main">{companyEmail}</Box>
+          <CopyToClipboard text={companyEmail} >
+            <Button className={classes.btn}>
+              <FileCopyOutlinedIcon />
+            </Button>
+          </CopyToClipboard>
+        </div>
+        <div className={classes.infoRow}>
+          <Box className={classes.inbox} color="text.primary">ИНН:</Box>
+          <Box color="info.main">{generalInfo.INN}</Box>
+          <CopyToClipboard text={generalInfo.INN} >
+            <Button className={classes.btn}>
+              <FileCopyOutlinedIcon />
+            </Button>
+          </CopyToClipboard>
+        </div>
         <div className={classes.infoRow}>
           <Box className={classes.inbox} color="text.primary">ОГРН:</Box>
           <Box color="info.main">{generalInfo.OGRN}</Box>
@@ -116,12 +121,20 @@ export default function Company() {
               <FileCopyOutlinedIcon />
             </Button>
           </CopyToClipboard>
-
         </div>
         <div className={classes.infoRow}>
-          <Box className={classes.inbox} color="text.primary">ИНН:</Box>
-          <Box color="info.main">{generalInfo.INN}</Box>
-          <CopyToClipboard text={generalInfo.INN} >
+          <Box className={classes.inbox} color="text.primary">РС:</Box>
+          <Box color="info.main">40821810450340038980</Box>
+          <CopyToClipboard text={generalInfo.OGRN} >
+            <Button className={classes.btn}>
+              <FileCopyOutlinedIcon />
+            </Button>
+          </CopyToClipboard>
+        </div>
+        <div className={classes.infoRow}>
+          <Box className={classes.inbox} color="text.primary">ЛС:</Box>
+          <Box color="info.main">4082183450340038980</Box>
+          <CopyToClipboard text={generalInfo.OGRN} >
             <Button className={classes.btn}>
               <FileCopyOutlinedIcon />
             </Button>
