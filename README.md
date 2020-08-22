@@ -54,7 +54,6 @@ $ yarn dev
 
 ### Step Excel Seed
 
-![meds](https://github.com/alexfromearth/OHS_manager/raw/master/readme-assets/worker.png)
 
 > Для того чтобы заполнить базу большим количеством сотрудников необходимо:
 
@@ -63,6 +62,8 @@ $ yarn dev
 - В появившееся модальное окно загрузить файл лежащий в папке `/excelTestSeed/Test.xlsx`
 
 - Нажать кнопку "Начать загрузку"
+
+![meds](https://github.com/alexfromearth/OHS_manager/raw/master/readme-assets/worker.png)
 
 > После этого для каждого из добавленных сотрудников сгенерируются файлы шаблоны
 > по охране труда в формате .docx которые в последствии можно скачать перейдя на: 
