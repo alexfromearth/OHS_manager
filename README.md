@@ -6,15 +6,9 @@
 
 > Склонируйте репозиторий и пропишите команды:
 
-```shell
-$ npm i
-$ npm seed 
-```
-
-> или
 
 ```shell
-$ yarn
+$ yarn i
 $ yarn seed
 ```
 
@@ -24,11 +18,6 @@ $ yarn seed
 ### Step 1
 
 > Запустите приложение с помощью команды: 
-
-```shell
-$ npm run dev
-```
-> или
 
 ```shell
 $ yarn dev

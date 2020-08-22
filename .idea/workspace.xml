@@ -26,6 +26,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c03e058d-6bf5-4362-b599-b9d37e0d3b7f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +53,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/readme-assets" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -101,7 +102,8 @@
       <workItem from="1597903248981" duration="21017000" />
       <workItem from="1597947332984" duration="1823000" />
       <workItem from="1597988820525" duration="4557000" />
-      <workItem from="1598097790837" duration="7585000" />
+      <workItem from="1598097790837" duration="7790000" />
+      <workItem from="1598109145293" duration="273000" />
     </task>
     <servers />
   </component>
@@ -167,6 +169,10 @@
     <state x="645" y="1369" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.1080.1920.1080/72.0.1848.1080@0.1080.1920.1080" timestamp="1597332348216" />
     <state x="693" y="289" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.1080.1920.1080/72.0.1848.1080@72.0.1848.1080" timestamp="1597925773696" />
     <state x="693" y="1107" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/72.0.1848.2160@72.0.1848.2160" timestamp="1597571056219" />
+    <state x="743" y="298" width="424" height="491" key="FileChooserDialogImpl" timestamp="1598107087525">
+      <screen x="72" y="0" width="1848" height="1080" />
+    </state>
+    <state x="743" y="298" width="424" height="491" key="FileChooserDialogImpl/0.1080.1920.1080/72.0.1848.1080@72.0.1848.1080" timestamp="1598107087525" />
     <state x="591" y="302" width="728" height="482" key="MultipleFileMergeDialog" timestamp="1597846910071">
       <screen x="72" y="0" width="1848" height="1080" />
     </state>
