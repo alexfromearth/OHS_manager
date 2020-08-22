@@ -1,6 +1,6 @@
 import { call, put, takeEvery } from "redux-saga/effects";
 import actionTypes from "../actionTypes/actionTypes";
-import {setError, trimFormInputs} from "../actionCreators/ActionCreators";
+import {setError} from "../actionCreators/ActionCreators";
 import backAPI from '../../api/index';
 
 const API = new backAPI();

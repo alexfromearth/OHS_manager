@@ -9,12 +9,11 @@ import {useHistory} from 'react-router-dom';
 import {
   beforeUpload,
   loadSuccess,
-  scanRemove, setNewEmployeeFormInput,
+  scanRemove,
   uploadMedsSC,
 } from "../../../../redux/actionCreators/ActionCreators";
 import sleep from "../../../../utils/sleep";
 import TextField from "@material-ui/core/TextField";
-import MenuItem from "@material-ui/core/MenuItem";
 
 
 function MedicalDocsModal({worker, handleClick, handleClose}) {

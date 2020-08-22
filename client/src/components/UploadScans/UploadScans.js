@@ -10,7 +10,6 @@ import {
   beforeUpload,
   loadSuccess,
   scanRemove,
-  setUpload,
   uploadScansSC
 } from "../../redux/actionCreators/ActionCreators";
 import sleep from "../../utils/sleep";

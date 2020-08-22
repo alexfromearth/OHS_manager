@@ -12,9 +12,7 @@ import fileUpload from "express-fileupload";
 import parseXlsx from '../xlParcer/index.js';
 import bcrypt from 'bcrypt';
 import rimraf from 'rimraf';
-import removeDir from '../templater/removeDir.js';
 
-// import {v4} from ('uuid');
 
 const router = express.Router();
 
@@ -112,13 +110,7 @@ router.post('/:companyId/worker', async (req, res) => {
   // }
   // берем компанию
   const company = await CompanyModel.findById(companyId);
-  // const company = {
-  //   companyId: 'salambrat',
-  //   companyType: 'AO',
-  //   companyName: 'ГришасГрупп',
-  //   city: 'Москва',
-  //   director: 'Гриша',
-  // }
+
   // новый воркер без файлов
   const newWorker = new WorkerModel({
     generalInfo,
