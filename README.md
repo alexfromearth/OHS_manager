@@ -45,7 +45,7 @@ $ yarn dev
 
 > Далее вы попадаете в основной экран приложения с боковым Drawerом 
 
-![company](https://github.com/alexfromearth/OHS_manager/raw/master/readme-assets/worker.png)
+![company](https://github.com/alexfromearth/OHS_manager/raw/master/readme-assets/company.png)
 
 ### Step 4
 > Во вкладке "Сотрудники" находится основной функционал нашего приложения.
@@ -70,7 +70,7 @@ $ yarn dev
 
 ### Step Documents
 
-![documents](https://github.com/alexfromearth/OHS_manager/raw/master/readme-assets/documents.png)
+![documents](https://github.com/alexfromearth/OHS_manager/raw/master/readme-assets/docs.png)
 
 
 > Во вкладке документы для каждого сотрудника у нас есть 2 режима пользования:
